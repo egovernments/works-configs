@@ -6,9 +6,15 @@ serviceMaps:
    description: Persists contract details in eg_wms_contract table
    fromTopic: save-contract
    isTransaction: true
+   isAuditEnabled: true
+   module: CT
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.contractNumber
+   auditAttributeBasePath: $.contract
    queryMaps:
     - query: INSERT INTO eg_wms_contract (id, contract_number, tenant_id , wf_status, executing_authority, contract_type, total_contracted_amount, security_deposit, agreement_date, defect_liability_period, org_id, start_date, end_date, status, additional_details, created_by, last_modified_by, created_time, last_modified_time,completion_period) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
-      basePath: contract
+      basePath: $.contract
       jsonMaps:
        - jsonPath: $.contract.id
 
@@ -53,7 +59,7 @@ serviceMaps:
        - jsonPath: $.contract.completionPeriod
 
     - query: INSERT INTO eg_wms_contract_documents (id, filestore_id, document_type, document_uid, status, contract_id, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?);
-      basePath: contract.documents.*
+      basePath: $.contract.documents.*
       jsonMaps:
         - jsonPath: $.contract.documents.*.id
 
@@ -81,7 +87,7 @@ serviceMaps:
 
 
     - query: INSERT INTO eg_wms_contract_line_items (id, estimate_id, estimate_line_item_id, contract_id, tenant_id, unit_rate, no_of_unit, status, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);
-      basePath: contract.lineItems.*
+      basePath: $.contract.lineItems.*
       jsonMaps:
         - jsonPath: $.contract.lineItems.*.id
 
@@ -112,7 +118,7 @@ serviceMaps:
         - jsonPath: $.contract[?({id} in @.lineItems[*].id)].auditDetails.lastModifiedTime
 
     - query: INSERT INTO eg_wms_contract_amount_breakups (id, estimate_amount_breakup_id, line_item_id, amount, status, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?);
-      basePath: contract.lineItems.*.amountBreakups.*
+      basePath: $.contract.lineItems.*.amountBreakups.*
       jsonMaps:
         - jsonPath: $.contract.lineItems.*.amountBreakups.*.id
 
@@ -141,9 +147,14 @@ serviceMaps:
    description: Update contract details in eg_wms_contract table
    fromTopic: update-contract
    isTransaction: true
+   module: CT
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.contractNumber
+   auditAttributeBasePath: $.contract
    queryMaps:
      - query: UPDATE eg_wms_contract set wf_status = ?, executing_authority = ?, contract_type = ?, total_contracted_amount = ?, security_deposit = ?, agreement_date = ?, defect_liability_period = ?, start_date = ?, end_date = ?, status = ?, additional_details = ?, created_by = ?, last_modified_by = ?, created_time = ?, last_modified_time = ?, issue_date = ?, completion_period = ? where id = ? ;
-       basePath: contract
+       basePath: $.contract
        jsonMaps:
          - jsonPath: $.contract.wfStatus
 
@@ -184,7 +195,7 @@ serviceMaps:
          - jsonPath: $.contract.id
 
      - query: INSERT INTO eg_wms_contract_documents (id, filestore_id, document_type, document_uid, status, contract_id, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?)  ON CONFLICT (id) DO UPDATE SET filestore_id = ?, document_type = ? , additional_details = ? ,last_modified_by = ? ,last_modified_time = ?, status = ?;
-       basePath: contract.documents.*
+       basePath: $.contract.documents.*
        jsonMaps:
          - jsonPath: $.contract.documents.*.id
 
@@ -225,7 +236,7 @@ serviceMaps:
          - jsonPath: $.contract.documents.*.status
 
      - query:  INSERT INTO eg_wms_contract_line_items (id, estimate_id, estimate_line_item_id, contract_id, tenant_id, unit_rate, no_of_unit, status, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET unit_rate = ?, no_of_unit = ?, status = ?, additional_details = ?, last_modified_by = ?, last_modified_time = ?;
-       basePath: contract.lineItems.*
+       basePath: $.contract.lineItems.*
        jsonMaps:
          - jsonPath: $.contract.lineItems.*.id
 
@@ -270,7 +281,7 @@ serviceMaps:
          - jsonPath: $.contract[?({id} in @.lineItems[*].id)].auditDetails.lastModifiedTime
 
      - query: INSERT INTO eg_wms_contract_amount_breakups (id, estimate_amount_breakup_id, line_item_id, amount, status, additional_details, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET amount = ?, status = ?, additional_details = ?, last_modified_by = ?, last_modified_time = ?;
-       basePath: contract.lineItems.*.amountBreakups.*
+       basePath: $.contract.lineItems.*.amountBreakups.*
        jsonMaps:
          - jsonPath: $.contract.lineItems.*.amountBreakups.*.id
 
