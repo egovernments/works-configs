@@ -62,7 +62,7 @@ ServiceMaps:
       - name: estimate-inbox-v2
         type: general
         id: $.id,$.tenantId
-        jsonPath: $.estimates
+        jsonPath: $.estimate
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
           indexMapping: { "Data":{"id":"","tenantId":"","estimateNumber":"","projectId":"","proposalDate":"","status":"","wfStatus":"","name":"","referenceNumber":"","description":"","executingDepartment":"","address":{},"estimateDetails":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{}, "history":{}}}
