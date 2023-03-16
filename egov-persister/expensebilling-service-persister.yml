@@ -1,0 +1,115 @@
+serviceMaps:
+ serviceName: expensebilling-service
+ mappings:
+ - version: 1.0
+   name: expensebilling
+   description: Persists billing demand in eg_wms_bill_demand table
+   fromTopic: bill
+   isTransaction: true
+   queryMaps:
+    - query: INSERT INTO eg_wms_bill_demand (id, tenant_id, bill_number, bill_date, net_amount, gross_amount, head_of_account, ifms_sanction_number, purpose, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);
+      basePath: $.*
+      jsonMaps:
+       - jsonPath: $.*.id
+
+       - jsonPath: $.*.tenantId
+
+       - jsonPath: $.*.billNumber
+
+       - jsonPath: $.*.billDate
+
+       - jsonPath: $.*.netAmount
+
+       - jsonPath: $.*.grossAmount
+
+       - jsonPath: $.*.headOfAccount
+
+       - jsonPath: $.*.ifmsSanctionNumber
+
+       - jsonPath: $.*.purpose
+
+       - jsonPath: $.*.auditDetails.createdBy
+
+       - jsonPath: $.*.auditDetails.lastModifiedBy
+
+       - jsonPath: $.*.auditDetails.createdTime
+
+       - jsonPath: $.*.auditDetails.lastModifiedTime
+
+    - query: INSERT INTO eg_wms_demand_beneficiaries (id, bill_number, name, account_number, ifsc_code, mobile_number, address, account_type, amount, purpose, status, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+      basePath: $.*.beneficiaries.*
+      jsonMaps:
+        - jsonPath: $.*.beneficiaries.*.id
+
+        - jsonPath: $.[*][?({id} in @.beneficiaries[*].id)].billNumber
+
+        - jsonPath: $.*.beneficiaries.*.name
+
+        - jsonPath: $.*.beneficiaries.*.accountNumber
+
+        - jsonPath: $.*.beneficiaries.*.ifscCode
+
+        - jsonPath: $.*.beneficiaries.*.mobileNumber
+
+        - jsonPath: $.*.beneficiaries.*.address
+
+        - jsonPath: $.*.beneficiaries.*.accountType
+
+        - jsonPath: $.*.beneficiaries.*.amount
+
+        - jsonPath: $.*.beneficiaries.*.purpose
+
+        - jsonPath: $.*.beneficiaries.*.status
+
+        - jsonPath: $.[*][?({id} in @.beneficiaries[*].id)].auditDetails.createdBy
+
+        - jsonPath: $.[*][?({id} in @.beneficiaries[*].id)].auditDetails.lastModifiedBy
+
+        - jsonPath: $.[*][?({id} in @.beneficiaries[*].id)].auditDetails.createdTime
+
+        - jsonPath: $.[*][?({id} in @.beneficiaries[*].id)].auditDetails.lastModifiedTime
+
+ - version: 1.0
+   name: expensebilling
+   description: Insert / Update payment status
+   fromTopic: payment-status
+   isTransaction: true
+   queryMaps:
+     - query: INSERT INTO eg_wms_bill_payment (bill_number, bill_date, voucher_number, voucher_date) VALUES (?,?,?,?);
+       basePath: $.billPayment
+       jsonMaps:
+         - jsonPath: $.billPayment.bill_number
+
+         - jsonPath: $.billPayment.bill_date
+
+         - jsonPath: $.billPayment.voucher_number
+
+         - jsonPath: $.billPayment.voucher_date
+
+     - query: INSERT INTO eg_wms_beneficiary_transfer_status (bill_number, account_number, ifsc_code, rbi_sequence_number, sequence_date, end_to_end_id, status) VALUES (?,?,?,?,?,?,?);
+       basePath: $.billPayment.beneficiaryTransferStatuses.*
+       jsonMaps:
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.bill_number
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.account_number
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.ifsc_code
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.rbi_sequence_number
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.sequence_date
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.end_to_end_id
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.status
+
+     - query: UPDATE eg_wms_demand_beneficiaries set status = ? where bill_number = ? and account_number = ? and ifsc_code = ? ;
+       basePath: $.billPayment.beneficiaryTransferStatuses.*
+       jsonMaps:
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.status
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.bill_number
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.account_number
+
+         - jsonPath: $.billPayment.beneficiaryTransferStatuses.*.ifsc_code
