@@ -91,7 +91,7 @@ serviceMaps:
      - query: INSERT INTO eg_wms_beneficiary_transfer_status (bill_number, account_number, ifsc_code, rbi_sequence_number, sequence_date, end_to_end_id, status) VALUES (?,?,?,?,?,?,?);
        basePath: $.PaymentStatuses.*.beneficiaryTransferStatuses.*
        jsonMaps:
-         - jsonPath: $.PaymentStatuses[*][?({id} in @.beneficiaryTransferStatuses[*].id)].billNumber
+         - jsonPath: $.PaymentStatuses[*][?({endToEndId} in @.beneficiaryTransferStatuses[*].endToEndId)].billNumber
 
          - jsonPath: $.PaymentStatuses.*.beneficiaryTransferStatuses.*.accountNumber
 
@@ -110,7 +110,7 @@ serviceMaps:
        jsonMaps:
          - jsonPath: $.PaymentStatuses.*.beneficiaryTransferStatuses.*.status
 
-         - jsonPath: $.PaymentStatuses[*][?({id} in @.beneficiaryTransferStatuses[*].id)].billNumber
+         - jsonPath: $.PaymentStatuses[*][?({endToEndId} in @.beneficiaryTransferStatuses[*].endToEndId)].billNumber
 
          - jsonPath: $.PaymentStatuses.*.beneficiaryTransferStatuses.*.accountNumber
 
