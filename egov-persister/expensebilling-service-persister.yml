@@ -36,9 +36,11 @@ serviceMaps:
 
        - jsonPath: $.BillDemands.*.auditDetails.lastModifiedTime
 
-    - query: INSERT INTO eg_wms_demand_beneficiaries (id, bill_number, name, account_number, ifsc_code, mobile_number, address, account_type, amount, purpose, status, created_by, last_modified_by, created_time, last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+    - query: INSERT INTO eg_wms_demand_beneficiaries (pk_id, id, bill_number, name, account_number, ifsc_code, mobile_number, address, account_type, amount, purpose, status, created_by, last_modified_by, created_time, last_modified_time) VALUES (?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
       basePath: $.BillDemands.*.beneficiaries.*
       jsonMaps:
+        - jsonPath: $.BillDemands.*.beneficiaries.*.pkId
+
         - jsonPath: $.BillDemands.*.beneficiaries.*.id
 
         - jsonPath: $.BillDemands[*][?({id} in @.beneficiaries[*].id)].billNumber
