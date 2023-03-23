@@ -212,9 +212,51 @@ serviceMaps:
        - jsonPath: $.Projects.*.id
 
 
-    - query: UPDATE eg_pms_address SET door_no = ?, latitude=?, longitude=?, location_accuracy=?, type=?, address_line1=?, address_line2=?, landmark=?, city=?, pin_code=?, building_name=?, street=?, boundary_type=?, boundary=?, last_modified_by=?, last_modified_time=? WHERE id=?;
+    - query: INSERT INTO eg_pms_address(id,tenant_id,project_id,door_no,latitude,longitude,location_accuracy,type,address_line1,address_line2,landmark,city,pin_code,building_name,street,boundary_type,boundary,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET  door_no = ?, latitude=?, longitude=?, location_accuracy=?, type=?, address_line1=?, address_line2=?, landmark=?, city=?, pin_code=?, building_name=?, street=?, boundary_type=?, boundary=?, last_modified_by=?, last_modified_time=?;
       basePath: $.Projects.*.address
       jsonMaps:
+
+       - jsonPath: $.Projects.*.address.id
+
+       - jsonPath: $.Projects.*.address.tenantId
+
+       - jsonPath: $.Projects.*.id
+
+       - jsonPath: $.Projects.*.address.doorNo
+
+       - jsonPath: $.Projects.*.address.latitude
+
+       - jsonPath: $.Projects.*.address.longitude
+
+       - jsonPath: $.Projects.*.address.locationAccuracy
+
+       - jsonPath: $.Projects.*.address.type
+
+       - jsonPath: $.Projects.*.address.addressLine1
+
+       - jsonPath: $.Projects.*.address.addressLine2
+
+       - jsonPath: $.Projects.*.address.landmark
+
+       - jsonPath: $.Projects.*.address.city
+
+       - jsonPath: $.Projects.*.address.pincode
+
+       - jsonPath: $.Projects.*.address.buildingName
+
+       - jsonPath: $.Projects.*.address.street
+
+       - jsonPath: $.Projects.*.address.boundaryType
+
+       - jsonPath: $.Projects.*.address.boundary
+
+       - jsonPath: $.Projects.*.address.auditDetails.createdBy
+
+       - jsonPath: $.Projects.*.address.auditDetails.lastModifiedBy
+
+       - jsonPath: $.Projects.*.address.auditDetails.createdTime
+
+       - jsonPath: $.Projects.*.address.auditDetails.lastModifiedTime
 
        - jsonPath: $.Projects.*.address.doorNo
 
@@ -247,8 +289,6 @@ serviceMaps:
        - jsonPath: $.Projects.*.address.auditDetails.lastModifiedBy
 
        - jsonPath: $.Projects.*.address.auditDetails.lastModifiedTime
-
-       - jsonPath: $.Projects.*.address.id
 
 
     - query: INSERT INTO eg_pms_target(id,project_id,beneficiary_type,total_no,target_no,is_deleted,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET beneficiary_type = ?, total_no =?, target_no=?, is_deleted=?, last_modified_by=?, last_modified_time=?;
