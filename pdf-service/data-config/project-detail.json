@@ -1,8 +1,8 @@
 {
   "key": "project-detail",
-  "documentType": "CONSOLIDATED_RECEIPT",
+  "documentType": "PROJECT-DETAILS",
   "DataConfigs": {
-    "moduleName": "rainmaker-common",
+    "moduleName": "rainmaker-project",
     "version": "1.0.0",
     "baseKeyPath": "$.Projects.*",
     "entityIdPath": "$.id",
