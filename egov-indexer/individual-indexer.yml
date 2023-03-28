@@ -68,7 +68,7 @@ ServiceMaps:
           id: $.id
           isBulk: true
           jsonPath: $.*
-          timeStampField: $.auditDetails.createdTime
+          timeStampField: $.auditDetails.lastModifiedTime
           customJsonMapping:
             indexMapping: { "Data": { "id": "","individualId": "","tenantId": "","clientReferenceId": "","userId": "","name": { },"dateOfBirth": "","gender": "","bloodGroup": "","mobileNumber": "","altContactNumber": "","email": "","address": [ ],"fatherName": "","husbandName": "","relationship": "","identifiers": [ ],"skills": [ ],"photo": "","additionalFields": { },"isDeleted": "","rowVersion": "","@timestamp": "","auditDetails": { } } }
             fieldMapping:
@@ -126,7 +126,7 @@ ServiceMaps:
           id: $.id
           isBulk: true
           jsonPath: $.*
-          timeStampField: $.auditDetails.createdTime
+          timeStampField: $.auditDetails.lastModifiedTime
           customJsonMapping:
             indexMapping: { "Data": { "id": "","individualId": "","tenantId": "","clientReferenceId": "","userId": "","name": { },"dateOfBirth": "","gender": "","bloodGroup": "","mobileNumber": "","altContactNumber": "","email": "","address": [ ],"fatherName": "","husbandName": "","relationship": "","identifiers": [ ],"skills": [ ],"photo": "","additionalFields": { },"isDeleted": "","rowVersion": "","@timestamp": "","auditDetails": { } } }
             fieldMapping:
