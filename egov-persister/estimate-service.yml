@@ -1,243 +1,276 @@
 serviceMaps:
- serviceName: estimate-service
- mappings:
- - version: 1.0
-   name: Estimate
-   description: Persists estimate details
-   fromTopic: save-estimate
-   isTransaction: true
-   isAuditEnabled: true
-   module: EST
-   objecIdJsonPath: $.id
-   tenantIdJsonPath: $.tenantId
-   transactionCodeJsonPath: $.estimateNumber
-   auditAttributeBasePath: $.estimate
-   queryMaps:
-    - query: INSERT INTO eg_wms_estimate(id,tenant_id,estimate_number,project_id,proposal_date,status,wf_status,name,reference_number,description,executing_department,additional_details,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+  serviceName: estimate-service
+  mappings:
+    - version: 1.0
+      name: Estimate
+      description: Persists estimate details
+      fromTopic: save-estimate
+      isTransaction: true
+      isAuditEnabled: true
+      module: EST
+      objecIdJsonPath: $.id
+      tenantIdJsonPath: $.tenantId
+      transactionCodeJsonPath: $.estimateNumber
+      auditAttributeBasePath: $.estimate
+      queryMaps:
+        - query: INSERT INTO eg_wms_estimate(id,tenant_id,estimate_number,project_id,proposal_date,status,wf_status,name,reference_number,description,executing_department,additional_details,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
 
-      basePath: $.estimate
-      jsonMaps:
+          basePath: $.estimate
+          jsonMaps:
+            - jsonPath: $.estimate.id
 
-       - jsonPath: $.estimate.id
+            - jsonPath: $.estimate.tenantId
 
-       - jsonPath: $.estimate.tenantId
-       
-       - jsonPath: $.estimate.estimateNumber
+            - jsonPath: $.estimate.estimateNumber
 
-       - jsonPath: $.estimate.projectId
+            - jsonPath: $.estimate.projectId
 
-       - jsonPath: $.estimate.proposalDate
+            - jsonPath: $.estimate.proposalDate
 
-       - jsonPath: $.estimate.status
+            - jsonPath: $.estimate.status
 
-       - jsonPath: $.estimate.wfStatus
+            - jsonPath: $.estimate.wfStatus
 
-       - jsonPath: $.estimate.name
+            - jsonPath: $.estimate.name
 
-       - jsonPath: $.estimate.referenceNumber
+            - jsonPath: $.estimate.referenceNumber
 
-       - jsonPath: $.estimate.description
+            - jsonPath: $.estimate.description
 
-       - jsonPath: $.estimate.executingDepartment
+            - jsonPath: $.estimate.executingDepartment
 
-       - jsonPath: $.estimate.additionalDetails
-         type: JSON
-         dbType: JSONB
+            - jsonPath: $.estimate.additionalDetails
+              type: JSON
+              dbType: JSONB
 
-       - jsonPath: $.estimate.auditDetails.createdBy
+            - jsonPath: $.estimate.auditDetails.createdBy
 
-       - jsonPath: $.estimate.auditDetails.lastModifiedBy
+            - jsonPath: $.estimate.auditDetails.lastModifiedBy
 
-       - jsonPath: $.estimate.auditDetails.createdTime
+            - jsonPath: $.estimate.auditDetails.createdTime
 
-       - jsonPath: $.estimate.auditDetails.lastModifiedTime
+            - jsonPath: $.estimate.auditDetails.lastModifiedTime
 
+        - query: INSERT INTO eg_wms_estimate_detail(id,tenant_id,estimate_id,sor_id,is_active,category,name,description,unit_rate,no_of_unit,uom,uom_value,additional_details) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);
 
-    - query: INSERT INTO eg_wms_estimate_detail(id,tenant_id,estimate_id,sor_id,category,name,description,unit_rate,no_of_unit,uom,uom_value,additional_details) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);
+          basePath: $.estimate.estimateDetails.*
+          jsonMaps:
+            - jsonPath: $.estimate.estimateDetails.*.id
 
-      basePath: $.estimate.estimateDetails.*
-      jsonMaps:
+            - jsonPath: $.estimate.tenantId
 
-       - jsonPath: $.estimate.estimateDetails.*.id
+            - jsonPath: $.estimate.id
 
-       - jsonPath: $.estimate.tenantId
+            - jsonPath: $.estimate.estimateDetails.*.sorId
 
-       - jsonPath: $.estimate.id
+            - jsonPath: $.estimate.estimateDetails.*.isActive
 
-       - jsonPath: $.estimate.estimateDetails.*.sorId
-       
-       - jsonPath: $.estimate.estimateDetails.*.category
+            - jsonPath: $.estimate.estimateDetails.*.category
 
-       - jsonPath: $.estimate.estimateDetails.*.name
-       
-       - jsonPath: $.estimate.estimateDetails.*.description
+            - jsonPath: $.estimate.estimateDetails.*.name
 
-       - jsonPath: $.estimate.estimateDetails.*.unitRate
-       
-       - jsonPath: $.estimate.estimateDetails.*.noOfunit
-       
-       - jsonPath: $.estimate.estimateDetails.*.uom
+            - jsonPath: $.estimate.estimateDetails.*.description
 
-       - jsonPath: $.estimate.estimateDetails.*.uomValue
+            - jsonPath: $.estimate.estimateDetails.*.unitRate
 
-       - jsonPath: $.estimate.estimateDetails.*.additionalDetails
-         type: JSON
-         dbType: JSONB
-         
-         
-    - query: INSERT INTO eg_wms_estimate_address(id,tenant_id,estimate_id,latitude,longitude,address_number,address_line_1,address_line_2,landmark,city,pin_code,detail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);
+            - jsonPath: $.estimate.estimateDetails.*.noOfunit
 
-      basePath: $.estimate.address
-      jsonMaps:
+            - jsonPath: $.estimate.estimateDetails.*.uom
 
-       - jsonPath: $.estimate.address.id
+            - jsonPath: $.estimate.estimateDetails.*.uomValue
 
-       - jsonPath: $.estimate.address.tenantId
+            - jsonPath: $.estimate.estimateDetails.*.additionalDetails
+              type: JSON
+              dbType: JSONB
 
-       - jsonPath: $.estimate.id
+        - query: INSERT INTO eg_wms_estimate_address(id,tenant_id,estimate_id,latitude,longitude,address_number,address_line_1,address_line_2,landmark,city,pin_code,detail) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);
 
-       - jsonPath: $.estimate.address.latitude
+          basePath: $.estimate.address
+          jsonMaps:
+            - jsonPath: $.estimate.address.id
 
-       - jsonPath: $.estimate.address.longitude
-       
-       - jsonPath: $.estimate.address.addressNumber
+            - jsonPath: $.estimate.address.tenantId
 
-       - jsonPath: $.estimate.address.addressLine1
-       
-       - jsonPath: $.estimate.address.addressLine2
+            - jsonPath: $.estimate.id
 
-       - jsonPath: $.estimate.address.landmark
-       
-       - jsonPath: $.estimate.address.city
+            - jsonPath: $.estimate.address.latitude
 
-       - jsonPath: $.estimate.address.pincode
+            - jsonPath: $.estimate.address.longitude
 
-       - jsonPath: $.estimate.address.detail
-       
-    - query: INSERT INTO eg_wms_estimate_amount_detail(id,tenant_id,estimate_detail_id,type,amount,additional_details) VALUES (?,?,?,?,?,?);
+            - jsonPath: $.estimate.address.addressNumber
 
-      basePath: $.estimate.estimateDetails.*.amountDetail.*
-      jsonMaps:
+            - jsonPath: $.estimate.address.addressLine1
 
-       - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.id
+            - jsonPath: $.estimate.address.addressLine2
 
-       - jsonPath: $.estimate.tenantId
+            - jsonPath: $.estimate.address.landmark
 
-       - jsonPath: $.estimate.estimateDetails[*][?({id} in @.amountDetail[*].id)].id
+            - jsonPath: $.estimate.address.city
 
-       - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.type
-       
-       - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.amount
+            - jsonPath: $.estimate.address.pincode
 
-       - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.additionalDetails
-         type: JSON
-         dbType: JSONB
-   
-   
- - version: 1.0
-   description: Update estimate
-   fromTopic: update-estimate
-   isTransaction: true
-   isAuditEnabled: true
-   module: EST
-   objecIdJsonPath: $.id
-   tenantIdJsonPath: $.tenantId
-   transactionCodeJsonPath: $.estimateNumber
-   auditAttributeBasePath: $.estimate
-   queryMaps:
-      - query: UPDATE eg_wms_estimate set status=?, wf_status=?, name=?, reference_number=?, description=?, executing_department=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
-        basePath: $.estimate
-        jsonMaps:           
+            - jsonPath: $.estimate.address.detail
 
-          - jsonPath: $.estimate.status
+        - query: INSERT INTO eg_wms_estimate_amount_detail(id,tenant_id,estimate_detail_id,type,is_active,amount,additional_details) VALUES (?,?,?,?,?,?,?);
 
-          - jsonPath: $.estimate.wfStatus
+          basePath: $.estimate.estimateDetails.*.amountDetail.*
+          jsonMaps:
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.id
 
-          - jsonPath: $.estimate.name
+            - jsonPath: $.estimate.tenantId
 
-          - jsonPath: $.estimate.referenceNumber
+            - jsonPath: $.estimate.estimateDetails[*][?({id} in @.amountDetail[*].id)].id
 
-          - jsonPath: $.estimate.description
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.type
 
-          - jsonPath: $.estimate.executingDepartment
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.isActive
 
-          - jsonPath: $.estimate.additionalDetails
-            type: JSON
-            dbType: JSONB
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.amount
 
-          - jsonPath: $.estimate.auditDetails.lastModifiedBy
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.additionalDetails
+              type: JSON
+              dbType: JSONB
 
-          - jsonPath: $.estimate.auditDetails.lastModifiedTime
-          
-          - jsonPath: $.estimate.id
-          
-          
-      - query: UPDATE eg_wms_estimate_detail set sor_id=?, name=?, description=?,unit_rate=?, no_of_unit=?,category=?,uom=?, uom_value=?, additional_details=? where id=?;
+    - version: 1.0
+      description: Update estimate
+      fromTopic: update-estimate
+      isTransaction: true
+      isAuditEnabled: true
+      module: EST
+      objecIdJsonPath: $.id
+      tenantIdJsonPath: $.tenantId
+      transactionCodeJsonPath: $.estimateNumber
+      auditAttributeBasePath: $.estimate
+      queryMaps:
+        - query: UPDATE eg_wms_estimate set status=?, wf_status=?, name=?, reference_number=?, description=?, executing_department=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
+          basePath: $.estimate
+          jsonMaps:
+            - jsonPath: $.estimate.status
 
-        basePath: $.estimate.estimateDetails.*
-        jsonMaps:
+            - jsonPath: $.estimate.wfStatus
 
-        - jsonPath: $.estimate.estimateDetails.*.sorId
+            - jsonPath: $.estimate.name
 
-        - jsonPath: $.estimate.estimateDetails.*.name
-        
-        - jsonPath: $.estimate.estimateDetails.*.description
+            - jsonPath: $.estimate.referenceNumber
 
-        - jsonPath: $.estimate.estimateDetails.*.unitRate
-        
-        - jsonPath: $.estimate.estimateDetails.*.noOfunit
+            - jsonPath: $.estimate.description
 
-        - jsonPath: $.estimate.estimateDetails.*.category
-        
-        - jsonPath: $.estimate.estimateDetails.*.uom
+            - jsonPath: $.estimate.executingDepartment
 
-        - jsonPath: $.estimate.estimateDetails.*.uomValue
+            - jsonPath: $.estimate.additionalDetails
+              type: JSON
+              dbType: JSONB
 
-        - jsonPath: $.estimate.estimateDetails.*.additionalDetails
-          type: JSON
-          dbType: JSONB
-          
-        - jsonPath: $.estimate.estimateDetails.*.id
-        
-        
-        
-      - query: UPDATE eg_wms_estimate_address set latitude=?, longitude=?, address_number=?,address_line_1=?, address_line_2=?,landmark=?,city=?, pin_code=?, detail=? where id=?;
+            - jsonPath: $.estimate.auditDetails.lastModifiedBy
 
-        basePath: $.estimate.address
-        jsonMaps:
+            - jsonPath: $.estimate.auditDetails.lastModifiedTime
 
-        - jsonPath: $.estimate.address.latitude
+            - jsonPath: $.estimate.id
 
-        - jsonPath: $.estimate.address.longitude
-       
-        - jsonPath: $.estimate.address.addressNumber
+        - query: INSERT INTO eg_wms_estimate_detail(id,tenant_id,estimate_id,sor_id,is_active,category,name,description,unit_rate,no_of_unit,uom,uom_value,additional_details) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET set sor_id=?, is_active = ?,name=?, description=?,unit_rate=?, no_of_unit=?,category=?,uom=?, uom_value=?, additional_details=?;
 
-        - jsonPath: $.estimate.address.addressLine1
-       
-        - jsonPath: $.estimate.address.addressLine2
+          basePath: $.estimate.estimateDetails.*
+          jsonMaps:
+            - jsonPath: $.estimate.estimateDetails.*.id
 
-        - jsonPath: $.estimate.address.landmark
-       
-        - jsonPath: $.estimate.address.city
+            - jsonPath: $.estimate.tenantId
 
-        - jsonPath: $.estimate.address.pincode
+            - jsonPath: $.estimate.id
 
-        - jsonPath: $.estimate.address.detail
-          
-        - jsonPath: $.estimate.address.id 
+            - jsonPath: $.estimate.estimateDetails.*.sorId
 
+            - jsonPath: $.estimate.estimateDetails.*.isActive
 
-      - query: UPDATE eg_wms_estimate_amount_detail set type=?, amount=?,additional_details=? where id=?;
+            - jsonPath: $.estimate.estimateDetails.*.category
 
-        basePath: $.estimate.estimateDetails.*.amountDetail.*
-        jsonMaps:
+            - jsonPath: $.estimate.estimateDetails.*.name
 
-        - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.type
-       
-        - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.amount
+            - jsonPath: $.estimate.estimateDetails.*.description
 
-        - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.additionalDetails
-          type: JSON
-          dbType: JSONB 
+            - jsonPath: $.estimate.estimateDetails.*.unitRate
 
-        - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.id         
+            - jsonPath: $.estimate.estimateDetails.*.noOfunit
+
+            - jsonPath: $.estimate.estimateDetails.*.uom
+
+            - jsonPath: $.estimate.estimateDetails.*.uomValue
+
+            - jsonPath: $.estimate.estimateDetails.*.additionalDetails
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.estimate.estimateDetails.*.sorId
+
+            - jsonPath: $.estimate.estimateDetails.*.isActive
+
+            - jsonPath: $.estimate.estimateDetails.*.name
+
+            - jsonPath: $.estimate.estimateDetails.*.description
+
+            - jsonPath: $.estimate.estimateDetails.*.unitRate
+
+            - jsonPath: $.estimate.estimateDetails.*.noOfunit
+
+            - jsonPath: $.estimate.estimateDetails.*.category
+
+            - jsonPath: $.estimate.estimateDetails.*.uom
+
+            - jsonPath: $.estimate.estimateDetails.*.uomValue
+
+            - jsonPath: $.estimate.estimateDetails.*.additionalDetails
+              type: JSON
+              dbType: JSONB
+
+        - query: UPDATE eg_wms_estimate_address set latitude=?, longitude=?, address_number=?,address_line_1=?, address_line_2=?,landmark=?,city=?, pin_code=?, detail=? where id=?;
+
+          basePath: $.estimate.address
+          jsonMaps:
+            - jsonPath: $.estimate.address.latitude
+
+            - jsonPath: $.estimate.address.longitude
+
+            - jsonPath: $.estimate.address.addressNumber
+
+            - jsonPath: $.estimate.address.addressLine1
+
+            - jsonPath: $.estimate.address.addressLine2
+
+            - jsonPath: $.estimate.address.landmark
+
+            - jsonPath: $.estimate.address.city
+
+            - jsonPath: $.estimate.address.pincode
+
+            - jsonPath: $.estimate.address.detail
+
+            - jsonPath: $.estimate.address.id
+
+        - query: INSERT INTO eg_wms_estimate_amount_detail(id,tenant_id,estimate_detail_id,type,is_active,amount,additional_details) VALUES (?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE set type=?, is_active=?,amount=?,additional_details=?;
+
+          basePath: $.estimate.estimateDetails.*.amountDetail.*
+          jsonMaps:
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.id
+
+            - jsonPath: $.estimate.tenantId
+
+            - jsonPath: $.estimate.estimateDetails[*][?({id} in @.amountDetail[*].id)].id
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.type
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.isActive
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.amount
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.additionalDetails
+              type: JSON
+              dbType: JSONB
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.type
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.isActive
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.amount
+
+            - jsonPath: $.estimate.estimateDetails.*.amountDetail.*.additionalDetails
+              type: JSON
+              dbType: JSONB
