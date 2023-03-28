@@ -13,7 +13,7 @@ serviceMaps:
    transactionCodeJsonPath: $.projectNumber
    auditAttributeBasePath: $.Projects.*
    queryMaps:
-    - query: INSERT INTO eg_pms_project(id,tenant_id,project_number,name,project_type,project_subtype,department,description,reference_id,start_date,end_date,is_task_enabled,parent,project_hierarchy,additional_details,is_deleted,row_version,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+    - query: INSERT INTO eg_pms_project(id,tenant_id,project_number,name,project_type,project_subtype,department,description,reference_id,start_date,end_date,nature_of_work,is_task_enabled,parent,project_hierarchy,additional_details,is_deleted,row_version,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
       basePath: $.Projects.*
       jsonMaps:
        - jsonPath: $.Projects.*.id
@@ -38,6 +38,8 @@ serviceMaps:
 
        - jsonPath: $.Projects.*.endDate
 
+       - jsonPath: $.Projects.*.natureOfWork
+      
        - jsonPath: $.Projects.*.isTaskEnabled
 
        - jsonPath: $.Projects.*.parent
@@ -61,7 +63,7 @@ serviceMaps:
        - jsonPath: $.Projects.*.auditDetails.lastModifiedTime
 
 
-    - query: INSERT INTO eg_pms_address(id,tenant_id,project_id,door_no,latitude,longitude,location_accuracy,type,address_line1,address_line2,landmark,city,pin_code,building_name,street,locality,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+    - query: INSERT INTO eg_pms_address(id,tenant_id,project_id,door_no,latitude,longitude,location_accuracy,type,address_line1,address_line2,landmark,city,pin_code,building_name,street,boundary_type,boundary,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
       basePath: $.Projects.*.address
       jsonMaps:
        - jsonPath: $.Projects.*.address.id
@@ -94,7 +96,9 @@ serviceMaps:
 
        - jsonPath: $.Projects.*.address.street
 
-       - jsonPath: $.Projects.*.address.locality
+       - jsonPath: $.Projects.*.address.boundaryType
+
+       - jsonPath: $.Projects.*.address.boundary
 
        - jsonPath: $.Projects.*.address.auditDetails.createdBy
 
@@ -169,7 +173,7 @@ serviceMaps:
    transactionCodeJsonPath: $.projectNumber
    auditAttributeBasePath: $.Projects.*
    queryMaps:
-    - query: UPDATE eg_pms_project SET name = ?, project_type = ?, project_subtype = ?, department = ?, description = ?, reference_id = ?, start_date = ?, end_date = ?, is_task_enabled = ?, additional_details = ?, is_deleted = ?, row_version = ?, last_modified_by = ?, last_modified_time = ? WHERE id = ?;
+    - query: UPDATE eg_pms_project SET name = ?, project_type = ?, project_subtype = ?, department = ?, description = ?, reference_id = ?, start_date = ?, end_date = ?, nature_of_work = ?, is_task_enabled = ?, additional_details = ?, is_deleted = ?, row_version = ?, last_modified_by = ?, last_modified_time = ? WHERE id = ?;
       basePath: $.Projects.*
       jsonMaps:
 
@@ -189,6 +193,8 @@ serviceMaps:
 
        - jsonPath: $.Projects.*.endDate
 
+       - jsonPath: $.Projects.*.natureOfWork
+
        - jsonPath: $.Projects.*.isTaskEnabled
 
        - jsonPath: $.Projects.*.additionalDetails
@@ -206,9 +212,15 @@ serviceMaps:
        - jsonPath: $.Projects.*.id
 
 
-    - query: UPDATE eg_pms_address SET door_no = ?, latitude=?, longitude=?, location_accuracy=?, type=?, address_line1=?, address_line2=?, landmark=?, city=?, pin_code=?, building_name=?, street=?, last_modified_by=?, last_modified_time=? WHERE id=?;
+    - query: INSERT INTO eg_pms_address(id,tenant_id,project_id,door_no,latitude,longitude,location_accuracy,type,address_line1,address_line2,landmark,city,pin_code,building_name,street,boundary_type,boundary,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET  door_no = ?, latitude=?, longitude=?, location_accuracy=?, type=?, address_line1=?, address_line2=?, landmark=?, city=?, pin_code=?, building_name=?, street=?, boundary_type=?, boundary=?, last_modified_by=?, last_modified_time=?;
       basePath: $.Projects.*.address
       jsonMaps:
+
+       - jsonPath: $.Projects.*.address.id
+
+       - jsonPath: $.Projects.*.address.tenantId
+
+       - jsonPath: $.Projects.*.id
 
        - jsonPath: $.Projects.*.address.doorNo
 
@@ -234,11 +246,49 @@ serviceMaps:
 
        - jsonPath: $.Projects.*.address.street
 
+       - jsonPath: $.Projects.*.address.boundaryType
+
+       - jsonPath: $.Projects.*.address.boundary
+
+       - jsonPath: $.Projects.*.address.auditDetails.createdBy
+
        - jsonPath: $.Projects.*.address.auditDetails.lastModifiedBy
+
+       - jsonPath: $.Projects.*.address.auditDetails.createdTime
 
        - jsonPath: $.Projects.*.address.auditDetails.lastModifiedTime
 
-       - jsonPath: $.Projects.*.address.id
+       - jsonPath: $.Projects.*.address.doorNo
+
+       - jsonPath: $.Projects.*.address.latitude
+
+       - jsonPath: $.Projects.*.address.longitude
+
+       - jsonPath: $.Projects.*.address.locationAccuracy
+
+       - jsonPath: $.Projects.*.address.type
+
+       - jsonPath: $.Projects.*.address.addressLine1
+
+       - jsonPath: $.Projects.*.address.addressLine2
+
+       - jsonPath: $.Projects.*.address.landmark
+
+       - jsonPath: $.Projects.*.address.city
+
+       - jsonPath: $.Projects.*.address.pincode
+
+       - jsonPath: $.Projects.*.address.buildingName
+
+       - jsonPath: $.Projects.*.address.street
+
+       - jsonPath: $.Projects.*.address.boundaryType
+
+       - jsonPath: $.Projects.*.address.boundary
+
+       - jsonPath: $.Projects.*.address.auditDetails.lastModifiedBy
+
+       - jsonPath: $.Projects.*.address.auditDetails.lastModifiedTime
 
 
     - query: INSERT INTO eg_pms_target(id,project_id,beneficiary_type,total_no,target_no,is_deleted,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET beneficiary_type = ?, total_no =?, target_no=?, is_deleted=?, last_modified_by=?, last_modified_time=?;
