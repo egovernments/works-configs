@@ -167,7 +167,7 @@ serviceMaps:
 
             - jsonPath: $.estimate.id
 
-        - query: INSERT INTO eg_wms_estimate_detail(id,tenant_id,estimate_id,sor_id,is_active,category,name,description,unit_rate,no_of_unit,uom,uom_value,additional_details) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET set sor_id=?, is_active = ?,name=?, description=?,unit_rate=?, no_of_unit=?,category=?,uom=?, uom_value=?, additional_details=?;
+        - query: INSERT INTO eg_wms_estimate_detail(id,tenant_id,estimate_id,sor_id,is_active,category,name,description,unit_rate,no_of_unit,uom,uom_value,additional_details) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET sor_id=?, is_active = ?,name=?, description=?,unit_rate=?, no_of_unit=?,category=?,uom=?, uom_value=?, additional_details=?;
 
           basePath: $.estimate.estimateDetails.*
           jsonMaps:
