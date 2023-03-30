@@ -372,12 +372,14 @@ serviceMaps:
            dbType: JSONB
 
 
-     - query: UPDATE eg_org_jurisdiction set code=? where id=?;
+     - query: UPDATE eg_org_jurisdiction set code=?,additional_details=? where id=?;
 
        basePath: $.organisations.*.jurisdiction.*
        jsonMaps:
 
         - jsonPath: $.organisations.*.jurisdiction.*.code 
+        
+        - jsonPath: $.organisations.*.jurisdiction.*.additionalDetails 
 
         - jsonPath: $.organisations.*.jurisdiction.*.id 
 
