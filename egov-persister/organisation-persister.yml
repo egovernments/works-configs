@@ -451,7 +451,7 @@ serviceMaps:
         
         
         
-     - query: INSERT INTO eg_org_document(id,org_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id,org_id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, additional_details=?;
+     - query: INSERT INTO eg_org_document(id,org_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, additional_details=?;
 
        basePath: $.organisations.*.documents.*
        jsonMaps:
@@ -482,7 +482,7 @@ serviceMaps:
         
         
         
-     - query: INSERT INTO eg_org_document(id,org_func_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id,org_func_id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, additional_details=?;
+     - query: INSERT INTO eg_org_document(id,org_func_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, additional_details=?;
 
        basePath: $.organisations.*.functions.*.documents.*
        jsonMaps:
