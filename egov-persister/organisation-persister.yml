@@ -104,7 +104,7 @@ serviceMaps:
        
        - jsonPath: $.organisations.*.orgAddress.*.geoLocation.longitude
 
-       - jsonPath: $.organisations.*.orgAddress.*.geoLocation.additionDetails
+       - jsonPath: $.organisations.*.orgAddress.*.geoLocation.additionalDetails
          type: JSON
          dbType: JSONB  
 
@@ -326,7 +326,7 @@ serviceMaps:
        
         - jsonPath: $.organisations.*.orgAddress.*.geoLocation.longitude
 
-        - jsonPath: $.organisations.*.orgAddress.*.geoLocation.additionDetails
+        - jsonPath: $.organisations.*.orgAddress.*.geoLocation.additionalDetails
           type: JSON
           dbType: JSONB
           
