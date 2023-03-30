@@ -379,7 +379,9 @@ serviceMaps:
 
         - jsonPath: $.organisations.*.jurisdiction.*.code 
         
-        - jsonPath: $.organisations.*.jurisdiction.*.additionalDetails 
+        - jsonPath: $.organisations.*.jurisdiction.*.additionalDetails
+          type: JSON
+          dbType: JSONB
 
         - jsonPath: $.organisations.*.jurisdiction.*.id 
 
