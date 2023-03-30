@@ -145,14 +145,20 @@ serviceMaps:
          dbType: JSONB  
 
 
-    - query: INSERT INTO eg_org_jurisdiction(org_id,code) VALUES (?,?,?);
+    - query: INSERT INTO eg_org_jurisdiction(id,org_id,code,additional_details) VALUES (?,?,?,?);
 
       basePath: $.organisations.*.jurisdiction.*
       jsonMaps:
 
-       - jsonPath: $.organisations[*][?({code} in @.jurisdiction[*].code)].id
+       - jsonPath: $.organisations.*.jurisdiction.*.id
+       
+       - jsonPath: $.organisations[*][?({id} in @.jurisdiction[*].id)].id
 
-       - jsonPath: $.organisations.*.jurisdiction.*.code        
+       - jsonPath: $.organisations.*.jurisdiction.*.code 
+       
+       - jsonPath: $.organisations.*.jurisdiction.*.additionalDetails
+         type: JSON
+         dbType: JSONB
          
          
     - query: INSERT INTO eg_org_function(id,org_id,application_number,type,category,class,valid_from,valid_to,application_status,wf_status,is_active,additional_details,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
