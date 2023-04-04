@@ -70,8 +70,8 @@
         "style": "noc-table",
         "table": {
           "widths": [
-            "50%",
-            "50%"
+            "30%",
+            "60%"
           ],
           "body": [
             [
@@ -193,37 +193,43 @@
         "table": {
           "headerRows": 1,
           "widths": [
+            30,
+            220,
             40,
-            120,
-            50,
-            50,
+            40,
             80,
             80
           ],
           "body": [[
             {
               "text": "{{SNo}}",
-              "bold": true
+              "bold": true,
+              "fillColor":"#D3D3D3"
             },
             {
               "text": "{{EstimateDescription}}",
-              "bold": true
+              "bold": true,
+              "fillColor":"#D3D3D3"
             },
             {
               "text": "{{EstimateUOM}}",
-              "bold": true
+              "bold": true,
+              "fillColor":"#D3D3D3"
             },
             {
               "text": "{{EstimateRate}}",
-              "bold": true
+              "bold": true,
+              "fillColor":"#D3D3D3"
             },
             {
               "text": "{{EstimateQuantity}}",
-              "bold": true
+              "bold": true,
+              "fillColor":"#D3D3D3"
             },
             {
               "text": "{{EstimateAmount}}",
-              "bold": true
+              "bold": true,
+              "fillColor":"#D3D3D3"
             }
           ],
           
