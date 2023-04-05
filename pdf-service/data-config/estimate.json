@@ -16,7 +16,7 @@
               {
                 "variable": "projectId", 
                 "value": {
-                  "path": "$.projectId"
+                  "path": "$.additionalDetails.projectNumber"
                 }
               },
               {
@@ -271,6 +271,7 @@
                     }
                   ]
               }
+              
             ]
           }
         ]
