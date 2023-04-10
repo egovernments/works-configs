@@ -6,6 +6,7 @@
 		},
 		"content": [
 			{
+				"style": "noc-head",
 				"table": {
 					"widths": [
 						60,
@@ -152,7 +153,6 @@
 				"fontSize": 15
 			},
 			{
-			
 				"table": {
 					"widths": [
 						"*"
@@ -184,7 +184,6 @@
 				}
 			},
 			{
-				
 				"table": {
 					"widths": [
 						"50%",
@@ -296,7 +295,6 @@
 				"fontSize": 15
 			},
 			{
-				
 				"table": {
 					"widths": [
 						"*"
@@ -327,7 +325,6 @@
 				}
 			},
 			{
-		
 				"table": {
 					"widths": [
 						"50%",
@@ -415,7 +412,6 @@
 				"fontSize": 15
 			},
 			{
-			
 				"table": {
 					"widths": [
 						"*"
@@ -445,7 +441,16 @@
 					]
 				}
 			}
-		]
-		
+		],
+		"styles": {
+			"noc-head": {
+				"margin": [
+					-30,
+					-30,
+					0,
+					1
+				]
+			}
+		}
 	}
 }
