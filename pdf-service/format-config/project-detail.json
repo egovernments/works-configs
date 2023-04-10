@@ -374,18 +374,6 @@
 										"style": {
 											"bold": true
 										}
-									},
-									{
-										"text": "{{_street}}",
-										"style": {
-											"bold": true
-										}
-									},
-									{
-										"text": "{{door_or_house_number}}",
-										"style": {
-											"bold": true
-										}
 									}
 								]
 							},
@@ -411,12 +399,6 @@
 									},
 									{
 										"text": "{{boundary}}"
-									},
-									{
-										"text": "{{street}}"
-									},
-									{
-										"text": "{{doorNo}}"
 									}
 								],
 								"margin": [

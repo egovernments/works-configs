@@ -199,30 +199,7 @@
                   "module": "rainmaker-common"
                 }
               },
-              {
-                "variable": "_street",
-                "value": {
-                  "path": "ES_COMMON_STREET"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "door_or_house_number",
-                "value": {
-                  "path": "ES_COMMON_DOOR_NO"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
+              
               {
                 "variable": "dateOfProposal",
                 "value": {
@@ -296,7 +273,7 @@
               {
                 "variable": "ward",
                 "value": {
-                  "path": "$.additionalDetails.ward"
+                  "path": "$.address.boundary"
                 },
                 "localisation": {
                   "required": true,
@@ -313,18 +290,6 @@
                   "required": true,
                   "prefix": "PG_CITYA_ADMIN",
                   "module": "rainmaker-pg.citya"
-                }
-              },
-              {
-                "variable": "street",
-                "value": {
-                  "path": "$.address.street"
-                }
-              },
-              {
-                "variable": "doorNo",
-                "value": {
-                  "path": "$.address.doorNo"
                 }
               }
             ]
