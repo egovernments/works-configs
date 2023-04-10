@@ -127,7 +127,7 @@ serviceMaps:
        - jsonPath: $.organisations.*.contactDetails.*.contactEmail 
 
 
-    - query: INSERT INTO eg_tax_identifier(id,org_id,type,value,additional_details) VALUES (?,?,?,?,?);
+    - query: INSERT INTO eg_tax_identifier(id,org_id,type,value,is_active,additional_details) VALUES (?,?,?,?,?,?);
 
       basePath: $.organisations.*.identifiers.*
       jsonMaps:
@@ -139,6 +139,8 @@ serviceMaps:
        - jsonPath: $.organisations.*.identifiers.*.type
        
        - jsonPath: $.organisations.*.identifiers.*.value
+       
+       - jsonPath: $.organisations.*.identifiers.*.isActive
 
        - jsonPath: $.organisations.*.identifiers.*.additionalDetails
          type: JSON
@@ -201,7 +203,7 @@ serviceMaps:
        - jsonPath: $.organisations.*.functions.*.auditDetails.lastModifiedTime
        
        
-    - query: INSERT INTO eg_org_document(id,org_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?);
+    - query: INSERT INTO eg_org_document(id,org_id,document_type,file_store,document_uid,is_active,additional_details) VALUES (?,?,?,?,?,?,?);
 
       basePath: $.organisations.*.documents.*
       jsonMaps:
@@ -215,13 +217,15 @@ serviceMaps:
        - jsonPath: $.organisations.*.documents.*.fileStore
        
        - jsonPath: $.organisations.*.documents.*.documentUid
+       
+       - jsonPath: $.organisations.*.documents.*.isActive
 
        - jsonPath: $.organisations.*.documents.*.additionalDetails
          type: JSON
          dbType: JSONB 
          
          
-    - query: INSERT INTO eg_org_document(id,org_func_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?);
+    - query: INSERT INTO eg_org_document(id,org_func_id,document_type,file_store,document_uid,is_active,additional_details) VALUES (?,?,?,?,?,?,?);
 
       basePath: $.organisations.*.functions.*.documents.*
       jsonMaps:
@@ -235,6 +239,8 @@ serviceMaps:
        - jsonPath: $.organisations.*.functions.*.documents.*.fileStore
        
        - jsonPath: $.organisations.*.functions.*.documents.*.documentUid
+       
+       - jsonPath: $.organisations.*.functions.*.documents.*.isActive
 
        - jsonPath: $.organisations.*.functions.*.documents.*.additionalDetails
          type: JSON
@@ -346,7 +352,7 @@ serviceMaps:
 
         - jsonPath: $.organisations.*.contactDetails.*.id 
 
-     - query: INSERT INTO eg_tax_identifier(id,org_id,type,value,additional_details) VALUES (?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET type=?, value=?, additional_details=?;
+     - query: INSERT INTO eg_tax_identifier(id,org_id,type,value,is_active,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET type=?, value=?, is_active=?, additional_details=?;
 
        basePath: $.organisations.*.identifiers.*
        jsonMaps:
@@ -358,6 +364,8 @@ serviceMaps:
          - jsonPath: $.organisations.*.identifiers.*.type
        
          - jsonPath: $.organisations.*.identifiers.*.value
+         
+         - jsonPath: $.organisations.*.identifiers.*.isActive
 
          - jsonPath: $.organisations.*.identifiers.*.additionalDetails
            type: JSON
@@ -366,6 +374,8 @@ serviceMaps:
          - jsonPath: $.organisations.*.identifiers.*.type
        
          - jsonPath: $.organisations.*.identifiers.*.value
+         
+         - jsonPath: $.organisations.*.identifiers.*.isActive
 
          - jsonPath: $.organisations.*.identifiers.*.additionalDetails
            type: JSON
@@ -451,7 +461,7 @@ serviceMaps:
         
         
         
-     - query: INSERT INTO eg_org_document(id,org_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, additional_details=?;
+     - query: INSERT INTO eg_org_document(id,org_id,document_type,file_store,document_uid,is_active,additional_details) VALUES (?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, is_active=?, additional_details=?;
 
        basePath: $.organisations.*.documents.*
        jsonMaps:
@@ -465,6 +475,8 @@ serviceMaps:
         - jsonPath: $.organisations.*.documents.*.fileStore
        
         - jsonPath: $.organisations.*.documents.*.documentUid
+        
+        - jsonPath: $.organisations.*.documents.*.isActive
 
         - jsonPath: $.organisations.*.documents.*.additionalDetails
           type: JSON
@@ -475,6 +487,8 @@ serviceMaps:
         - jsonPath: $.organisations.*.documents.*.fileStore
        
         - jsonPath: $.organisations.*.documents.*.documentUid
+        
+        - jsonPath: $.organisations.*.documents.*.isActive
 
         - jsonPath: $.organisations.*.documents.*.additionalDetails
           type: JSON
@@ -482,7 +496,7 @@ serviceMaps:
         
         
         
-     - query: INSERT INTO eg_org_document(id,org_func_id,document_type,file_store,document_uid,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET document_type=?, file_store=?,document_uid=?, additional_details=?;
+     - query: INSERT INTO eg_org_document(id,org_func_id,document_type,file_store,document_uid,is_active,additional_details) VALUES (?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET document_type=?, file_store=?,document_uid=?,is_active=?, additional_details=?;
 
        basePath: $.organisations.*.functions.*.documents.*
        jsonMaps:
@@ -496,6 +510,8 @@ serviceMaps:
         - jsonPath: $.organisations.*.functions.*.documents.*.fileStore
        
         - jsonPath: $.organisations.*.functions.*.documents.*.documentUid
+        
+        - jsonPath: $.organisations.*.functions.*.documents.*.isActive
 
         - jsonPath: $.organisations.*.functions.*.documents.*.additionalDetails
           type: JSON
@@ -506,6 +522,8 @@ serviceMaps:
         - jsonPath: $.organisations.*.functions.*.documents.*.fileStore
        
         - jsonPath: $.organisations.*.functions.*.documents.*.documentUid
+        
+        - jsonPath: $.organisations.*.functions.*.documents.*.isActive
 
         - jsonPath: $.organisations.*.functions.*.documents.*.additionalDetails
           type: JSON
