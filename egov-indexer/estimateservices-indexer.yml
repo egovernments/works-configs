@@ -5,7 +5,7 @@ ServiceMaps:
   - topic: enrich-estimate
     configKey: INDEX
     indexes:
-      - name: estimate-inbox-v2
+      - name: estimate-inbox-v3
         type: general
         id: $.id,$.tenantId
         jsonPath: $.estimate
@@ -59,7 +59,7 @@ ServiceMaps:
   - topic: update-estimate
     configKey: INDEX
     indexes:
-      - name: estimate-inbox-v2
+      - name: estimate-inbox-v3
         type: general
         id: $.id,$.tenantId
         jsonPath: $.estimate
