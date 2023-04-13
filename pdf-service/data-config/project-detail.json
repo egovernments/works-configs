@@ -284,7 +284,7 @@
               {
                 "variable": "boundary",
                 "value": {
-                  "path": "$.additionalDetails.locality.code"
+                  "path": "$.additionalDetails.locality"
                 },
                 "localisation": {
                   "required": true,
