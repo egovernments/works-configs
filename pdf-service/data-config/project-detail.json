@@ -46,13 +46,13 @@
               {
                 "variable": "project_name",
                 "value": {
-                  "path": "WORKS_PROJECT_NAME_AST"
+                  "path": "ES_COMMON_PROJECT_NAME"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -130,7 +130,7 @@
               {
                 "variable": "estimated_cost",
                 "value": {
-                  "path": "PROJECT_TOTAL_ESTIMATED_COST_IN_RS"
+                  "path": "PROJECT_ESTIMATED_COST"
                 },
                 "type": "label",
                 "localisation": {
