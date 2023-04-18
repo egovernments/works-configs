@@ -27,19 +27,23 @@
 										"style": {
 											"bold": true,
 											"fontSize": 18
-										}
+										},
+										"font":"Roboto"
 									},
 									{
 										"text": "{{logo_header}}",
-										"fontSize": 10
+										"fontSize": 10,
+										"font":"Roboto"
 									},
 									{
 										"text": "{{address}},{{phoneNumber}}",
-										"fontSize": 10
+										"fontSize": 10,
+										"font":"Roboto"
 									},
 									{
 										"text": "{{website}},{{email}}",
-										"fontSize": 10
+										"fontSize": 10,
+										"font":"Roboto"
 									}
 								],
 								"alignment": "left",
@@ -57,7 +61,8 @@
 										"style": {
 											"bold": true,
 											"fontSize": 16,
-											"color":"#5f5f5f"
+											"color":"#5f5f5f",
+											"font":"Roboto"
 										}
 									},
 									{
@@ -65,7 +70,8 @@
 										"style": {
 											"bold": true,
 											"fontSize": 12,
-											"color":"#5f5f5f"
+											"color":"#5f5f5f",
+											"font":"Roboto"
 										}
 									}
 								],

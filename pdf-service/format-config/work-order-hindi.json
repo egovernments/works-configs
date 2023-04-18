@@ -36,7 +36,7 @@
                 "alignment": "left",
                 "margin": [
                   0,
-                  10,
+                  0,
                   10,
                   20
                 ]
@@ -52,8 +52,7 @@
                     "style": "receipt-logo-header"
                   },
                   {
-                    "text": "{{rupee_symbol}}{{totalContractedAmount}}",
-                    "style": "receipt-logo-header"
+                    "text": "{{#totalContractedAmount}}[{\"text\":\"₹ {{amount}}\",\"style\":\"receipt-logo-header\"}]{{/totalContractedAmount}}"
                   }
                 ],
                 "alignment": "right",
