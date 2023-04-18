@@ -2,7 +2,7 @@
 	"key": "project-detail",
 	"config": {
 		"defaultStyle": {
-			"font": "Cambay"
+			"font": "Roboto"
 		},
 		"content": [
 			{
@@ -92,14 +92,12 @@
 			{
 				"table": {
 					"widths": [
-						"50%",
-						"10%",
-						"150%"
+						"30%",
+						"2%",
+						"68%"
 					],
 					"body": [
 						[
-							{
-								"stack": [
 									{
 										"text": "",
 										"margin": [
@@ -110,63 +108,91 @@
 										]
 									},
 									{
+										"text": ""
+									},
+									{
+										"text": "",
+										"margin": [
+											0,
+											40,
+											0,
+											0
+										]
+									}
+								],
+								[
+									{
 										"text": "{{date_of_proposal}}",
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										],
 										"fontSyze":11,
 										"style": {
 											"bold": true
 										}
 									},
 									{
+										"text": ""
+									},
+									{
+										"text": "{{dateOfProposal}}",
+										"fontSyze": 11
+									}
+								],
+								[
+									{
 										"text": "{{project_name}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{name}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{project_description}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
-
-									}
-								]
-							},
-							{
-								"stack": [
-									{
-										"text": "",
 										"margin": [
 											0,
-											40,
 											0,
-											0
-										]
+											0,
+											7
+										],
+										"fontSyze":11
+
 									},
 									{
-										"text": "{{dateOfProposal}}",
-										"fontSyze":11
+										"text": ""
 									},
-									{
-										"text": "{{name}}",
-										"fontSyze":11
-									},
+								
 									{
 										"text": "{{description}}",
 										"fontSyze":11
 									}
-								],
-								"margin": [
-									0,
-									0,
-									-100,
-									0
 								]
-							}
-						]
-					]
+							]
+							
+
 				},
+					
 				"layout": "noBorders",
 				"fontSize": 15
 			},
@@ -237,72 +263,104 @@
 			{
 				"table": {
 					"widths": [
-						"50%",
-						"10%",
-						"150%"
+						"30%",
+						"2%",
+						"68%"
 					],
 					"body": [
 						[
-							{
-								"stack": [
+							
 									{
 										"text": "{{letter_reference_or_requirement_number}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{referenceID}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{project_type}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{projectType}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{target_demography}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{targetDemography}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{estimated_cost}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
-									}
-								]
-							},
-							{
-								"stack": [
-									{
-										"text": "{{referenceID}}",
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
 									{
-										"text": "{{projectType}}",
-										"fontSyze":11
-									},
-									{
-										"text": "{{targetDemography}}",
-										"fontSyze":11
+										"text": ""
 									},
 									{
 										"text": "{{#estimatedCostInRs}}[{\"text\":\"₹ {{amount}}\",\"fontSyze\":11}]{{/estimatedCostInRs}}",
 										"fontSyze":11
 									}
-								],
-								"margin": [
-									0,
-									0,
-									-100,
-									0
 								]
-							}
+							
+							
 						]
-					]
+				
 				},
 				"layout": "noBorders",
 				"fontSize": 15
@@ -372,74 +430,104 @@
 			{
 				"table": {
 					"widths": [
-						"50%",
-						"10%",
-						"150%"
+						"30%",
+						"2%",
+						"68%"
 					],
 					"body": [
 						[
-							{
-								"stack": [
+							
 									
 									{
 										"text": "{{geo_location}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{addressLine1}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{_city}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{city}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{_ward}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{ward}}",
+										"fontSyze": 11
+									}
+								],
+								[
 									{
 										"text": "{{_locality}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
-									}
-								]
-							},
-							{
-								"stack": [
-									
-									{
-										"text": "{{addressLine1}}",
-										"fontSyze":11
+										"fontSyze": 11,
+										"margin": [
+											0,
+											0,
+											0,
+											7
+										]
 									},
 									{
-										"text": "{{city}}",
-										"fontSyze":11
-									},
-									{
-										"text": "{{ward}}",
-										"fontSyze":11
+										"text": ""
 									},
 									{
 										"text": "{{boundary}}",
 										"fontSyze":11
 									}
-								],
-								"margin": [
-									0,
-									0,
-									-200,
-									0
 								]
-							}
+							
 						]
-					]
+					
 				},
 				"layout": "noBorders",
 				"fontSize": 15
