@@ -2,7 +2,7 @@
 	"key": "project-detail",
 	"config": {
 		"defaultStyle": {
-			"font": "Roboto"
+			"font": "Cambay"
 		},
 		"content": [
 			{
@@ -27,23 +27,19 @@
 										"style": {
 											"bold": true,
 											"fontSize": 18
-										},
-										"font":"Roboto"
+										}
 									},
 									{
 										"text": "{{logo_header}}",
-										"fontSize": 10,
-										"font":"Roboto"
+										"fontSize": 10
 									},
 									{
 										"text": "{{address}},{{phoneNumber}}",
-										"fontSize": 10,
-										"font":"Roboto"
+										"fontSize": 10
 									},
 									{
 										"text": "{{website}},{{email}}",
-										"fontSize": 10,
-										"font":"Roboto"
+										"fontSize": 10
 									}
 								],
 								"alignment": "left",
