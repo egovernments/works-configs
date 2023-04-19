@@ -1,0 +1,41 @@
+serviceMaps:
+ serviceName: expense-calculator-service
+ mappings:
+ - version: 1.0
+   name: expense-calculator
+   description: Persists bill meta details in eg_works_calculation table
+   fromTopic: calculate-billmeta
+   isTransaction: true
+   queryMaps:
+    - query: INSERT INTO eg_works_calculation (id,tenant_id,service_code,contract_id,musterroll_id,bill_type,bill_id,bill_amount,is_active, additionaldetails,createdby,lastmodifiedby,createdtime,lastmodifiedtime) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+      basePath: $.billMeta.*
+      jsonMaps:
+       - jsonPath: $.billMeta.*.id
+
+       - jsonPath: $.billMeta.*.tenantId
+
+       - jsonPath: $.billMeta.*.serviceCode
+
+       - jsonPath: $.billMeta.*.contractId
+
+       - jsonPath: $.billMeta.*.musterrollId
+
+       - jsonPath: $.billMeta.*.billType
+
+       - jsonPath: $.billMeta.*.billId
+
+       - jsonPath: $.billMeta.*.billAmount
+
+       - jsonPath: $.billMeta.*.isActive
+
+       - jsonPath: $.billMeta.*.additionalDetails
+         type: JSON
+         dbType: JSONB
+
+       - jsonPath: $.billMeta.*.auditDetails.createdBy
+
+       - jsonPath: $.billMeta.*.auditDetails.lastModifiedBy
+
+       - jsonPath: $.billMeta.*.auditDetails.createdTime
+
+       - jsonPath: $.billMeta.*.auditDetails.lastModifiedTime
