@@ -9,7 +9,7 @@ ServiceMaps:
          type: general
          id: $.id,$.tenantId
          jsonPath: $.bill
-         isBulk: true
+         isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
            indexMapping: { "Data":{"id":"","tenantId":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
@@ -63,7 +63,7 @@ ServiceMaps:
          type: general
          id: $.id,$.tenantId
          jsonPath: $.bill
-         isBulk: true
+         isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
            indexMapping: { "Data":{"id":"","tenantId":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
@@ -117,7 +117,7 @@ ServiceMaps:
          type: general
          id: $.id,$.tenantId
          jsonPath: $.bill
-         isBulk: true
+         isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
            indexMapping: { "Data":{"id":"","tenantId":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
