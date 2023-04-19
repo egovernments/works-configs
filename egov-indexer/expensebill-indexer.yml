@@ -12,12 +12,14 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
            - inJsonPath: $.tenantId
              outJsonPath: $.Data.tenantId
+           - inJsonPath: $.billNumber
+             outJsonPath: $.Data.billNumber  
            - inJsonPath: $.billDate
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
@@ -66,12 +68,14 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
            - inJsonPath: $.tenantId
              outJsonPath: $.Data.tenantId
+           - inJsonPath: $.billNumber
+             outJsonPath: $.Data.billNumber 
            - inJsonPath: $.billDate
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
@@ -120,12 +124,14 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
            - inJsonPath: $.tenantId
              outJsonPath: $.Data.tenantId
+           - inJsonPath: $.billNumber
+             outJsonPath: $.Data.billNumber
            - inJsonPath: $.billDate
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
