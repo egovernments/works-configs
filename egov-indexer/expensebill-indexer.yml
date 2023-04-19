@@ -2,7 +2,7 @@ ServiceMaps:
   serviceName: expense-bill indexer
   version: 1.0.0
   mappings:
-   - topic: expense-billing-bill-create
+   - topic: expense-bill-create
      configKey: INDEX
      indexes:
        - name: expense-bill-index
@@ -56,7 +56,7 @@ ServiceMaps:
              - inJsonPath: $.workflow
                outJsonPath: $.Data.history
 
-   - topic: expense-billing-bill-update
+   - topic: expense-bill-update
      configKey: INDEX
      indexes:
        - name: expense-bill-index
