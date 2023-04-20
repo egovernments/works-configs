@@ -5,6 +5,7 @@ serviceMaps:
       name: bill create
       description: create bill in eg_expense_bill
       fromTopic: expense-bill-create
+      isTransaction: true
       queryMaps:
         - query: INSERT into eg_expense_bill (id, tenantid, billdate, duedate, netPayableAmount, netPaidAmount, businessservice, referenceId, fromperiod, toperiod, status, paymentStatus, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
           basePath: $.bill
@@ -207,6 +208,7 @@ serviceMaps:
       name: bill update
       description: update bill in eg_expense_bill
       fromTopic: expense-bill-update
+      isTransaction: true
       queryMaps:
         - query: UPDATE eg_expense_bill SET billdate=?, duedate=?, netpayableamount=?, netpaidamount=?, businessservice=?, referenceid=?, fromperiod=?, toperiod=?, status=?, paymentstatus=?, lastmodifiedby=?, lastmodifiedtime=?, additionaldetails=? WHERE id=? AND tenantid=?;
           basePath: $.bill
