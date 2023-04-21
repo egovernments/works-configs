@@ -6,6 +6,7 @@
 		},
 		"content": [
 			{
+				
 				"style": "noc-head",
 				"table": {
 					"widths": [
@@ -27,7 +28,8 @@
 										"style": {
 											"bold": true,
 											"fontSize": 18
-										}
+										},
+										"color": "#000000"
 									},
 									{
 										"text": "{{logo_header}}",
@@ -57,8 +59,7 @@
 										"style": {
 											"bold": true,
 											"fontSize": 16,
-											"color":"#5f5f5f",
-											"font":"Roboto"
+											"color": "#7d7d7d"
 										}
 									},
 									{
@@ -66,8 +67,7 @@
 										"style": {
 											"bold": true,
 											"fontSize": 12,
-											"color":"#5f5f5f",
-											"font":"Roboto"
+											"color": "#7d7d7d"
 										}
 									}
 								],
@@ -78,12 +78,13 @@
 									-10,
 									0
 								]
+								
 							}
 						]
 					]
 				},
 				"layout": "noBorders",
-				"color": "#000000"
+				"color": "#ababab"
 			},
 			{
 				"table": {
@@ -98,7 +99,7 @@
 										"text": "",
 										"margin": [
 											0,
-											40,
+											30,
 											0,
 											0
 										]
@@ -110,7 +111,7 @@
 										"text": "",
 										"margin": [
 											0,
-											40,
+											30,
 											0,
 											0
 										]
@@ -119,12 +120,6 @@
 								[
 									{
 										"text": "{{date_of_proposal}}",
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										],
 										"fontSyze":11,
 										"style": {
 											"bold": true
@@ -144,13 +139,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -166,12 +155,6 @@
 										"style": {
 											"bold": true
 										},
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										],
 										"fontSyze":11
 
 									},
@@ -271,13 +254,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -293,13 +270,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -315,13 +286,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -337,13 +302,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -439,13 +398,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -461,13 +414,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -483,13 +430,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
@@ -505,13 +446,7 @@
 										"style": {
 											"bold": true
 										},
-										"fontSyze": 11,
-										"margin": [
-											0,
-											0,
-											0,
-											7
-										]
+										"fontSyze": 11
 									},
 									{
 										"text": ""
