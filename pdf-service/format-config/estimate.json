@@ -278,10 +278,7 @@
 					{},
 					{},
           {
-            "text": "{{totalEstimatedAmount}}",
-            "alignment": "right",
-            "bold": true,
-            "fontSize": 12
+            "text": "{{#totalEstimatedAmount}}[{\"text\":\"{{amount}}\",\"alignment\":\"right\",\"bold\":\"true\",\"fontSize\":12}]{{/totalEstimatedAmount}}"
           }
 					]
             

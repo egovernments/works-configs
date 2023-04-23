@@ -15,6 +15,54 @@
             "direct":
             [
               {
+                "variable": "ia_condition",
+                "value": {
+                  "path": "WORK_ORDER_CONDITIONS_FOR_IMPLEMENTATION_AGENCY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "ip_condition",
+                "value": {
+                  "path": "WORK_ORDER_CONDITIONS_FOR_IMPLEMENTATION_PARTNER"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "non_condition",
+                "value": {
+                  "path": "WORK_ORDER_CONDITIONS_FOR_NON_COMPLETION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "general_condition",
+                "value": {
+                  "path": "WORK_ORDER_GENERAL_CONDITIONS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
                 "variable": "sir",
                 "value": {
                   "path": "WORK_ORDER_SIR"
@@ -140,6 +188,11 @@
                 "variable": "implementation_agency", 
                 "value": {
                   "path": "$.executingAuthority"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "COMMON_MASTERS",
+                  "module": "rainmaker-common-masters"
                 }
               },
               {
@@ -290,7 +343,7 @@
           {
             "externalAPI": [     
               { 
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://localhost:8083/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=pg&filter=%5B?(@.code=='{$.tenantId}')%5D",
                   "apiRequest": null,
                   "responseMapping":[
@@ -324,7 +377,94 @@
                         }
                     }
                   ]
-              }
+              },
+              {
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "queryParam": "moduleName=tenant&masterName=footer&tenantId=pg",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "variable11",
+                    "value": "$.MdmsRes.tenant.footer[0].termsAndConditions.*",
+                    "type": "array",
+                    "format": {
+                      "type": "string",
+                      "scema": [
+                        {
+                          "variable": "disclaimerContent",
+                          "value": "disclaimer",
+                          "type": "string",
+                          "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "variable": "variable12",
+                    "value": "$.MdmsRes.tenant.footer[1].termsAndConditions.*",
+                    "type": "array",
+                    "format": {
+                      "type": "string",
+                      "scema": [
+                        {
+                          "variable": "disclaimerContent",
+                          "value": "disclaimer",
+                          "type": "string",
+                          "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "variable": "variable13",
+                    "value": "$.MdmsRes.tenant.footer[2].termsAndConditions.*",
+                    "type": "array",
+                    "format": {
+                      "type": "string",
+                      "scema": [
+                        {
+                          "variable": "disclaimerContent",
+                          "value": "disclaimer",
+                          "type": "string",
+                          "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "variable": "variable14",
+                    "value": "$.MdmsRes.tenant.footer[3].termsAndConditions.*",
+                    "type": "array",
+                    "format": {
+                      "type": "string",
+                      "scema": [
+                        {
+                          "variable": "disclaimerContent",
+                          "value": "disclaimer",
+                          "type": "string",
+                          "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+            }
             ]
           }
         ]
