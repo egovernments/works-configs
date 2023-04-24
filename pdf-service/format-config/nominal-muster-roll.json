@@ -31,7 +31,7 @@
 					{
 						"stack": [
 							{
-								"text": "{{pdf_header}}",
+							"text": "{{pdf_header}} {{minucipality}}",
 							"fontSize": 18,
 							"color": "#000000",
 							"bold": true

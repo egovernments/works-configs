@@ -225,24 +225,22 @@
               {
                 "variable": "ulb_name",
                 "value": {
-                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
                 },
-                "type": "label",
                 "localisation": {
                   "required": true,
-                  "prefix": null,
+                  "prefix": "TENANT_TENANTS",
                   "module": "rainmaker-pg"
                 }
               },
               {
                 "variable": "ulb_name_and_address",
                 "value": {
-                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
                 },
-                "type": "label",
                 "localisation": {
                   "required": true,
-                  "prefix": null,
+                  "prefix": "TENANT_TENANTS",
                   "module": "rainmaker-pg"
                 }
               },
@@ -328,13 +326,24 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-pg"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-pg"
+                  "module": "rainmaker-common"
                 }
               }
             ]
@@ -379,7 +388,7 @@
                   ]
               },
               {
-                "path": "http://localhost:8083/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=footer&tenantId=pg",
                 "apiRequest": null,
                 "responseMapping": [
