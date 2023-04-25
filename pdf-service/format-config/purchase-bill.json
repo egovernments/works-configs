@@ -29,7 +29,7 @@
                             {
                                 "stack": [
                                     {
-                                        "text": " City A Municipality",
+                                        "text": "{{pdf_header}} {{subdivision}}",
                                         "fontSize": 18,
                                         "color": "#000000",
                                         "bold": true

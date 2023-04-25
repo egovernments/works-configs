@@ -704,6 +704,10 @@
                       "prefix": "TENANT_TENANTS",
                       "module": "rainmaker-pg"
                     }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade"
                   }
                 ]
               }

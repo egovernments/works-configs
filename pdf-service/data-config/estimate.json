@@ -281,6 +281,10 @@
                         "required":true,
                         "module":"rainmaker-common"
                         }
+                    },
+                    {
+                      "variable": "subdivision",
+                      "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade"
                     }
                   ]
               }
