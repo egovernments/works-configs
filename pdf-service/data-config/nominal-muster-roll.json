@@ -16,24 +16,13 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "$.tenantId"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-pg"
-                }
-              },
-              {
-                "variable": "minucipality",
-                "value": {
-                  "path": "MINUCIPALITY"
+                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-pg"
                 }
               },
               {
@@ -639,7 +628,7 @@
                   "path": "$.individualEntries"
                 },
                 "type": "function",
-                "format": " var y = [],\n    x = arguments[0];\n  for (var i = 0; i < x.length; i++) {\n    var _x$i$additionalDetail, _x$i$additionalDetail2;\n    function color(attendance) {\n      return attendance == 'F' ? '#095729' : attendance == 'H' ? '#F6B458' : '#ff0000';\n    }\n    ;\n    var half_attendance = 'H';\n    var full_attendance = 'F';\n    var absent = 'A';\n    var attendance_of_sun = x[i].attendanceEntries[0].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[6].attendance > 0 ? half_attendance : absent;\n    var attendance_of_sat = x[i].attendanceEntries[1].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[1].attendance > 0 ? half_attendance : absent;\n    var attendance_of_fri = x[i].attendanceEntries[2].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[2].attendance > 0 ? half_attendance : absent;\n    var attendance_of_thu = x[i].attendanceEntries[3].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[3].attendance > 0 ? half_attendance : absent;\n    var attendance_of_wed = x[i].attendanceEntries[4].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[4].attendance > 0 ? half_attendance : absent;\n    var attendance_of_tue = x[i].attendanceEntries[5].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[5].attendance > 0 ? half_attendance : absent;\n    var attendance_of_mon = x[i].attendanceEntries[6].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[6].attendance > 0 ? half_attendance : absent;\n    y.push({\n      'attendance_of_sun': attendance_of_sun,\n      'attendance_of_sat': attendance_of_sat,\n      'attendance_of_fri': attendance_of_fri,\n      'attendance_of_thu': attendance_of_thu,\n      'attendance_of_wed': attendance_of_wed,\n      'attendance_of_tue': attendance_of_tue,\n      'attendance_of_mon': attendance_of_mon,\n      'bank_account_details': x[i].additionalDetails.bankDetails,\n      'aadhar_number': (_x$i$additionalDetail = x[i].additionalDetails) === null || _x$i$additionalDetail === void 0 ? void 0 : (_x$i$additionalDetail2 = _x$i$additionalDetail.aadharNumber) === null || _x$i$additionalDetail2 === void 0 ? void 0 : _x$i$additionalDetail2.substr(8, 4),\n      'skill': x[i].additionalDetails.skillValue,\n      'background_color': i % 2 == 0 ? '' : '#eeeeee',\n      'sl_no': i + 1,\n      'name_of_the_individual': x[i].additionalDetails.userName,\n      'guardian_name': x[i].additionalDetails.fatherName,\n      'actualTotalAttendance': x[i].actualTotalAttendance,\n      'attendance': x[i].attendanceEntries[0].attendance,\n      'skillValue': x[i].additionalDetails.skillValue,\n      'sat_color_of_attendance': color(attendance_of_sat),\n      'mon_color_of_attendance': color(attendance_of_mon),\n      'tue_color_of_attendance': color(attendance_of_tue),\n      'wed_color_of_attendance': color(attendance_of_wed),\n      'thu_color_of_attendance': color(attendance_of_thu),\n      'fri_color_of_attendance': color(attendance_of_fri),\n      'sun_color_of_attendance': color(attendance_of_sun),\n      'registration_id': x[i].additionalDetails.userId,\n      'days_worked': x[i].actualTotalAttendance,\n      'per_day_wage': x[i].perDayWage,\n      'total_wage': x[i].totalWage\n    });\n  }\n  return y;"
+                "format": "var y=[], x=arguments[0]; for(var i=0;i<x.length;i++){function color(attendance){return (attendance == 'F' ? '#095729' : (attendance == 'H'?'#F6B458':'#ff0000'))};var half_attendance ='H'; var full_attendance ='F';var absent ='A';var attendance_of_sun = ((x[i].attendanceEntries[0].attendance)>0.5?full_attendance:((x[i].attendanceEntries[6].attendance)>0?half_attendance:absent));var attendance_of_sat = ((x[i].attendanceEntries[1].attendance)>0.5?full_attendance:((x[i].attendanceEntries[1].attendance)>0?half_attendance:absent));var attendance_of_fri = ((x[i].attendanceEntries[2].attendance)>0.5?full_attendance:((x[i].attendanceEntries[2].attendance)>0?half_attendance:absent));var attendance_of_thu = ((x[i].attendanceEntries[3].attendance)>0.5?full_attendance:((x[i].attendanceEntries[3].attendance)>0?half_attendance:absent));var attendance_of_wed = ((x[i].attendanceEntries[4].attendance)>0.5?full_attendance:((x[i].attendanceEntries[4].attendance)>0?half_attendance:absent));var attendance_of_tue = ((x[i].attendanceEntries[5].attendance)>0.5?full_attendance:((x[i].attendanceEntries[5].attendance)>0?half_attendance:absent));var attendance_of_mon = ((x[i].attendanceEntries[6].attendance)>0.5?full_attendance:((x[i].attendanceEntries[6].attendance)>0?half_attendance:absent));y.push({'attendance_of_sun':attendance_of_sun,'attendance_of_sat':attendance_of_sat,'attendance_of_fri':attendance_of_fri,'attendance_of_thu':attendance_of_thu,'attendance_of_wed':attendance_of_wed,'attendance_of_tue':attendance_of_tue,'attendance_of_mon':attendance_of_mon,'bank_account_details':x[i].additionalDetails.bankDetails,'aadhar_number':x[i].additionalDetails?.aadharNumber?.substr(8,4),'skill':x[i].additionalDetails.skillValue,'background_color':( (i%2) == 0 ? '' :'#eeeeee') ,'sl_no':i+1,'name_of_the_individual':x[i].additionalDetails.userName,'guardian_name':x[i].additionalDetails.fatherName,'actualTotalAttendance':x[i].actualTotalAttendance, 'attendance':x[i].attendanceEntries[0].attendance,'skillValue':x[i].additionalDetails.skillValue,'sat_color_of_attendance': color(attendance_of_sat),'mon_color_of_attendance': color(attendance_of_mon),'tue_color_of_attendance': color(attendance_of_tue),'wed_color_of_attendance': color(attendance_of_wed),'thu_color_of_attendance': color(attendance_of_thu),'fri_color_of_attendance': color(attendance_of_fri),'sun_color_of_attendance':color(attendance_of_sun),'registration_id':x[i].additionalDetails.userId, 'days_worked':x[i].actualTotalAttendance,'per_day_wage':x[i].perDayWage, 'total_wage':x[i].totalWage }); } return y; "
               },
               {
                 "variable": "total",
