@@ -7,35 +7,68 @@ serviceMaps:
    fromTopic: calculate-billmeta
    isTransaction: true
    queryMaps:
-    - query: INSERT INTO eg_works_calculation (id,tenant_id,service_code,contract_id,musterroll_id,bill_type,bill_id,bill_amount,is_active, additionaldetails,createdby,lastmodifiedby,createdtime,lastmodifiedtime) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
-      basePath: $.billMeta.*
+    - query: INSERT INTO eg_works_calculation (id, tenant_id, business_service, bill_id, bill_number, bill_reference, contract_id , contract_number, musterroll_id, musterroll_number, project_number, is_active, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime  ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+      basePath: $.BillMetaCalculation.*
       jsonMaps:
-       - jsonPath: $.billMeta.*.id
+       - jsonPath: $.BillMetaCalculation.*.id
 
-       - jsonPath: $.billMeta.*.tenantId
+       - jsonPath: $.BillMetaCalculation.*.tenantId
 
-       - jsonPath: $.billMeta.*.serviceCode
+       - jsonPath: $.BillMetaCalculation.*.businessService
 
-       - jsonPath: $.billMeta.*.contractId
+       - jsonPath: $.BillMetaCalculation.*.billId
 
-       - jsonPath: $.billMeta.*.musterrollId
+       - jsonPath: $.BillMetaCalculation.*.billNumber
 
-       - jsonPath: $.billMeta.*.billType
+       - jsonPath: $.BillMetaCalculation.*.billReference
 
-       - jsonPath: $.billMeta.*.billId
+       - jsonPath: $.BillMetaCalculation.*.contractId
 
-       - jsonPath: $.billMeta.*.billAmount
+       - jsonPath: $.BillMetaCalculation.*.contractNumber
 
-       - jsonPath: $.billMeta.*.isActive
+       - jsonPath: $.BillMetaCalculation.*.musterrollId
 
-       - jsonPath: $.billMeta.*.additionalDetails
+       - jsonPath: $.BillMetaCalculation.*.musterrollNumber
+
+       - jsonPath: $.BillMetaCalculation.*.projectNumber
+
+       - jsonPath: $.BillMetaCalculation.*.isActive
+
+       - jsonPath: $.BillMetaCalculation.*.additionalDetails
          type: JSON
          dbType: JSONB
 
-       - jsonPath: $.billMeta.*.auditDetails.createdBy
+       - jsonPath: $.BillMetaCalculation.*.auditDetails.createdBy
 
-       - jsonPath: $.billMeta.*.auditDetails.lastModifiedBy
+       - jsonPath: $.BillMetaCalculation.*.auditDetails.lastModifiedBy
 
-       - jsonPath: $.billMeta.*.auditDetails.createdTime
+       - jsonPath: $.BillMetaCalculation.*.auditDetails.createdTime
 
-       - jsonPath: $.billMeta.*.auditDetails.lastModifiedTime
+       - jsonPath: $.BillMetaCalculation.*.auditDetails.lastModifiedTime
+
+    - query: INSERT INTO eg_works_calc_details (id, tenant_id, calculation_id, payee_id, billingslab_code, is_active, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime  ) VALUES (?,?,?,?,?,?,?,?,?,?,?);
+      basePath: $.BillMetaCalculation.*.billMetaCalcDetails.*
+      jsonMaps:
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.id
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.tenantId
+
+        - jsonPath: $.BillMetaCalculation[*][?({id} in @.billMetaCalcDetails[*].id)].id
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.payeeId
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.billingSlabCode
+
+        - jsonPath: $.BillMetaCalculation.*.isActive
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.additionalDetails
+          type: JSON
+          dbType: JSONB
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.auditDetails.createdBy
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.auditDetails.lastModifiedBy
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.auditDetails.createdTime
+
+        - jsonPath: $.BillMetaCalculation.*.billMetaCalcDetails.*.auditDetails.lastModifiedTime
