@@ -7,7 +7,7 @@ serviceMaps:
    fromTopic: calculate-billmeta
    isTransaction: true
    queryMaps:
-    - query: INSERT INTO eg_works_calculation (id, tenant_id, business_service, bill_id, bill_number, bill_reference, contract_id , contract_number, musterroll_id, musterroll_number, project_number, is_active, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime  ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+    - query: INSERT INTO eg_works_calculation (id, tenant_id, business_service, bill_id, bill_number, bill_reference, contract_number, musterroll_number, project_number,org_id, is_active, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime  ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
       basePath: $.BillMetaCalculation.*
       jsonMaps:
        - jsonPath: $.BillMetaCalculation.*.id
@@ -22,15 +22,13 @@ serviceMaps:
 
        - jsonPath: $.BillMetaCalculation.*.billReference
 
-       - jsonPath: $.BillMetaCalculation.*.contractId
-
        - jsonPath: $.BillMetaCalculation.*.contractNumber
-
-       - jsonPath: $.BillMetaCalculation.*.musterrollId
 
        - jsonPath: $.BillMetaCalculation.*.musterrollNumber
 
        - jsonPath: $.BillMetaCalculation.*.projectNumber
+
+       - jsonPath: $.BillMetaCalculation.*.orgId
 
        - jsonPath: $.BillMetaCalculation.*.isActive
 
