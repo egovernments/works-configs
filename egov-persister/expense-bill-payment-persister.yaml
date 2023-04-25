@@ -7,7 +7,7 @@ serviceMaps:
       fromTopic: expense-bill-create
       isTransaction: true
       queryMaps:
-        - query: INSERT into eg_expense_bill (id, tenantid, billdate, duedate, netPayableAmount, netPaidAmount, businessservice, referenceId, fromperiod, toperiod, status, paymentStatus, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        - query: INSERT into eg_expense_bill (id, tenantid, billdate, duedate, billNumber, netPayableAmount, netPaidAmount, businessservice, referenceId, fromperiod, toperiod, status, paymentStatus, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
           basePath: $.bill
           jsonMaps:
 
@@ -18,6 +18,8 @@ serviceMaps:
             - jsonPath: $.bill.billDate
 
             - jsonPath: $.bill.dueDate
+            
+            - jsonPath: $.bill.billNumber
 
             - jsonPath: $.bill.netPayableAmount
 
@@ -301,11 +303,13 @@ serviceMaps:
               dbType: JSONB
 
         # update party from payee of bill details
-        - query: INSERT into eg_expense_party_payee (id, type, identifier, parentId, status, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET type=EXCLUDED.type, identifier=EXCLUDED.identifier, parentid=EXCLUDED.parentid, status=EXCLUDED.status, lastmodifiedby=EXCLUDED.lastmodifiedby, lastmodifiedtime=EXCLUDED.lastmodifiedtime, additionaldetails=EXCLUDED.additionaldetails;
+        - query: INSERT into eg_expense_party_payee (id, tenantId, type, identifier, parentId, status, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET type=EXCLUDED.type, identifier=EXCLUDED.identifier, parentid=EXCLUDED.parentid, status=EXCLUDED.status, lastmodifiedby=EXCLUDED.lastmodifiedby, lastmodifiedtime=EXCLUDED.lastmodifiedtime, additionaldetails=EXCLUDED.additionaldetails;
           basePath: $.bill.billDetails.*.payee
           jsonMaps:
 
             - jsonPath: $.bill.billDetails.*.payee.id
+
+            - jsonPath: $.bill.billDetails.*.payee.tenantId
 
             - jsonPath: $.bill.billDetails.*.payee.type
 

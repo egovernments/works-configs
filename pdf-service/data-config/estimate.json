@@ -196,13 +196,24 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-pg"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-pg"
+                  "module": "rainmaker-common"
                 }
               },
 
@@ -213,7 +224,7 @@
                   "path": "$.estimateDetails"
                 },
                 "type":"function",
-                "format":"var y=[],a=[],estimateDetails=arguments[0]; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category!='OVERHEAD'){var x={ Sno:i+1,uom:estimateDetails[i].uom,unitRate:estimateDetails[i].unitRate,noOfunit:estimateDetails[i].noOfunit,estimateDescription:estimateDetails[i].description,estimateName:estimateDetails[i].name,amount:estimateDetails[i].amountDetail[0].amount};y.push(x);}else{var b={chargeDescription:estimateDetails[i].description,charge:estimateDetails[i].amountDetail[0].amount}; a.push(b);}}return y;"
+                "format": "var y=[],a=[],estimateDetails=arguments[0];function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category!='OVERHEAD'){var x={ Sno:i+1,uom:estimateDetails[i].uom,unitRate:rupeeFormat(estimateDetails[i].unitRate),noOfunit:rupeeFormat(estimateDetails[i].noOfunit),estimateDescription:estimateDetails[i].description,estimateName:estimateDetails[i].name,amount:estimateDetails[i].amountDetail[0].amount};y.push(x);}else{var b={chargeDescription:estimateDetails[i].description,charge:rupeeFormat(estimateDetails[i].amountDetail[0].amount)}; a.push(b);}}return y;"
               },
               {
                 "variable": "charges", 
@@ -221,13 +232,15 @@
                   "path": "$.estimateDetails"
                 },
                 "type":"function",
-                "format":"var a=[],estimateDetails=arguments[0]; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category=='OVERHEAD'){var b={chargeDescription:estimateDetails[i].description,percent:estimateDetails[i].additionalDetails.row.percentage,charge:estimateDetails[i].amountDetail[0].amount}; a.push(b);}}return a;"
+                "format": "var a=[],estimateDetails=arguments[0];function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category=='OVERHEAD'){var b={chargeDescription:estimateDetails[i].description,percent:estimateDetails[i].additionalDetails.row.percentage,charge:rupeeFormat(estimateDetails[i].amountDetail[0].amount)}; a.push(b);}}return a;"
               },
               {
                 "variable": "totalEstimatedAmount", 
                 "value": {
                   "path": "$.additionalDetails.totalEstimatedAmount"
-                }
+                },
+                "type": "function",
+                "format": "var y=[];var flag=0;var count=0;var amount=arguments[0].toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
               }
               
               
