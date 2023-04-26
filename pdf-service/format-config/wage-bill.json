@@ -109,7 +109,7 @@
             {
                 "table": {
                     "widths": [
-                        "25%",
+                        "27%",
                         "68%"
                     ],
                     "body": [
@@ -221,30 +221,25 @@
                 }
             },
             {
+                "text": "Beneficiary Details",
+                "fontSize": 18,
+                "style": {
+                    "bold": true
+                },
+                "margin": [
+                    0,
+                    25,
+                    0,
+                    0
+                ]
+            },
+            {
                 "table": {
                     "widths": [
-                        "25%",
+                        "27%",
                         "68%"
                     ],
                     "body": [
-                        [
-                            {
-                                "text": "Beneficiary Details",
-                                "fontSize": 18,
-                                "style": {
-                                    "bold": true
-                                },
-                                "margin": [
-                                    0,
-                                    25,
-                                    0,
-                                    0
-                                ]
-                            },
-                            {
-                                "text": ""
-                            }
-                        ],
                         [
                             {
                                 "text": "Muster Roll ID",
@@ -317,7 +312,7 @@
                         [
                             {
                                 "style": "table-colums-header",
-                                "text": "{{to}}",
+                                "text": "{{total}}",
                                 "colSpan": 4
                             },
                             {
@@ -345,59 +340,50 @@
                 }
             },
             {
+                "margin": [
+                    0,
+                    20,
+                    0,
+                    0
+                ],
                 "table": {
                     "widths": [
-                        "25%",
-                        "68%"
+                        "20%",
+                        "20%"
                     ],
                     "body": [
                         [
                             {
-                                "text": "Beneficiary Details",
-                                "fontSize": 18,
+                                "text": "Payable Amount",
+                                "fontSize": 13,
                                 "style": {
                                     "bold": true
                                 },
-                                "margin": [
-                                    0,
-                                    25,
-                                    0,
-                                    0
+                            "border": [
+                                true,
+                                true,
+                                false,
+                                true
+                            ]
+                            },
+                            {
+                                "alignment": "right",
+                                "text": "22000.00",
+                                "fontSize": 13,
+                                "border": [
+                                    false,
+                                    true,
+                                    true,
+                                    true
                                 ]
-                            },
-                            {
-                                "text": ""
-                            }
-                        ],
-                        [
-                            {
-                                "text": "Muster Roll ID",
-                                "style": {
-                                    "bold": true
-                                },
-                                "fontSize": 12
-                            },
-                            {
-                                "text": "MR/2022-23/000021",
-                                "fontSyze": 12
-                            }
-                        ],
-                        [
-                            {
-                                "text": "Muster Roll Period",
-                                "style": {
-                                    "bold": true
-                                },
-                                "fontSize": 12
-                            },
-                            {
-                                "text": "01/03/2023 to 08/03/2023",
-                                "fontSyze": 12
                             }
                         ]
                     ]
                 },
-                "layout": "noBorders"
+                "layout": {
+                    "hLineColor": "#D6D5D4",
+                    "vLineColor": "#D6D5D4"
+                }
             }
         ],
         "styles": {

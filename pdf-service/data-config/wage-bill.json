@@ -14,6 +14,29 @@
                     {
                         "direct": [
                             {
+                                "variable": "pdf_header",
+                                "value": {
+                                    "path": "$.tenantId"
+                                },
+                                "localisation": {
+                                    "required": true,
+                                    "prefix": "TENANT_TENANTS",
+                                    "module": "rainmaker-pg"
+                                }
+                            },
+                            {
+                                "variable": "total",
+                                "value": {
+                                    "path": "COMMON_TOTAL"
+                                },
+                                "type": "label",
+                                "localisation": {
+                                    "required": true,
+                                    "prefix": null,
+                                    "module": "rainmaker-common"
+                                }
+                            },
+                            {
                                 "variable": "s_no",
                                 "value": {
                                     "path": "WORKS_SNO"

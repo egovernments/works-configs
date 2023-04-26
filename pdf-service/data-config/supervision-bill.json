@@ -9,6 +9,81 @@
         "isCommonTableBorderRequired": true,
         "mappings": [
             {
+                "direct": [
+                    {
+                        "variable": "pdf_header",
+                        "value": {
+                            "path": "$.tenantId"
+                        },
+                        "localisation": {
+                            "required": true,
+                            "prefix": "TENANT_TENANTS",
+                            "module": "rainmaker-pg"
+                        }
+                    },
+                    {
+                        "variable": "total",
+                        "value": {
+                            "path": "COMMON_TOTAL"
+                        },
+                        "type": "label",
+                        "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                        }
+                    },
+                    {
+                        "variable": "s_no",
+                        "value": {
+                            "path": "WORKS_SNO"
+                        },
+                        "type": "label",
+                        "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                        }
+                    },
+                    {
+                        "variable": "registration_id",
+                        "value": {
+                            "path": "EXP_REG_ID"
+                        },
+                        "type": "label",
+                        "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-expenditure"
+                        }
+                    },
+                    {
+                        "variable": "guardian_name",
+                        "value": {
+                            "path": "FATHER_NAME"
+                        },
+                        "type": "label",
+                        "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-common"
+                        }
+                    },
+                    {
+                        "variable": "total_wage",
+                        "value": {
+                            "path": "MUSTER_ROLLS_TOTAL_WAGE"
+                        },
+                        "type": "label",
+                        "localisation": {
+                            "required": true,
+                            "prefix": null,
+                            "module": "rainmaker-muster-rolls"
+                        }
+                    }
+                ]
+            },
+            {
                 "topic": "common-pdf-generation-3",
                 "mappings": [
                     {

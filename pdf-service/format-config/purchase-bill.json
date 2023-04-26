@@ -219,6 +219,252 @@
                 "layout": {
                     "hLineColor": "#D6D5D4"
                 }
+            },
+            {
+                "text": "Beneficiary Details",
+                "fontSize": 18,
+                "style": {
+                    "bold": true
+                },
+                "margin": [
+                    0,
+                    25,
+                    0,
+                    0
+                ]
+            },
+            {
+                "table": {
+                    "widths": [
+                        "27%",
+                        "68%"
+                    ],
+                    "body": [
+                        [
+                            {
+                                "text": "Invoice ID",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "112/A-01/2341/009",
+                                "fontSyze": 12
+                            }
+                        ],
+                        [
+                            {
+                                "text": "Invoice Date",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "01/03/2023",
+                                "fontSyze": 12
+                            }
+                        ],
+                        [
+                            {
+                                "text": "Invoice Date",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "01/03/2023",
+                                "fontSyze": 12
+                            }
+                        ],
+                        [
+                            {
+                                "text": "Vendor’s Name",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "M/s ACA Cement Supplier",
+                                "fontSyze": 12
+                            }
+                        ],
+                        [
+                            {
+                                "text": "Material Cost",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "25000.00",
+                                "fontSyze": 12
+                            }
+                        ],
+                        [
+                            {
+                                "text": "GST",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "2500.00",
+                                "fontSyze": 12
+                            }
+                        ],
+                        [
+                            {
+                                "text": "Total Cost",
+                                "style": {
+                                    "bold": true
+                                },
+                                "fontSize": 12
+                            },
+                            {
+                                "text": "27500.00",
+                                "fontSyze": 12
+                            }
+                        ]
+                    ]
+                },
+                "layout": "noBorders"
+            },
+            {
+                "margin": [
+                    0,
+                    25,
+                    0,
+                    0
+                ],
+                "table": {
+                    "headerRows": 1,
+                    "widths": [
+                        "5%",
+                        "20%",
+                        "20%",
+                        "20%",
+                        "20%"
+                    ],
+                    "body": [
+                        [
+                            {
+                                "style": "table-colums-header",
+                                "text": "{{s_no}}"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Diduction Name"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Percentage/ Fixed"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Amount(₹)"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Comments"
+                            }
+                        ],
+                        [
+                            {
+                                "bold": true,
+                                "fontSize": 9,
+                                "text": "Total Deductions",
+                                "colSpan": 4,
+                                "border": [
+                                    true,
+                                    true,
+                                    false,
+                                    true
+                                ],
+                                "margin": [
+                                    230,
+                                    0,
+                                    0,
+                                    0
+                                ]
+                            },
+                            {
+                                "text": ""
+                            },
+                            {
+                                "text": ""
+                            },
+                            {
+                                "text": ""
+                            },
+                            {
+                                "text": "1700.00",
+                                "fontSize": 9,
+                                "border": [
+                                    false,
+                                    true,
+                                    true,
+                                    true
+                                ]
+                            }
+                        ]
+                    ]
+                },
+                "layout": {
+                    "hLineColor": "#D6D5D4",
+                    "vLineColor": "#D6D5D4"
+                }
+            },
+            {
+                "margin": [
+                    0,
+                    20,
+                    0,
+                    0
+                ],
+                "table": {
+                    "widths": [
+                        "20%",
+                        "20%"
+                    ],
+                    "body": [
+                        [
+                            {
+                                "text": "Payable Amount",
+                                "fontSize": 13,
+                                "style": {
+                                    "bold": true
+                                },
+                                "border": [
+                                    true,
+                                    true,
+                                    false,
+                                    true
+                                ]
+                            },
+                            {
+                                "alignment": "right",
+                                "text": "22000.00",
+                                "fontSize": 13,
+                                "border": [
+                                    false,
+                                    true,
+                                    true,
+                                    true
+                                ]
+                            }
+                        ]
+                    ]
+                },
+                "layout": {
+                    "hLineColor": "#D6D5D4",
+                    "vLineColor": "#D6D5D4"
+                }
             }
         ],
         "styles": {
@@ -229,6 +475,11 @@
                     -40,
                     1
                 ]
+            },
+            "table-colums-header": {
+                "fillColor": "#eeeeee",
+                "bold": true,
+                "fontSize": 9
             }
         }
     }
