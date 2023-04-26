@@ -201,7 +201,7 @@
                 "localisation": {
                   "required": true,
                   "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-pg"
+                  "module": "rainmaker-statea"
                 }
               },
               {
