@@ -12,9 +12,61 @@
                 "topic": "common-pdf-generation-3",
                 "mappings": [
                     {
+                        "direct": [
+                            {
+                                "variable": "s_no",
+                                "value": {
+                                    "path": "WORKS_SNO"
+                                },
+                                "type": "label",
+                                "localisation": {
+                                    "required": true,
+                                    "prefix": null,
+                                    "module": "rainmaker-common"
+                                }
+                            },
+                            {
+                                "variable": "registration_id",
+                                "value": {
+                                    "path": "EXP_REG_ID"
+                                },
+                                "type": "label",
+                                "localisation": {
+                                    "required": true,
+                                    "prefix": null,
+                                    "module": "rainmaker-expenditure"
+                                }
+                            },
+                            {
+                                "variable": "guardian_name",
+                                "value": {
+                                    "path": "FATHER_NAME"
+                                },
+                                "type": "label",
+                                "localisation": {
+                                    "required": true,
+                                    "prefix": null,
+                                    "module": "rainmaker-common"
+                                }
+                            },
+                            {
+                                "variable": "total_wage",
+                                "value": {
+                                    "path": "MUSTER_ROLLS_TOTAL_WAGE"
+                                },
+                                "type": "label",
+                                "localisation": {
+                                    "required": true,
+                                    "prefix": null,
+                                    "module": "rainmaker-muster-rolls"
+                                }
+                            }
+                        ]
+                    },
+                    {
                         "externalAPI": [
                             {
-                                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                                "path": "http://localhost:8083/egov-mdms-service/v1/_get",
                                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=pg&filter=%5B?(@.code=='{$.tenantId}')%5D",
                                 "apiRequest": null,
                                 "responseMapping": [
@@ -63,7 +115,12 @@
                                     },
                                     {
                                         "variable": "subdivision",
-                                        "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade"
+                                        "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                                        "localisation": {
+                                            "required": true,
+                                            "prefix": "COMMON_SUBDIVISION",
+                                            "module": "rainmaker-common"
+                                        }
                                     }
                                 ]
                             }
