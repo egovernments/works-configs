@@ -14,6 +14,18 @@
           {
             "direct": [
               {
+                "variable": "_total",
+                "value": {
+                  "path": "COMMON_TOTAL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
                 "variable": "pdf_header",
                 "value": {
                   "path": "$.tenantId"
@@ -662,7 +674,7 @@
           {
             "externalAPI": [
               {
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://localhost:8083/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=pg&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping": [
