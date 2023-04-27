@@ -219,7 +219,98 @@
                 "layout": {
                     "hLineColor": "#D6D5D4"
                 }
+            },
+            {
+                "text": "Bills Included",
+                "fontSize": 18,
+                "style": {
+                    "bold": true
+                },
+                "margin": [
+                    0,
+                    25,
+                    0,
+                    0
+                ]
+            },
+            {
+                "margin": [
+                    0,
+                    25,
+                    0,
+                    0
+                ],
+                "table": {
+                    "headerRows": 1,
+                    "widths": [
+                        "20%",
+                        "15%",
+                        "15%",
+                        "15%",
+                        "15%",
+                        "15%"
+                    ],
+                    "body": [
+                        [
+                            {
+                                "style": "table-colums-header",
+                                "text": "Bill number"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Bill Type"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Bill Date"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Status"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Bill Amount"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "Payment Status"
+                            }
+                        ],
+                        [
+                            {
+                                "style": "table-colums-header",
+                                "text": "{{total}}",
+                                "colSpan": 4
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": ""
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": ""
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": ""
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "{{s_no}}"
+                            },
+                            {
+                                "style": "table-colums-header",
+                                "text": "{{s_no}}"
+                            }
+                        ]
+                    ]
+                },
+                "layout": {
+                    "hLineColor": "#D6D5D4"
+                }
             }
+
         ],
         "styles": {
             "noc-head": {
@@ -229,6 +320,18 @@
                     -40,
                     1
                 ]
+            },
+            "table-colums-header": {
+                "border": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "fillColor": "#fafafa",
+                "bold": true,
+                "fontSize": 9
             }
         }
     }

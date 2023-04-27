@@ -61,18 +61,6 @@
                 }
               },
               {
-                "variable": "work_order_number",
-                "value": {
-                  "path": "WORKS_ORDER_NO"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
                 "variable": "project_id",
                 "value": {
                   "path": "WORKS_PROJECT_ID"
@@ -688,6 +676,7 @@
                   },
                   {
                     "variable": "website",
+                    
                     "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
                   },
                   {
