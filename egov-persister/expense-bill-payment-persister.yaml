@@ -21,9 +21,9 @@ serviceMaps:
             
             - jsonPath: $.bill.billNumber
 
-            - jsonPath: $.bill.netPayableAmount
+            - jsonPath: $.bill.totalAmount
 
-            - jsonPath: $.bill.netPaidAmount
+            - jsonPath: $.bill.totalPaidAmount
 
             - jsonPath: $.bill.businessService
 
@@ -220,9 +220,9 @@ serviceMaps:
 
             - jsonPath: $.bill.dueDate
 
-            - jsonPath: $.bill.netPayableAmount
+            - jsonPath: $.bill.totalAmount
 
-            - jsonPath: $.bill.netPaidAmount
+            - jsonPath: $.bill.totalPaidAmount
 
             - jsonPath: $.bill.businessService
 
