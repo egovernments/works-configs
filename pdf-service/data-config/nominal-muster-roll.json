@@ -14,6 +14,18 @@
           {
             "direct": [
               {
+                "variable": "_total",
+                "value": {
+                  "path": "COMMON_TOTAL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
                 "variable": "pdf_header",
                 "value": {
                   "path": "$.tenantId"
@@ -28,18 +40,6 @@
                 "variable": "minucipality",
                 "value": {
                   "path": "MINUCIPALITY"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "work_order_number",
-                "value": {
-                  "path": "WORKS_ORDER_NO"
                 },
                 "type": "label",
                 "localisation": {
@@ -676,6 +676,7 @@
                   },
                   {
                     "variable": "website",
+                    
                     "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
                   },
                   {
@@ -703,6 +704,15 @@
                       "required": true,
                       "prefix": "TENANT_TENANTS",
                       "module": "rainmaker-pg"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
                     }
                   }
                 ]
