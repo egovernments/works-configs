@@ -6,7 +6,7 @@ serviceMaps:
    description: create bill in eg_expense_bill
    fromTopic: expense-bill-create
    queryMaps: 
-    - query: INSERT into eg_expense_bill (id, tenantid, billdate, duedate, billnumber, totalamount, totalPaidAmount, businessservice, referenceId, fromperiod, toperiod, status, paymentStatus, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    - query: INSERT into eg_expense_bill (id, tenantid, billdate, duedate, billnumber, totalamount, totalPaidAmount, businessservice, referenceId, fromperiod, toperiod, status, paymentStatus, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
       basePath: $.bill
       jsonMaps:
        
