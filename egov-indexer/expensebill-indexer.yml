@@ -12,7 +12,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -24,10 +24,10 @@ ServiceMaps:
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
              outJsonPath: $.Data.dueDate
-           - inJsonPath: $.netPayableAmount
-             outJsonPath: $.Data.netPayableAmount
-           - inJsonPath: $.netPaidAmount
-             outJsonPath: $.Data.netPaidAmount
+           - inJsonPath: $.totalAmount
+             outJsonPath: $.Data.totalAmount
+           - inJsonPath: $.totalPaidAmount
+             outJsonPath: $.Data.totalPaidAmount
            - inJsonPath: $.businessservice
              outJsonPath: $.Data.businessservice
            - inJsonPath: $.referenceId
@@ -68,7 +68,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -80,10 +80,10 @@ ServiceMaps:
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
              outJsonPath: $.Data.dueDate
-           - inJsonPath: $.netPayableAmount
-             outJsonPath: $.Data.netPayableAmount
-           - inJsonPath: $.netPaidAmount
-             outJsonPath: $.Data.netPaidAmount
+           - inJsonPath: $.totalAmount
+             outJsonPath: $.Data.totalAmount
+           - inJsonPath: $.totalPaidAmount
+             outJsonPath: $.Data.totalPaidAmount
            - inJsonPath: $.businessservice
              outJsonPath: $.Data.businessservice
            - inJsonPath: $.referenceId
@@ -124,7 +124,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","netPayableAmount":"","netPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessservice":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -136,10 +136,10 @@ ServiceMaps:
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
              outJsonPath: $.Data.dueDate
-           - inJsonPath: $.netPayableAmount
-             outJsonPath: $.Data.netPayableAmount
-           - inJsonPath: $.netPaidAmount
-             outJsonPath: $.Data.netPaidAmount
+           - inJsonPath: $.totalAmount
+             outJsonPath: $.Data.totalAmount
+           - inJsonPath: $.totalPaidAmount
+             outJsonPath: $.Data.totalPaidAmount
            - inJsonPath: $.businessservice
              outJsonPath: $.Data.businessservice
            - inJsonPath: $.referenceId
