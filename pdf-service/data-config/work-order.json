@@ -169,12 +169,7 @@
               {
                 "variable": "designation", 
                 "value": {
-                  "path": "$.additionalDetails.officerInChargeName.data.assignments[0].designation"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "COMMON_MASTERS_DESIGNATION",
-                  "module": "rainmaker-common"
+                  "path": "$.additionalDetails.officerInChargeDesgn"
                 }
                 
               },
