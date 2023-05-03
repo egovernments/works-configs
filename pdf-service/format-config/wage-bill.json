@@ -106,6 +106,21 @@
                 "layout": "noBorders",
                 "fillColor": "#f4f4f4"
             },
+            [
+                {
+                    "text": "{{project_details}}",
+                    "fontSize": 18,
+                    "style": {
+                        "bold": true
+                    },
+                    "margin": [
+                        0,
+                        25,
+                        0,
+                        0
+                    ]
+                }
+            ],
             {
                 "table": {
                     "widths": [
@@ -115,25 +130,7 @@
                     "body": [
                         [
                             {
-                                "text": "Project Details",
-                                "fontSize": 18,
-                                "style": {
-                                    "bold": true
-                                },
-                                "margin": [
-                                    0,
-                                    25,
-                                    0,
-                                    0
-                                ]
-                            },
-                            {
-                                "text": ""
-                            }
-                        ],
-                        [
-                            {
-                                "text": "Project ID",
+                                "text": "{{project_id}}",
                                 "style": {
                                     "bold": true
                                 },
@@ -146,7 +143,7 @@
                         ],
                         [
                             {
-                                "text": "Project Sanction Date",
+                                "text": "{{project_sanction_date}}",
                                 "style": {
                                     "bold": true
                                 },
@@ -159,7 +156,7 @@
                         ],
                         [
                             {
-                                "text": "Project Name",
+                                "text": "{{project_name}}",
                                 "style": {
                                     "bold": true
                                 },
@@ -172,7 +169,7 @@
                         ],
                         [
                             {
-                                "text": "Project Description",
+                                "text": "{{project_description}}",
                                 "style": {
                                     "bold": true
                                 },
@@ -221,6 +218,20 @@
                 }
             },
             {
+                    "text": "{{beneficiary_details}}",
+                    "fontSize": 18,
+                    "style": {
+                        "bold": true
+                    },
+                    "margin": [
+                        0,
+                        25,
+                        0,
+                        0
+                    ]
+               
+            },
+            {
                 "table": {
                     "widths": [
                         "25%",
@@ -229,25 +240,7 @@
                     "body": [
                         [
                             {
-                                "text": "Beneficiary Details",
-                                "fontSize": 18,
-                                "style": {
-                                    "bold": true
-                                },
-                                "margin": [
-                                    0,
-                                    25,
-                                    0,
-                                    0
-                                ]
-                            },
-                            {
-                                "text": ""
-                            }
-                        ],
-                        [
-                            {
-                                "text": "Muster Roll ID",
+                                "text": "{{muster_roll_id}}",
                                 "style": {
                                     "bold": true
                                 },
@@ -260,7 +253,7 @@
                         ],
                         [
                             {
-                                "text": "Muster Roll Period",
+                                "text": "{{muster_roll_period}}",
                                 "style": {
                                     "bold": true
                                 },
@@ -285,11 +278,11 @@
                 "table": {
                     "headerRows": 1,
                     "widths": [
-                        "5%",
+                        "7%",
                         "20%",
                         "20%",
-                        "20%",
-                        "20%"
+                        "30%",
+                        "15%"
                     ],
                     "body": [
                         [
@@ -303,7 +296,7 @@
                             },
                             {
                                 "style": "table-colums-header",
-                                "text": "{{guardian_name}}"
+                                "text": "{{name}}"
                             },
                             {
                                 "style": "table-colums-header",
@@ -314,10 +307,11 @@
                                 "text": "{{total_wage}}"
                             }
                         ],
+                        "{{#len}}[{\"text\":\"{{s_no}}\",\"alignment\":\"center\"},{\"text\":\"{{registration_id}}\",\"alignment\":\"center\"},{\"text\":\"{{name}}\",\"alignment\":\"right\"},{\"text\":\"{{guardian_name}}\",\"alignment\":\"right\"},{\"text\":\"{{total_wage}}\",\"alignment\":\"right\"}]{{/len}}",
                         [
                             {
                                 "style": "table-colums-header",
-                                "text": "{{to}}",
+                                "text": "{{_total}}",
                                 "colSpan": 4
                             },
                             {
@@ -334,7 +328,7 @@
                             },
                             {
                                 "style": "table-colums-header",
-                                "text": "{{s_no}}"
+                                "text": "{{#total}}[{\"text\":\"{{total}}\",\"alignment\":\"center\"}]{{/total}}"
                             }
                         ]
                     ]
@@ -345,59 +339,60 @@
                 }
             },
             {
+                "margin": [
+                    0,
+                    25,
+                    0,
+                    0
+                ],
                 "table": {
                     "widths": [
-                        "25%",
-                        "68%"
+                        "30%",
+                        "30%"
                     ],
                     "body": [
                         [
                             {
-                                "text": "Beneficiary Details",
-                                "fontSize": 18,
-                                "style": {
-                                    "bold": true
-                                },
+                                "text": "{{payable_amount}}",
+                                "border": [
+                                    true,
+                                    true,
+                                    false,
+                                    true
+                                ],
+                                "bold": true,
+                                "fontSize": 16,
                                 "margin": [
-                                    0,
-                                    25,
-                                    0,
-                                    0
+                                    2,
+                                    2,
+                                    2,
+                                    2
+                                ],
+                                "alignment": "center"
+                            },
+                            {
+                                "text": "{{#total}}[{\"text\":\"{{total}}\",\"alignment\":\"center\",\"fontSize\":16}]{{/total}}",
+                                "border": [
+                                    false,
+                                    true,
+                                    true,
+                                    true
+                                ],
+                                "fontSize": 16,
+                                "margin": [
+                                    4,
+                                    2,
+                                    2,
+                                    2
                                 ]
-                            },
-                            {
-                                "text": ""
-                            }
-                        ],
-                        [
-                            {
-                                "text": "Muster Roll ID",
-                                "style": {
-                                    "bold": true
-                                },
-                                "fontSize": 12
-                            },
-                            {
-                                "text": "MR/2022-23/000021",
-                                "fontSyze": 12
-                            }
-                        ],
-                        [
-                            {
-                                "text": "Muster Roll Period",
-                                "style": {
-                                    "bold": true
-                                },
-                                "fontSize": 12
-                            },
-                            {
-                                "text": "01/03/2023 to 08/03/2023",
-                                "fontSyze": 12
                             }
                         ]
                     ]
                 },
-                "layout": "noBorders"
+                "layout": {
+                    "hLineColor": "#D6D5D4",
+                    "vLineColor": "#D6D5D4"
+                }
             }
         ],
         "styles": {
@@ -412,7 +407,7 @@
             "table-colums-header": {
                 "fillColor": "#eeeeee",
                 "bold": true,
-                "fontSize": 9
+                "fontSize": 12
             }
         }
     }
