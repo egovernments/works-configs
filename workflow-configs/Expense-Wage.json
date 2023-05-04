@@ -1,0 +1,40 @@
+"BusinessServices": [
+    {
+      "tenantId": "pg",
+      "businessService": "works.wages",
+      "business": "expense-service",
+      "businessServiceSla": 604800000,
+      "states": [
+        {
+          "sla": null,
+          "state": null,
+          "applicationStatus": null,
+          "docUploadRequired": false,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "SUBMIT",
+              "nextState": "APPROVED",
+              "roles": [
+                "BILL_CREATOR"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": 604800000,
+          "state": "APPROVED",
+          "applicationStatus": "APPROVED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+
+          ]
+        }
+      ]
+    }
+  ]

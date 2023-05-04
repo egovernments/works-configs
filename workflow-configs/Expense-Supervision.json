@@ -1,0 +1,40 @@
+"BusinessServices": [
+    {
+      "tenantId": "pg",
+      "businessService": "EXPENSE.SUPERVISION",
+      "business": "expense",
+      "businessServiceSla": 604800000,
+      "states": [
+        {
+          "sla": null,
+          "state": null,
+          "applicationStatus": null,
+          "docUploadRequired": false,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "SUBMIT",
+              "nextState": "APPROVED",
+              "roles": [
+                "BILL_CREATOR"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": 604800000,
+          "state": "APPROVED",
+          "applicationStatus": "ACTIVE",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+
+          ]
+        }
+      ]
+    }
+  ]

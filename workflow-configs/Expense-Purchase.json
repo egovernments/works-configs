@@ -1,0 +1,134 @@
+"BusinessServices": [
+    {
+      "tenantId": "pg",
+      "businessService": "works.purchase",
+      "business": "expense-service",
+      "businessServiceSla": 604800000,
+      "states": [
+        {
+          "sla": null,
+          "state": null,
+          "applicationStatus": null,
+          "docUploadRequired": false,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "SUBMIT",
+              "nextState": "PENDING_FOR_VERIFICATION",
+              "roles": [
+                "BILL_CREATOR"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": 172800000,
+          "state": "PENDING_FOR_VERIFICATION",
+          "applicationStatus": "SUBMITTED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "VERIFY_AND_FORWARD",
+              "nextState": "PENDING_FOR_APPROVAL",
+              "roles": [
+                "BILL_VERIFIER"
+              ]
+            },
+            {
+              "action": "SEND_BACK",
+              "nextState": "PENDING_FOR_CORRECTION",
+              "roles": [
+                "BILL_VERIFIER"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": 86400000,
+          "state": "PENDING_FOR_APPROVAL",
+          "applicationStatus": "VERIFIED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "APPROVE",
+              "nextState": "APPROVED",
+              "roles": [
+                "BILL_APPROVER"
+              ]
+            },
+            {
+              "action": "SEND_BACK",
+              "nextState": "PENDING_FOR_VERIFICATION",
+              "roles": [
+                "BILL_APPROVER"
+              ]
+            },
+            {
+              "action": "REJECT",
+              "nextState": "REJECTED",
+              "roles": [
+                "BILL_APPROVER"
+              ]
+            },
+            {
+              "action": "SEND_BACK_TO_ORIGINATOR",
+              "nextState": "PENDING_FOR_CORRECTION",
+              "roles": [
+                "BILL_APPROVER"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": 604800000,
+          "state": "APPROVED",
+          "applicationStatus": "APPROVED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+
+          ]
+        },
+        {
+          "sla": 86400000,
+          "state": "PENDING_FOR_CORRECTION",
+          "applicationStatus": "SENT_BACK",
+          "docUploadRequired": false,
+          "isStartState": true,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "RE-SUBMIT",
+              "nextState": "PENDING_FOR_VERIFICATION",
+              "roles": [
+                "BILL_CREATOR"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": null,
+          "state": "REJECTED",
+          "applicationStatus": "REJECTED",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": true,
+          "isStateUpdatable": false,
+          "actions": [
+
+          ]
+        }
+      ]
+    }
+  ]
