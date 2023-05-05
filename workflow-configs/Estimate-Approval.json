@@ -1,7 +1,7 @@
 {
     "BusinessServices": [
     {
-      "tenantId": "pg.citya",
+      "tenantId": "statea",
       "businessService": "ESTIMATE",
       "business": "estimate-service",
       "businessServiceSla": 432000000,
