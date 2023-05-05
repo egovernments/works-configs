@@ -169,12 +169,7 @@
               {
                 "variable": "designation", 
                 "value": {
-                  "path": "$.additionalDetails.officerInChargeName.data.assignments[0].designation"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "COMMON_MASTERS_DESIGNATION",
-                  "module": "rainmaker-common"
+                  "path": "$.additionalDetails.officerInChargeDesgn"
                 }
                 
               },
@@ -196,9 +191,17 @@
                 }
               },
               {
-                "variable": "due_date", 
+                "variable": "due_date",
                 "value": {
-                  "path": "$.endDate"
+                  "path": "$"
+                },
+                "type": "function",
+                "format": "var a=[]; start_date=arguments[0].startDate; completion_period=arguments[0].completionPeriod; function approveDate(date,period){var result = date.setDate(date.getDate() + period);return new Date(result).toLocaleDateString();}{if(start_date==null || start_date==0){a.push({'dueDate':approveDate(new Date(),completion_period)});} else{a.push({'dueDate':approveDate(new Date(parseInt(start_date)),completion_period)});}} return a;"
+              },
+              {
+                "variable": "completion_period",
+                "value": {
+                  "path": "$.completionPeriod"
                 }
               },
               {
@@ -219,7 +222,9 @@
                 "variable": "approval_date", 
                 "value": {
                   "path": "$.startDate"
-                }
+                },
+                "type": "function",
+                "format": "var a=[]; date=arguments[0].toString();{if(date==null || date){a.push({'approvalDate':new Date().toLocaleDateString()});}} return a;"
               },
               
               {
