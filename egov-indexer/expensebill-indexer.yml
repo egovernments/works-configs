@@ -12,7 +12,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -66,7 +66,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -120,7 +120,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":[],"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
