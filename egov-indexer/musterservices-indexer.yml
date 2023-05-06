@@ -12,7 +12,7 @@ ServiceMaps:
          timeStampField: $.auditDetails.createdTime
          isBulk: false
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","musterRollNumber":"","registerId":"","status":"","musterRollStatus":"","startDate":"","endDate":"","individualEntries":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","musterRollNumber":"","registerId":"","status":"","musterRollStatus":"","startDate":"","endDate":"","individualEntries":[],"referenceId":"","serviceCode":"","@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -32,6 +32,10 @@ ServiceMaps:
              outJsonPath: $.Data.endDate
            - inJsonPath: $.individualEntries
              outJsonPath: $.Data.individualEntries
+           - inJsonPath: $.referenceId
+             outJsonPath: $.Data.referenceId
+           - inJsonPath: $.serviceCode
+             outJsonPath: $.Data.serviceCode
            - inJsonPath: $.auditDetails
              outJsonPath: $.Data.auditDetails
            - inJsonPath: $.additionalDetails
@@ -76,6 +80,10 @@ ServiceMaps:
              outJsonPath: $.Data.endDate
            - inJsonPath: $.individualEntries
              outJsonPath: $.Data.individualEntries
+           - inJsonPath: $.referenceId
+             outJsonPath: $.Data.referenceId
+           - inJsonPath: $.serviceCode
+             outJsonPath: $.Data.serviceCode
            - inJsonPath: $.auditDetails
              outJsonPath: $.Data.auditDetails
            - inJsonPath: $.additionalDetails
@@ -120,6 +128,10 @@ ServiceMaps:
              outJsonPath: $.Data.endDate
            - inJsonPath: $.individualEntries
              outJsonPath: $.Data.individualEntries
+           - inJsonPath: $.referenceId
+             outJsonPath: $.Data.referenceId
+           - inJsonPath: $.serviceCode
+             outJsonPath: $.Data.serviceCode
            - inJsonPath: $.auditDetails
              outJsonPath: $.Data.auditDetails
            - inJsonPath: $.additionalDetails
