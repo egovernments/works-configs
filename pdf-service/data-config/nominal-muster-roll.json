@@ -1,10 +1,10 @@
 {
-  "key": "project-detail",
-  "documentType": "PROJECT-DETAILS",
+  "key": "nominal-muster-roll",
+  "documentType": "NOMINAL-MUSTER-ROLL",
   "DataConfigs": {
-    "moduleName": "rainmaker-project",
+    "moduleName": "rainmaker-common",
     "version": "1.0.0",
-    "baseKeyPath": "$.Projects.*",
+    "baseKeyPath": "$.musterRolls.*",
     "entityIdPath": "$.id",
     "isCommonTableBorderRequired": true,
     "mappings": [
@@ -13,6 +13,18 @@
         "mappings": [
           {
             "direct": [
+              {
+                "variable": "_total",
+                "value": {
+                  "path": "COMMON_TOTAL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
               {
                 "variable": "pdf_header",
                 "value": {
@@ -37,27 +49,21 @@
                 }
               },
               {
-                "variable": "projectNumber",
+                "variable": "work_order_number",
                 "value": {
-                  "path": "$.projectNumber"
-                }
-              },
-              {
-                "variable": "date_of_proposal",
-                "value": {
-                  "path": "WORKS_DATE_PROPOSAL"
+                  "path": "WORKS_ORDER_NO"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-common"
                 }
               },
               {
-                "variable": "project_name",
+                "variable": "project_id",
                 "value": {
-                  "path": "ES_COMMON_PROJECT_NAME"
+                  "path": "WORKS_PROJECT_ID"
                 },
                 "type": "label",
                 "localisation": {
@@ -69,31 +75,7 @@
               {
                 "variable": "project_description",
                 "value": {
-                  "path": "PROJECT_PROJECT_DESC"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
-                }
-              },
-              {
-                "variable": "project_details",
-                "value": {
-                  "path": "WORKS_PROJECT_DETAILS"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
-                }
-              },
-              {
-                "variable": "work_details",
-                "value": {
-                  "path": "WORKS_WORK_DETAILS"
+                  "path": "PROJECTS_DESCRIPTION"
                 },
                 "type": "label",
                 "localisation": {
@@ -103,57 +85,9 @@
                 }
               },
               {
-                "variable": "letter_reference_or_requirement_number",
+                "variable": "name_of_cbo",
                 "value": {
-                  "path": "PROJECT_LOR"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
-                }
-              },
-              {
-                "variable": "project_type",
-                "value": {
-                  "path": "WORKS_PROJECT_TYPE"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
-                }
-              },
-              {
-                "variable": "target_demography",
-                "value": {
-                  "path": "PROJECT_TARGET_DEMOGRAPHY"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
-                }
-              },
-              {
-                "variable": "estimated_cost",
-                "value": {
-                  "path": "PROJECT_ESTIMATED_COST"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
-                }
-              },
-              {
-                "variable": "location_details",
-                "value": {
-                  "path": "WORKS_LOCATION_DETAILS"
+                  "path": "COMMON_NAME_OF_CBO"
                 },
                 "type": "label",
                 "localisation": {
@@ -163,9 +97,9 @@
                 }
               },
               {
-                "variable": "geo_location",
+                "variable": "role_of_cbo",
                 "value": {
-                  "path": "PROJECT_GEO_LOCATION"
+                  "path": "COMMON_ROLE_OF_CBO"
                 },
                 "type": "label",
                 "localisation": {
@@ -175,65 +109,264 @@
                 }
               },
               {
-                "variable": "_city",
+                "variable": "number_of_wage_seekers",
                 "value": {
-                  "path": "CORE_COMMON_CITY"
+                  "path": "MUSTER_ROLLS_NO_OF_WAGE_SEEKERS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-muster-rolls"
                 }
               },
               {
-                "variable": "_ward",
+                "variable": "days_worked",
                 "value": {
-                  "path": "WORKS_WARD"
+                  "path": "MUSTER_ROLLS_DAYS_WORKED"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-muster-rolls"
                 }
               },
               {
-                "variable": "_locality",
+                "variable": "sun_day",
                 "value": {
-                  "path": "WORKS_LOCALITY"
+                  "path": "$.individualEntries[0].attendanceEntries[0].time"
                 },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
               },
-              
               {
-                "variable": "dateOfProposal",
+                "variable": "start_date",
                 "value": {
-                  "path": "$.additionalDetails.dateOfProposal"
+                  "path": "$.startDate"
                 },
                 "type": "date"
               },
               {
-                "variable": "name",
+                "variable": "individualEntriesLength",
                 "value": {
-                  "path": "$.name"
+                  "path": "$.individualEntries"
                 }
               },
               {
-                "variable": "description",
+                "variable": "end_date",
                 "value": {
-                  "path": "$.description"
+                  "path": "$.endDate"
+                },
+                "type": "date"
+              },
+              {
+                "variable": "sat_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[1].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "fri_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[2].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "thu_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[3].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "wed_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[4].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "tue_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[5].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "mon_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[6].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "projectDesc",
+                "value": {
+                  "path": "$.projectDesc"
                 }
               },
               {
-                "variable": "referenceID",
+                "variable": "cboName",
                 "value": {
-                  "path": "$.referenceID"
+                  "path": "$.cboName"
+                }
+              },
+              {
+                "variable": "rollOfCbo",
+                "value": {
+                  "path": "$.rollOfCbo"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "COMMON_MASTERS",
+                  "module": "rainmaker-common-masters"
+                }
+              },
+              {
+                "variable": "days_measured",
+                "value": {
+                  "path": "MUSTER_ROLLS_DAYS_MEASURED"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "period",
+                "value": {
+                  "path": "MUSTER_ROLL_PERIOD"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "per_day_wage",
+                "value": {
+                  "path": "MUSTER_ROLLS_PER_DAY_WAGE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "total_wage",
+                "value": {
+                  "path": "MUSTER_ROLLS_TOTAL_WAGE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "_signature",
+                "value": {
+                  "path": "MUSTER_ROLLS_SIGNATURE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "total_attendance",
+                "value": {
+                  "path": "MUSTER_ROLLS_TOTAL_ATTENDANCE_IN_DAYS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "musterRollStatus",
+                "value": {
+                  "path": "$.musterRollStatus"
+                }
+              },
+              {
+                "variable": "projectNumber",
+                "value": {
+                  "path": "$.musterRollNumber"
+                }
+              },
+              {
+                "variable": "projectNumber",
+                "value": {
+                  "path": "$.musterRollNumber"
+                }
+              },
+              {
+                "variable": "nominal_muster_roll",
+                "value": {
+                  "path": "MUSTER_ROLLS_NOMINAL_MUSTER_ROLL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "quantity_of_work",
+                "value": {
+                  "path": "MUSTER_ROLLS_QUANTITY_OF_WORK_IN_DAYS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "wage_amount",
+                "value": {
+                  "path": "MUSTER_ROLLS_WAGE_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "_total",
+                "value": {
+                  "path": "RT_TOTAL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -241,6 +374,7 @@
                 "value": {
                   "path": "$.projectType"
                 },
+                "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": "COMMON_MASTERS",
@@ -248,63 +382,280 @@
                 }
               },
               {
-                "variable": "targetDemography",
+                "variable": "s_no",
                 "value": {
-                  "path": "$.additionalDetails.targetDemography"
+                  "path": "WORKS_SNO"
                 },
+                "type": "label",
                 "localisation": {
                   "required": true,
-                  "prefix": "COMMON_MASTERS",
-                  "module": "rainmaker-common-masters"
+                  "prefix": null,
+                  "module": "rainmaker-common"
                 }
               },
               {
-                "variable": "estimatedCostInRs",
+                "variable": "registration_id",
                 "value": {
-                  "path": "$.additionalDetails.estimatedCostInRs"
+                  "path": "EXP_REG_ID"
                 },
-                "type":"function",
-                "format":"var y=[];var flag=0;var count=0;var amount=arguments[0]; var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
-
-              },
-              {
-                "variable": "addressLine1",
-                "value": {
-                  "path": "$.address.addressLine1"
-                }
-              },
-              {
-                "variable": "city",
-                "value": {
-                  "path": "$.address.city"
-                },
+                "type": "label",
                 "localisation": {
                   "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-statea"
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "ward",
+                "variable": "number_of_the_individual",
                 "value": {
-                  "path": "$.address.boundary"
+                  "path": "ATM_NAME_OF_THE_INDIVIDUAL"
                 },
+                "type": "label",
                 "localisation": {
                   "required": true,
-                  "prefix": "STATEA_CITYONE_ADMIN",
-                  "module": "rainmaker-statea.cityone"
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
                 }
               },
               {
-                "variable": "boundary",
+                "variable": "_mon",
                 "value": {
-                  "path": "$.additionalDetails.locality"
+                  "path": "ATM_MON"
                 },
+                "type": "label",
                 "localisation": {
                   "required": true,
-                  "prefix": "STATEA_CITYONE_ADMIN",
-                  "module": "rainmaker-statea.cityone"
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
                 }
+              },
+              {
+                "variable": "_tue",
+                "value": {
+                  "path": "ATM_TUE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_wed",
+                "value": {
+                  "path": "ATM_WED"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_thr",
+                "value": {
+                  "path": "ATM_THR"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_fri",
+                "value": {
+                  "path": "ATM_FRI"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_sat",
+                "value": {
+                  "path": "ATM_SAT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_sun",
+                "value": {
+                  "path": "ATM_SUN"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_amount",
+                "value": {
+                  "path": "ATM_AMOUNT_IN_RS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "_status",
+                "value": {
+                  "path": "CORE_COMMON_STATUS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "bank_account",
+                "value": {
+                  "path": "ATM_BANK_ACCOUNT_DETAILS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "aadhar_number",
+                "value": {
+                  "path": "ATM_WAGE_SEEKER_AADHAR"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-attendencemgmt"
+                }
+              },
+              {
+                "variable": "guardian_name",
+                "value": {
+                  "path": "FATHER_NAME"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "_skill",
+                "value": {
+                  "path": "MUSTER_ROLLS_CATEGORY_OR_SKILL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "day_worked",
+                "value": {
+                  "path": "ES_COMMON_SKILL_CATEGORY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "_signature",
+                "value": {
+                  "path": "MUSTER_ROLLS_SIGNATURE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "contractId",
+                "value": {
+                  "path": "$.referenceId"
+                }
+              },
+              {
+                "variable": "projectId",
+                "value": {
+                  "path": "$.projectId"
+                }
+              },
+              {
+                "variable": "actualTotalAttendance",
+                "value": {
+                  "path": "$.individualEntries[0].actualTotalAttendance"
+                }
+              },
+              {
+                "variable": "mon_day_attendance",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[0].attendance"
+                }
+              },
+              {
+                "variable": "nominal_muster_roll",
+                "value": {
+                  "path": "NOMINAL_MUSTER_ROLLS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "arrears",
+                "value": {
+                  "path": "$.individualEntries"
+                },
+                "type": "function",
+                "format": " var y = [],\n    x = arguments[0];\n  for (var i = 0; i < x.length; i++) {\n    var _x$i$additionalDetail, _x$i$additionalDetail2;\n    function color(attendance) {\n      return attendance == 'F' ? '#095729' : attendance == 'H' ? '#F6B458' : '#ff0000';\n    }\n    ;\n    var half_attendance = 'H';\n    var full_attendance = 'F';\n    var absent = 'A';\n    var attendance_of_sun = x[i].attendanceEntries[0].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[6].attendance > 0 ? half_attendance : absent;\n    var attendance_of_sat = x[i].attendanceEntries[1].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[1].attendance > 0 ? half_attendance : absent;\n    var attendance_of_fri = x[i].attendanceEntries[2].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[2].attendance > 0 ? half_attendance : absent;\n    var attendance_of_thu = x[i].attendanceEntries[3].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[3].attendance > 0 ? half_attendance : absent;\n    var attendance_of_wed = x[i].attendanceEntries[4].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[4].attendance > 0 ? half_attendance : absent;\n    var attendance_of_tue = x[i].attendanceEntries[5].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[5].attendance > 0 ? half_attendance : absent;\n    var attendance_of_mon = x[i].attendanceEntries[6].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[6].attendance > 0 ? half_attendance : absent;\n    y.push({\n      'attendance_of_sun': attendance_of_sun,\n      'attendance_of_sat': attendance_of_sat,\n      'attendance_of_fri': attendance_of_fri,\n      'attendance_of_thu': attendance_of_thu,\n      'attendance_of_wed': attendance_of_wed,\n      'attendance_of_tue': attendance_of_tue,\n      'attendance_of_mon': attendance_of_mon,\n      'bank_account_details': x[i].additionalDetails.bankDetails,\n      'aadhar_number': (_x$i$additionalDetail = x[i].additionalDetails) === null || _x$i$additionalDetail === void 0 ? void 0 : (_x$i$additionalDetail2 = _x$i$additionalDetail.aadharNumber) === null || _x$i$additionalDetail2 === void 0 ? void 0 : _x$i$additionalDetail2.substr(8, 4),\n      'skill': x[i].additionalDetails.skillValue,\n      'background_color': i % 2 == 0 ? '' : '#eeeeee',\n      'sl_no': i + 1,\n      'name_of_the_individual': x[i].additionalDetails.userName,\n      'guardian_name': x[i].additionalDetails.fatherName,\n      'actualTotalAttendance': x[i].actualTotalAttendance,\n      'attendance': x[i].attendanceEntries[0].attendance,\n      'skillValue': x[i].additionalDetails.skillValue,\n      'sat_color_of_attendance': color(attendance_of_sat),\n      'mon_color_of_attendance': color(attendance_of_mon),\n      'tue_color_of_attendance': color(attendance_of_tue),\n      'wed_color_of_attendance': color(attendance_of_wed),\n      'thu_color_of_attendance': color(attendance_of_thu),\n      'fri_color_of_attendance': color(attendance_of_fri),\n      'sun_color_of_attendance': color(attendance_of_sun),\n      'registration_id': x[i].additionalDetails.userId,\n      'days_worked': x[i].actualTotalAttendance,\n      'per_day_wage': x[i].perDayWage,\n      'total_wage': x[i].totalWage\n    });\n  }\n  return y;"
+              },
+              {
+                "variable": "total",
+                "value": {
+                  "path": "$.individualEntries"
+                },
+                "type": "function",
+                "format": "var y=[],x=arguments[0];var total_day_worked=0; var total_wage=0; var sun_day_total_attendance=0;var fri_day_total_attendance=0; var mon_day_total_attendance=0; var tue_day_total_attendance=0; var wed_day_total_attendance=0; var thu_day_total_attendance=0; var thu_day_total_attendance=0; var sat_day_total_attendance=0; function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; if(x){for(var i=0;i<x.length;i++){ mon_day_total_attendance= mon_day_total_attendance + x[i].attendanceEntries[6].attendance; tue_day_total_attendance= tue_day_total_attendance + x[i].attendanceEntries[5].attendance; wed_day_total_attendance= wed_day_total_attendance + x[i].attendanceEntries[4].attendance; thu_day_total_attendance= thu_day_total_attendance + x[i].attendanceEntries[3].attendance; fri_day_total_attendance= fri_day_total_attendance + x[i].attendanceEntries[2].attendance; sat_day_total_attendance= sat_day_total_attendance + x[i].attendanceEntries[1].attendance;sun_day_total_attendance= sun_day_total_attendance+x[i].attendanceEntries[0].attendance;total_day_worked+=x[i].actualTotalAttendance;total_wage+=x[i].totalWage}; total_wage=rupeeFormat(total_wage); y.push({'mon_day_total_attendance':mon_day_total_attendance, 'tue_day_total_attendance':tue_day_total_attendance, 'wed_day_total_attendance': wed_day_total_attendance, 'thu_day_total_attendance':thu_day_total_attendance, 'fri_day_total_attendance':fri_day_total_attendance, 'sat_day_total_attendance':sat_day_total_attendance,'sun_day_total_attendance':sun_day_total_attendance,'total_day_worked':total_day_worked,'total_wage':total_wage })}return y;"
+              },
+              {
+                "variable": "len",
+                "value": {
+                  "path": "$.individualEntries"
+                },
+                "type": "function",
+                "format": " var y=[], x=arguments[0]; if(x){y.push({'len':x.length})}return y;"
               }
             ]
           },
@@ -320,15 +671,12 @@
                     "value": "$.MdmsRes.tenant.tenants[0].address"
                   },
                   {
-                    "variable": "address",
-                    "value": "$.MdmsRes.tenant.tenants[0].address"
-                  },
-                  {
                     "variable": "phoneNumber",
                     "value": "$.MdmsRes.tenant.tenants[0].contactNumber"
                   },
                   {
                     "variable": "website",
+                    
                     "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
                   },
                   {
