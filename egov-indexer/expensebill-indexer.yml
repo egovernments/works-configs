@@ -2,7 +2,7 @@ ServiceMaps:
   serviceName: expense-bill indexer
   version: 1.0.0
   mappings:
-     - topic: expense-bill-create
+   - topic: expense-bill-create
      configKey: INDEX
      indexes:
        - name: expense-bill-inbox
