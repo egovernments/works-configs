@@ -193,9 +193,6 @@
 								"text": "{{wage_amount}}",
 								"fontSize": 15,
 								"bold": true
-							},
-							{
-								"text": "{{#total}}[{\"text\":\"{{total_wage}}\",\"fontSize\":15}]{{/total}}"
 							}
 						],
 						[

@@ -653,9 +653,7 @@
                 "variable": "len",
                 "value": {
                   "path": "$.individualEntries"
-                },
-                "type": "function",
-                "format": " var y=[], x=arguments[0]; if(x){y.push({'len':x.length})}return y;"
+                }
               }
             ]
           },
