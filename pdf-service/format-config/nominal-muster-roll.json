@@ -195,7 +195,7 @@
 								"bold": true
 							},
 							{
-								"text": "{{totalWage}}"
+								"text": "{{totalWageAmount}}"
 							}
 						],
 						[
