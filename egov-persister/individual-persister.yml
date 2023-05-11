@@ -244,4 +244,4 @@ serviceMaps:
             - jsonPath: $.*.skills.*.auditDetails.lastModifiedBy
             - jsonPath: $.*.skills.*.auditDetails.lastModifiedTime
             - jsonPath: $.*.skills.*.isDeleted
-            - jsonPath: $.*.skills.*.id           
+            - jsonPath: $.*.skills.*.id

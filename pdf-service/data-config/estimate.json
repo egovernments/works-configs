@@ -240,7 +240,7 @@
                   "path": "$.additionalDetails.totalEstimatedAmount"
                 },
                 "type": "function",
-                "format": "var y=[];var flag=0;var count=0;var amount=arguments[0].toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
+                "format": "var y=[];var flag=0;var count=0;var amount=Math.round(arguments[0]).toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};/*if(flag==0){val+='.00'};*/y.push({'amount':val}); return y"
               }
               
               
