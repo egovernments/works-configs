@@ -8,45 +8,47 @@
       "requesterId": "",
       "ts": 1513579888683,
       "ver": "1.0.0",
-      "authToken": null
+      "authToken": "6835b444-ca92-4f48-b077-ca31c89bc56c",
+      "userInfo": {
+          "uuid": "01203742-db1a-4256-a935-f767635e2ef7"
+      }
   },
-"BusinessServices": [
-    {
-      "tenantId": "pg",
-      "businessService": "EXPENSE.SUPERVISION",
-      "business": "expense",
-      "businessServiceSla": 604800000,
-      "states": [
-        {
-          "sla": null,
-          "state": null,
-          "applicationStatus": null,
-          "docUploadRequired": false,
-          "isStartState": true,
-          "isTerminateState": false,
-          "isStateUpdatable": true,
-          "actions": [
-            {
-              "action": "SUBMIT",
-              "nextState": "APPROVED",
-              "roles": [
-                "BILL_CREATOR"
-              ]
-            }
+  "BusinessServices": [
+      {
+          "tenantId": "pg",
+          "businessService": "EXPENSE.SUPERVISION",
+          "business": "expense",
+          "businessServiceSla": 604800000,
+          "states": [
+              {
+                  "sla": null,
+                  "state": null,
+                  "applicationStatus": null,
+                  "docUploadRequired": false,
+                  "isStartState": true,
+                  "isTerminateState": false,
+                  "isStateUpdatable": true,
+                  "actions": [
+                      {
+                          "action": "SUBMIT",
+                          "nextState": "APPROVED",
+                          "roles": [
+                              "BILL_CREATOR"
+                          ]
+                      }
+                  ]
+              },
+              {
+                  "sla": 604800000,
+                  "state": "APPROVED",
+                  "applicationStatus": "ACTIVE",
+                  "docUploadRequired": false,
+                  "isStartState": false,
+                  "isTerminateState": true,
+                  "isStateUpdatable": false,
+                  "actions": []
+              }
           ]
-        },
-        {
-          "sla": 604800000,
-          "state": "APPROVED",
-          "applicationStatus": "ACTIVE",
-          "docUploadRequired": false,
-          "isStartState": false,
-          "isTerminateState": true,
-          "isStateUpdatable": false,
-          "actions": [
-          ]
-        }
-      ]
-    }
+      }
   ]
 }
