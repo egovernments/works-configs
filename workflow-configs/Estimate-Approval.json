@@ -60,13 +60,6 @@
               "roles": [
                 "ESTIMATE_VERIFIER"
               ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
-              "roles": [
-				"ESTIMATE_VERIFIER"
-              ]
             }
           ]
         },
@@ -160,13 +153,6 @@
             {
               "action": "RE-SUBMIT",
               "nextState": "PENDINGFORVERIFICATION",
-              "roles": [
-                "ESTIMATE_CREATOR"
-              ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
               "roles": [
                 "ESTIMATE_CREATOR"
               ]

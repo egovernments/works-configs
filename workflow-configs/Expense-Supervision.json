@@ -33,7 +33,7 @@
               "action": "SUBMIT",
               "nextState": "APPROVED",
               "roles": [
-                "BILL_CREATOR"
+                "SYSTEM"
               ]
             }
           ]

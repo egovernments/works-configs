@@ -59,7 +59,7 @@
             ]
           },
           {
-            "action": "SENDBACK",
+            "action": "SENDBACKTOCBO",
             "nextState": "PENDINGFORCORRECTION",
             "roles": [
               "MUSTER_ROLL_VERIFIER"
