@@ -216,7 +216,7 @@
                   "path": "$"
                 },
                 "type": "function",
-                "format": "var a=[]; a.push({'dueDate': new Date().toLocaleDateString()}) return a;"
+                "format": "var a=[]; date=new Date().toLocaleDateString();{if(date){a.push({'todayDate':date});}} return a;"
               },
               {
                 "variable": "no_days_to_complete", 
