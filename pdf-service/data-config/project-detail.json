@@ -268,42 +268,27 @@
 
               },
               {
-                "variable": "addressLine1",
+                "variable": "latlong",
                 "value": {
-                  "path": "$.address.addressLine1"
+                  "path": "$.address.pdfLatlong"
                 }
               },
               {
                 "variable": "city",
                 "value": {
                   "path": "$.address.city"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-statea"
                 }
               },
               {
                 "variable": "ward",
                 "value": {
                   "path": "$.address.boundary"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "STATEA_CITYONE_ADMIN",
-                  "module": "rainmaker-statea.cityone"
                 }
               },
               {
                 "variable": "boundary",
                 "value": {
                   "path": "$.additionalDetails.locality"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "STATEA_CITYONE_ADMIN",
-                  "module": "rainmaker-statea.cityone"
                 }
               }
             ]
