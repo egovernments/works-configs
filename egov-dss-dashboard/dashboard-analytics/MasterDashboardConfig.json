@@ -1,0 +1,12 @@
+{
+  "_comment": "Master dashboard which holds all the possible visualisation. Note new dashboards/visualisations can be added",
+  "dashboards": [
+    {
+      "name": "DSS_MUKTA_DASHBOARD_HEADING",
+      "id": "mukta",
+      "isActive": "",
+      "style": "linear",
+      "visualizations": []
+    }
+  ]
+}
