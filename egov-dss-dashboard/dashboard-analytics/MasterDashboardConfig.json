@@ -3,7 +3,7 @@
   "dashboards": [
     {
       "name": "DSS_MUKTA_DASHBOARD_HEADING",
-      "id": "mukta-dashboard",
+      "id": "mukta",
       "isActive": "",
       "style": "linear",
       "visualizations": []
