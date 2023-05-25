@@ -296,6 +296,12 @@
                 }
               },
               {
+                "variable": "cboAddress",
+                "value": {
+                  "path": "$.pdfCboAddress"
+                }
+              },
+              {
                 "variable": "work_description", 
                 "value": {
                   "path": "$.additionalDetails.projectName"
@@ -434,7 +440,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-pg"
                           }
                         }
                       ]
@@ -454,7 +460,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-pg"
                           }
                         }
                       ]
@@ -474,7 +480,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-pg"
                           }
                         }
                       ]
@@ -494,7 +500,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-pg"
                           }
                         }
                       ]
