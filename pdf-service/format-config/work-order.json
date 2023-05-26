@@ -160,7 +160,7 @@
                 ]
               },
               {
-                "text": "{{address1}}, {{address2}}, {{address3}}, {{address4}}",
+                "text": "{{cboAddress}}",
                 "margin": [
                   0,
                   -3,
@@ -288,7 +288,7 @@
             "text": "{{ulb_name}}"
           },
           {
-            "text": "{{#approval_date}}[{\"text\":\"{{approvalDate}}\"}]{{/approval_date}}"
+            "text": "{{accepted_date}}"
           }
         ]
       }
