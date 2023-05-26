@@ -215,7 +215,7 @@
                 "text": "        This work order is issued in the favor of {{name_of_issued_to}} and to execute the work the organization {{cbo}} has been selected as {{implementation_agency}}. Therefore the organization is informed to submit the acceptance of the work order within {{work_order_acceptance_days}} days from the date of issue of this work order i.e. by "
               },
               {
-                "text": "{{#today_date}}[{\"text\":\"{{todayDate}}\"}]{{/today_date}}"
+                "text": "{{sla_date}}"
               },
               {
                 "text": " ."
