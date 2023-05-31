@@ -1,1 +1,25 @@
-{}
+{
+    "totalProjects": {
+        "chartName": "DSS_MUKTA_TOTAL_PROJECTS",
+        "queries": [
+          {
+            "module": "COMMON",
+            "dateRefField": "",
+            "requestQueryMap": "",
+            "indexName": "project-index",
+            "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"pg.citya\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Count\": {\n          \"value_count\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
+          }
+        ],
+        "chartType": "metric",
+        "valueType": "number",
+        "drillChart": "none",
+        "documentType": "_doc",
+        "action": "",
+        "aggregationPaths": [
+          "Total Projects"
+        ],
+        "insight": {
+        },
+        "_comment": " "
+      }
+}
