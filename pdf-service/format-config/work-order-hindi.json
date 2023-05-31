@@ -215,7 +215,7 @@
                 "text": "        यह कार्य आदेश {{name_of_issued_to}} के पक्ष में जारी किया जाता है और काम को निष्पादित करने के लिए संगठन {{cbo}} को {{implementation_agency}} के रूप में चुना गया है। इसलिए संगठन को सबमिट करने के लिए सूचित किया जाता है। कार्य आदेश की स्वीकृति इस कार्य आदेश की तारीख से {{work_order_acceptance_days}} दिन के भीतर अधिकतम है यानी "
               },
               {
-                "text": "{{#today_date}}[{\"text\":\"{{todayDate}}\"}]{{/today_date}}"
+                "text": "{{sla_date}}"
               },
               {
                 "text": " द्वारा."
@@ -288,7 +288,7 @@
             "text": "{{ulb_name}}"
           },
           {
-            "text": "{{#approval_date}}[{\"text\":\"{{approvalDate}}\"}]{{/approval_date}}"
+            "text": "{{accepted_date}}"
           }
         ]
       }
