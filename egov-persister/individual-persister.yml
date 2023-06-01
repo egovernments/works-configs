@@ -245,3 +245,13 @@ serviceMaps:
             - jsonPath: $.*.skills.*.auditDetails.lastModifiedTime
             - jsonPath: $.*.skills.*.isDeleted
             - jsonPath: $.*.skills.*.id           
+    - version: 1.0
+      description: Updates userId received from user-service into an individual
+      fromTopic: update-user-id-topic
+      isTransaction: true
+      queryMaps:
+        - query: UPDATE individual SET userId=? WHERE id=?;
+          basePath: $.*
+          jsonMaps:
+            - jsonPath: $.*.userId
+            - jsonPath: $.*.id
