@@ -293,10 +293,10 @@
                 "variable": "musterRollStatus",
                 "value": {
                   "path": "$.musterRollStatus"
-                  },	
-                "localisation": {	
-                  "required": true,	
-                  "prefix": "MUSTER_ROLLS_STATUS",	
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "MUSTER_ROLLS_STATUS",
                   "module": "rainmaker-muster-rolls"
                 }
               },
