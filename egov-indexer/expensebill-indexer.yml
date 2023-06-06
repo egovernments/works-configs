@@ -110,10 +110,8 @@ ServiceMaps:
              outJsonPath: $.Data.billDetails
            - inJsonPath: $.additionalDetails
              outJsonPath: $.Data.additionalDetails
-           - inJsonPath: $.auditDetails.lastModifiedTime
-             outJsonPath: $.Data.auditDetails.lastModifiedTime
-           - inJsonPath: $.auditDetails.lastModifiedBy
-             outJsonPath: $.Data.auditDetails.lastModifiedBy
+           - inJsonPath: $.auditDetails
+             outJsonPath: $.Data.auditDetails
            - inJsonPath: $.additionalDetails.locality
              outJsonPath: $.Data.locality
            - inJsonPath: $.additionalDetails.ward
