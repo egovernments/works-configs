@@ -149,8 +149,6 @@ serviceMaps:
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountHolderName
 
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountType
-
-        - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountNumber
         
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountNumber
         
