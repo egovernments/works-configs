@@ -21,5 +21,28 @@
         "insight": {
         },
         "_comment": " "
+      },
+  "pendingBillsByBillType": {
+    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_TYPE",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Pending Bills By Bill Type\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
       }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Bills By Bill Type"
+    ],
+    "insight": {
+    },
+    "_comment": "Pending Bills By Their Amount"
+  }
 }
