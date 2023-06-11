@@ -20,8 +20,8 @@
               "isCollapsible": false,
               "charts": [
                 {
-                  "id": "totalProjects",
-                  "name": "DSS_MUKTA_TOTAL_PROJECTS",
+                  "id": "unemployedWageSeekers",
+                  "name": "DSS_MUKTA_UNEMPLOYED_WAGE_SEEKERS",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
