@@ -22,15 +22,38 @@
         },
         "_comment": " "
       },
-  "pendingBillsByBillType": {
-    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_TYPE",
+  "pendingBillsByBillNumberType": {
+    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_NUMBER_TYPE",
     "queries": [
       {
         "module": "EXPENSE",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Pending Bills By Bill Type\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            },\n            {\n              \"terms\":{\n                \"Data.currentProcessInstance.state.state.keyword\": [\"APPROVED\", \"REJECTED\"]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills By Bill Type\": {\n          \"terms\": {\n            \"field\": \"Data.businessService.keyword\"\n          },\n          \"aggs\": {\n            \"Count\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Bills By Bill Type"
+    ],
+    "insight": {
+    },
+    "_comment": "Pending Bills By Their Number"
+  },
+  "pendingBillsByBillAmountType": {
+    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\":{\n                \"Data.currentProcessInstance.state.state.keyword\": [\"APPROVED\",\"REJECTED\"]\n              }\n            },\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills By Bill Type\": {\n          \"terms\": {\n            \"field\": \"Data.businessService.keyword\"\n          },\n          \"aggs\": {\n            \"Sum\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "pie",
