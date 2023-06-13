@@ -30,6 +30,71 @@
               ]
             }
           ]
+        },
+        {
+          "row": 3,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 131,
+              "name": "DSS_MUKTA_MUSTER_ROLLS",
+              "dimensions": {
+                "height": 240,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "performing-metric",
+              "isCollapsible": false,
+              "noUnit": false,
+              "charts": [
+                {
+                  "id": "musterRollsByStatus",
+                  "name": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 5,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 151,
+              "name": "DSS_MUKTA_PENDING_BILLS",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "pendingBillsByBillNumberType",
+                  "name": "DSS_MUKTA_PENDING_BILLS_BY_BILL_NUMBER_TYPE",
+                  "code": "",
+                  "chartType": "donut",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Number"
+                },
+                {
+                  "id": "pendingBillsByBillAmountType",
+                  "name": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+                  "code": "",
+                  "chartType": "donut",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Amount"
+                }
+              ]
+            }
+          ]
         }
       ]
     }
