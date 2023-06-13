@@ -93,7 +93,7 @@
                   "tabName": "Number"
                 },
                 {
-                  "id": "pendingBillsByBillAmountType",
+                  "id": "projectsByProjectAmountType",
                   "name": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
                   "code": "",
                   "chartType": "donut",
