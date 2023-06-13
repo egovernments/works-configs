@@ -13,8 +13,8 @@
           "vizArray": [
             {
               "id": 101,
-              "name": "DSS_MUKTA_PROJECTS",
-              "label": "DSS_MUKTA_PROJECTS",
+              "name": "DSS_MUKTA_INDIVIDUALS",
+              "label": "DSS_MUKTA_INDIVIDUALS",
               "vizType": "metric-collection",
               "noUnit": true,
               "isCollapsible": false,
