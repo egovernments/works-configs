@@ -15,7 +15,7 @@
               "id": 101,
               "name": "DSS_MUKTA_PROJECTS",
               "label": "DSS_MUKTA_PROJECTS",
-              "vizType": "stacked-collection",
+              "vizType": "metric-collection",
               "noUnit": true,
               "isCollapsible": false,
               "charts": [
@@ -32,35 +32,7 @@
           ]
         },
         {
-          "row": 3,
-          "name": "DSS_MUKTA",
-          "vizArray": [
-            {
-              "id": 131,
-              "name": "DSS_MUKTA_MUSTER_ROLLS",
-              "dimensions": {
-                "height": 240,
-                "width": 4
-              },
-              "label": "",
-              "vizType": "performing-metric",
-              "isCollapsible": false,
-              "noUnit": false,
-              "charts": [
-                {
-                  "id": "musterRollsByStatus",
-                  "name": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
-                  "code": "",
-                  "chartType": "bar",
-                  "filter": "",
-                  "headers": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "row": 5,
+          "row": 2,
           "name": "DSS_MUKTA",
           "vizArray": [
             {
