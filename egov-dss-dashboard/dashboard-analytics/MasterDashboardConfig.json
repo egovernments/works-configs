@@ -15,7 +15,7 @@
               "id": 101,
               "name": "DSS_MUKTA_PROJECTS",
               "label": "DSS_MUKTA_PROJECTS",
-              "vizType": "stacked-collection",
+              "vizType": "metric-collection",
               "noUnit": true,
               "isCollapsible": false,
               "charts": [
