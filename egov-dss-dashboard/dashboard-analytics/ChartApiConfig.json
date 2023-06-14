@@ -83,7 +83,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"ProjectsByProjectType\":{\"terms\":{\"field\":\"Data.projectType.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Projects By Project Type\":{\"terms\":{\"field\":\"Data.projectType.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -106,7 +106,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"term\":{\"Data.additionalDetails.estimatedCostInRs.keyword\":\"\"}}]}},\"aggs\":{\"ProjectsByProjectType\":{\"terms\":{\"field\":\"Data.projectType.keyword\"},\"aggs\":{\"Sum\":{\"sum\":{\"script\":{\"source\":\"def estCost=doc['Data.additionalDetails.estimatedCostInRs.keyword'].value;estCost!=null&&estCost!=''?Double.parseDouble(estCost):0.0\"},\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"term\":{\"Data.additionalDetails.estimatedCostInRs.keyword\":\"\"}}]}},\"aggs\":{\"Projects By Project Type\":{\"terms\":{\"field\":\"Data.projectType.keyword\"},\"aggs\":{\"Sum\":{\"sum\":{\"script\":{\"source\":\"def estCost=doc['Data.additionalDetails.estimatedCostInRs.keyword'].value;estCost!=null&&estCost!=''?Double.parseDouble(estCost):0.0\"},\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
