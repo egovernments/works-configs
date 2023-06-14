@@ -45,6 +45,7 @@
     "documentType": "_doc",
     "drillChart": "none",
     "action": "number",
+    "plotLabel": "TOTAL_MUSTER_ROLLS",
     "isRoundOff": true,
     "order": "desc",
     "limit": 3,
