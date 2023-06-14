@@ -37,7 +37,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.currentProcessInstance.state.state.keyword\":[\"APPROVED\",\"REJECTED\"]}}]}},\"aggs\":{\"PendingBillsByBillType\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.currentProcessInstance.state.state.keyword\":[\"APPROVED\",\"REJECTED\"]}}]}},\"aggs\":{\"Pending Bills By Bill Type\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -60,7 +60,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.currentProcessInstance.state.state.keyword\":[\"APPROVED\",\"REJECTED\"]}},{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"PendingBillsByBillType\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.currentProcessInstance.state.state.keyword\":[\"APPROVED\",\"REJECTED\"]}},{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Pending Bills By Bill Type\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
