@@ -4,15 +4,15 @@
         "queries": [
           {
             "module": "COMMON",
-            "dateRefField": "{\"tenantId\" : \"Data.tenantId\"}",
-            "requestQueryMap": "Data.auditDetails.createdTime",
+            "dateRefField": "Data.auditDetails.createdTime",
+            "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
             "indexName": "individual-index-v1",
             "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"pg.citya\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individuals Count\": {\n          \"cardinality\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
           },
           {
             "module": "COMMON",
-            "dateRefField": "{\"tenantId\" : \"Data.tenantId\"}",
-            "requestQueryMap": "Data.auditDetails.createdTime",
+            "dateRefField": "Data.auditDetails.createdTime",
+            "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
             "indexName": "muster-roll-inbox",
             "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filters\": {\n        \"filters\": {\n          \"Total Projects\": {\n            \"bool\": {\n              \"must\": [\n                {\n                  \"term\": {\n                    \"Data.tenantId\": \"pg.citya\"\n                  }\n                }\n              ]\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Count\": {\n          \"cardinality\": {\n            \"field\": \"Data.individualEntries.attendanceEntries.id.keyword\"\n          }\n        },\n        \"Overall Muster Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"ot\": \"Count\"\n            },\n            \"script\": \"params.ot * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}"
           }
