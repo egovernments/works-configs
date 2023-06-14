@@ -36,7 +36,7 @@
           "name": "DSS_MUKTA",
           "vizArray": [
             {
-              "id": 151,
+              "id": 121,
               "name": "DSS_MUKTA_PENDING_BILLS",
               "dimensions": {
                 "height": 250,
@@ -63,6 +63,34 @@
                   "filter": "",
                   "headers": [],
                   "tabName": "Amount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 3,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 131,
+              "name": "DSS_MUKTA_MUSTER_ROLLS",
+              "dimensions": {
+                "height": 240,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "performing-metric",
+              "isCollapsible": false,
+              "noUnit": false,
+              "charts": [
+                {
+                  "id": "musterRollsByStatus",
+                  "name": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": []
                 }
               ]
             }
