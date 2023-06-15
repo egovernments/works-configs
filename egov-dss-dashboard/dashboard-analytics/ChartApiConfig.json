@@ -40,20 +40,14 @@
         "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Muster Rolls\":{\"terms\":{\"script\":{\"source\":\"if(['APPROVED','SUBMITTED'].contains(doc['Data.musterRollStatus.keyword'].value)){return doc['Data.musterRollStatus.keyword'].value}else{return 'YET_TO_APPROVE'}\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
       }
     ],
-    "chartType": "perform",
+    "chartType": "pie",
     "valueType": "number",
+    "action": "",
     "documentType": "_doc",
     "drillChart": "none",
-    "action": "number",
-    "plotLabel": "TOTAL_MUSTER_ROLLS",
-    "isRoundOff": true,
-    "order": "desc",
-    "limit": 3,
     "aggregationPaths": [
       "Muster Rolls"
     ],
-    "isCumulative": false,
-    "interval": "month",
     "insight": {
     },
     "_comment": "Muster Rolls by status"

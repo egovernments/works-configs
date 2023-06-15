@@ -80,15 +80,14 @@
                 "width": 4
               },
               "label": "",
-              "vizType": "performing-metric",
+              "vizType": "chart",
               "isCollapsible": false,
-              "noUnit": false,
               "charts": [
                 {
                   "id": "musterRollsByStatus",
                   "name": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
                   "code": "",
-                  "chartType": "bar",
+                  "chartType": "donut",
                   "filter": "",
                   "headers": []
                 }
