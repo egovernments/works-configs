@@ -33,7 +33,6 @@
     "chartName": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
     "queries": [
       {
-        "module": "MUSTER-ROLL-SERVICES",
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-roll-inbox",
