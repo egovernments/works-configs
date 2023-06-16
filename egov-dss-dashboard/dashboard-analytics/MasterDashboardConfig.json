@@ -28,6 +28,24 @@
                   "headers": []
                 }
               ]
+            },
+            {
+              "id": 102,
+              "name": "DSS_MUKTA_WORK_ORDERS",
+              "label": "DSS_MUKTA_WORK_ORDERS",
+              "vizType": "metric-collection",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "workOrdersNotIssued",
+                  "name": "DSS_MUKTA_WORK_ORDERS_NOT_ISSUED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
             }
           ]
         },
