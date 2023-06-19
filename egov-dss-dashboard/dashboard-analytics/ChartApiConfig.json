@@ -295,5 +295,35 @@
     "insight": {
     },
     "_comment": "Total Labour Attendance"
+  },
+  "musterRollNotCreated": {
+    "chartName" : "DSS_MUKTA_MUSTER_ROLL_NOT_CREATED",
+    "queries": [
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"completion period weeks\": {\n      \"sum\": {\n        \"script\": {\n          \"source\": \"Math.ceil((double) doc['Data.completionPeriod'].value / 7)\"\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "MUSTER",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "muster-roll-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total_Muster_rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Muster_rolls\": {\n          \"value_count\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        },\n        \"Muster_rolls_Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster_rolls\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    },\n    \"Negative Muster rolls Count\": {\n      \"sum_bucket\": {\n        \"buckets_path\": \"Total_Muster_rolls>Muster_rolls_Count\"\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "completion period weeks","Negative Muster rolls Count"
+    ],
+    "insight": {
+    },
+    "_comment": "Muster rolls not created"
   }
 }
