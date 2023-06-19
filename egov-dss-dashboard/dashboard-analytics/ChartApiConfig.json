@@ -263,7 +263,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "TotalAmount"
+      "dayHist"
     ],
     "isCumulative": false,
     "interval": "month",
@@ -288,7 +288,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "TotalAttendanceSum"
+      "dayHist"
     ],
     "isCumulative": false,
     "interval": "month",
