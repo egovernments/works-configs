@@ -245,5 +245,55 @@
     "insight": {
     },
     "_comment": "Work orders not issued"
+  },
+  "totalPayments": {
+    "chartName": "DSS_MUKTA_TOTAL_PAYMENTS",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\"size\":1,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "number",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "TotalAmount"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": "Total Bill Payment Amount"
+  },
+  "totalAttendance": {
+    "chartName": "DSS_MUKTA_TOTAL_LABOUR_ATTENDANCE",
+    "queries": [
+      {
+        "module": "MUSTER-ROLL-SERVICES",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "muster-roll-inbox",
+        "aggrQuery": "{\"size\":1,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "number",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "TotalAttendanceSum"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": "TOTAL LABOUR ATTENDANCE"
   }
 }

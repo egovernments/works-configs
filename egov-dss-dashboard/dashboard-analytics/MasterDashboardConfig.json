@@ -231,6 +231,37 @@
                   "tabName": "Amount"
                 }
               ]
+            },
+            {
+              "id": 152,
+              "name": "DSS_MUKTA_PAYMENTS_AND_LABOUR_ATTENDANCE",
+              "dimensions": {
+                "height": 350,
+                "width": 7
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "totalPayments",
+                  "name": "DSS_MUKTA_TOTAL_PAYMENTS",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Amount"
+                },
+                {
+                  "id": "totalAttendance",
+                  "name": "DSS_MUKTA_TOTAL_LABOUR_ATTENDANCE",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Person Days"
+                }
+              ]
             }
           ]
         }
