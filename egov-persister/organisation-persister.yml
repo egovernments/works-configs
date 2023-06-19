@@ -341,7 +341,7 @@ serviceMaps:
         - jsonPath: $.organisations.*.orgAddress.*.geoLocation.id  
 
 
-     - query: UPDATE eg_org_contact_detail set contact_name=?, contact_mobile_number=?,contact_email=?,individual_id where id=?;
+     - query: UPDATE eg_org_contact_detail set contact_name=?, contact_mobile_number=?,contact_email=?,individual_id=? where id=?;
 
        basePath: $.organisations.*.contactDetails.*
        jsonMaps:
@@ -352,9 +352,9 @@ serviceMaps:
 
         - jsonPath: $.organisations.*.contactDetails.*.contactEmail 
 
-        - jsonPath: $.organisations.*.contactDetails.*.id 
-
         - jsonPath: $.organisations.*.contactDetails.*.individualId 
+
+        - jsonPath: $.organisations.*.contactDetails.*.id 
 
      - query: INSERT INTO eg_tax_identifier(id,org_id,type,value,is_active,additional_details) VALUES (?,?,?,?,?,?) ON CONFLICT (id) DO UPDATE SET type=?, value=?, is_active=?, additional_details=?;
 
