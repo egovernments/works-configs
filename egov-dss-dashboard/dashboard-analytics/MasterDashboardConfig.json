@@ -245,7 +245,7 @@
               "charts": [
                 {
                   "id": "totalPayments",
-                  "name": "DSS_MUKTA_TOTAL_PAYMENTS",
+                  "name": "",
                   "code": "",
                   "chartType": "bar",
                   "filter": "",
@@ -254,7 +254,7 @@
                 },
                 {
                   "id": "totalAttendance",
-                  "name": "DSS_MUKTA_TOTAL_LABOUR_ATTENDANCE",
+                  "name": "",
                   "code": "",
                   "chartType": "bar",
                   "filter": "",

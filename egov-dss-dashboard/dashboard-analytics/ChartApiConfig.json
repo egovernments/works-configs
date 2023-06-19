@@ -254,7 +254,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\"size\":1,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -279,7 +279,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-roll-inbox",
-        "aggrQuery": "{\"size\":1,\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -294,6 +294,6 @@
     "interval": "month",
     "insight": {
     },
-    "_comment": "TOTAL LABOUR ATTENDANCE"
+    "_comment": "Total Labour Attendance"
   }
 }
