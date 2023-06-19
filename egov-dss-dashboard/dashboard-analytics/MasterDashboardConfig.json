@@ -236,7 +236,7 @@
               "id": 152,
               "name": "DSS_MUKTA_PAYMENTS_AND_LABOUR_ATTENDANCE",
               "dimensions": {
-                "height":350,
+                "height": 350,
                 "width": 7
               },
               "vizType": "chart",
