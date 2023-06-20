@@ -29,8 +29,8 @@
                   "headers": []
                 },
                 {
-                  "id": "pendingBillsByBillNumberType",
-                  "name": "DSS_PENDING_BILLS",
+                  "id": "pendingBillsAmount",
+                  "name": "DSS_MUKTA_PENDING_BILLS",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
