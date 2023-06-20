@@ -343,7 +343,7 @@
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
-      "PendingBillsAmount"
+      "PendingBillsAmount", count
     ],
     "insight": {
     },
