@@ -36,7 +36,7 @@
         "module": "MUSTER-ROLL-SERVICES",
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
-        "indexName": "muster-roll-inbox",
+        "indexName": "muster-inbox",
         "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Muster Rolls\":{\"terms\":{\"script\":{\"source\":\"if(['APPROVED','SUBMITTED'].contains(doc['Data.musterRollStatus.keyword'].value)){return doc['Data.musterRollStatus.keyword'].value}else{return 'YET_TO_APPROVE'}\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
       }
     ],
@@ -278,7 +278,7 @@
         "module": "MUSTER-ROLL-SERVICES",
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
-        "indexName": "muster-roll-inbox",
+        "indexName": "muster-inbox",
         "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
       }
     ],
