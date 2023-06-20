@@ -254,7 +254,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Payments\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -263,7 +263,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "dayHist"
+      "Total Payments"
     ],
     "isCumulative": false,
     "interval": "month",
@@ -279,7 +279,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"dayHist\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Attendance\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -288,7 +288,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "dayHist"
+      "Person Days"
     ],
     "isCumulative": false,
     "interval": "month",
