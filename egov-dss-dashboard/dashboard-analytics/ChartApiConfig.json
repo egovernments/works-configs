@@ -348,5 +348,102 @@
     "insight": {
     },
     "_comment": "Pending Bills"
+  },
+  "ulbWiseLeaderboard":{
+    "chartName": "DSS_MUKTA_ULB_WISE_LEADERBOARD",
+    "queries":[
+      {
+        "module": "INDIVIDUAL",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "individual-index-v1",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individuals by tenantId\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Individuals Count\": {\n              \"cardinality\": {\n                \"field\": \"Data.id.keyword\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "MUSTER",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "muster-roll-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Muster rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 100000\n      },\n      \"aggs\": {\n        \"Muster Count\": {\n          \"cardinality\": {\n            \"field\": \"Data.individualEntries.attendanceEntries.id.keyword\"\n          }\n        },\n        \"Negative Muster Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster Count\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\"\n          },\n          \"aggs\": {\n            \"Pending Bills Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Distinct Work Orders\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Work Orders\": {\n          \"cardinality\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\"\n          }\n        },\n        \"Negative Work Order Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Work Orders\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+      },
+      {
+        "module": "PROJECTS",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "project-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Projects count\": {\n              \"cardinality\": {\n                \"field\": \"Data.projectNumber.keyword\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      },
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"completion period\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"completion period weeks\": {\n          \"sum\": {\n            \"script\": {\n              \"source\": \"Math.ceil((double) doc['Data.completionPeriod'].value / 7)\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "MUSTER",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "muster-roll-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Muster rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Muster rolls\": {\n          \"value_count\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        },\n        \"Negative Muster rolls Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster rolls\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "xtable",
+    "valueType": "number",
+
+    "drillChart": "",
+    "documentType": "_doc",
+    "action": "",
+    "plotLabel": "ULB",
+    "excludedColumns": ["Individuals Count","Negative Muster Count","Muster Count","Pending Bills Amount","Projects count","Negative Work Order Count","Work Orders","completion period weeks","Muster rolls","Negative Muster rolls Count"],
+    "computedFields": [
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Individuals Count","Negative Muster Count"],
+        "newField" : "Unemployed Wage seekers",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Pending Bills Amount"],
+        "newField" : "Pending Bills",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Projects count","Negative Work Order Count"],
+        "newField" : "Work orders not issued",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["completion period weeks","Negative Muster rolls Count"],
+        "newField" : "Muster rolls not created",
+        "_comments": ""
+      }
+    ],
+    "insight": {
+    },
+    "hideInsights": true,
+    "hideHeaderDenomination": true,
+    "_comment": " "
   }
 }
