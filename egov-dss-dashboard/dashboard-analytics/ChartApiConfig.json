@@ -279,7 +279,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Attendance\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.totalAttendance\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Person Days\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.actualTotalAttendance\"}}}}}}}}"
       }
     ],
     "chartType": "line",
