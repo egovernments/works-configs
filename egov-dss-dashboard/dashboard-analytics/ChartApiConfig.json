@@ -338,7 +338,7 @@
       }
     ],
     "chartType": "metric",
-    "valueType": "number",
+    "valueType": "amount",
     "drillChart": "none",
     "documentType": "_doc",
     "action": "",
