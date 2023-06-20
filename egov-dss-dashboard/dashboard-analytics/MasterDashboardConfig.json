@@ -17,6 +17,7 @@
               "label": "DSS_OVERVIEW_ISSUES",
               "vizType": "metric-collection",
               "noUnit": true,
+              "iconName":"WarningIcon",
               "isHorizontalChart": true,
               "isCollapsible": false,
               "charts": [
@@ -60,7 +61,8 @@
               "label": "DSS_MUKTA_SLA_BREACHED",
               "vizType": "metric-collection",
               "noUnit": true,
-               "isHorizontalChart": true,
+              "iconName":"HistoryIcon",
+              "isHorizontalChart": true,
               "isCollapsible": false,
               "charts": [
                 {
