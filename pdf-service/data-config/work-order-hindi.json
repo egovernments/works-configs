@@ -203,20 +203,18 @@
                 }
               },
               {
-                "variable": "due_date",
+                "variable": "accepted_date",
                 "value": {
-                  "path": "$"
+                  "path": "$.pdfAcceptedDate"
                 },
-                "type": "function",
-                "format": "var a=[]; start_date=arguments[0].startDate; completion_period=arguments[0].completionPeriod; function approveDate(date,period){var result = date.setDate(date.getDate() + period);return new Date(result).toLocaleDateString();}{if(start_date==null || start_date==0){a.push({'dueDate':approveDate(new Date(),completion_period)});} else{a.push({'dueDate':approveDate(new Date(parseInt(start_date)),completion_period)});}} return a;"
+                "type": "date"
               },
               {
-                "variable": "today_date",
+                "variable": "sla_date",
                 "value": {
-                  "path": "$"
+                  "path": "$.pdfSlaDate"
                 },
-                "type": "function",
-                "format": "var a=[]; date=new Date().toLocaleDateString();{if(date){a.push({'todayDate':date});}} return a;"
+                "type": "date"
               },
               {
                 "variable": "no_days_to_complete", 
