@@ -445,5 +445,97 @@
     "hideInsights": true,
     "hideHeaderDenomination": true,
     "_comment": " "
+  },
+  "estimatesSlaBreached": {
+    "chartName": "DSS_MUKTA_ESTIMATE_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "estimate-inbox-v3",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Estimate SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Estimate SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Estimate SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Estimate SLA Breached"
+  },
+  "contractSlaBreached": {
+    "chartName": "DSS_MUKTA_CONTRACT_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "contract-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Contract SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Contract SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Contract SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Contract SLA Breached"
+  },
+  "musterSlaBreached": {
+    "chartName": "DSS_MUKTA_MUSTER_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "muster-roll-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Muster SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Muster SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Muster SLA Breached"
+  },
+  "billsSlaBreached": {
+    "chartName": "DSS_MUKTA_BILLS_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Bill SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Bill SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "expense-bill-index"
+    ],
+    "insight": {
+    },
+    "_comment": "expense-bill-index"
   }
 }

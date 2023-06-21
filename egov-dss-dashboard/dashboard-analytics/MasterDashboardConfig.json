@@ -66,32 +66,32 @@
               "isCollapsible": false,
               "charts": [
                 {
-                  "id": "workOrdersNotIssued",
-                  "name": "DSS_SLA_BRREACHED_ESTIMATE",
+                  "id": "estimatesSlaBreached",
+                  "name": "DSS_MUKTA_ESTIMATE_SLA_BREACHED",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
                   "headers": []
                 },
                 {
-                  "id": "workOrdersNotIssued",
-                  "name": "DSS_SLA_BRREACHED_CONTRACT",
+                  "id": "contractSlaBreached",
+                  "name": "DSS_MUKTA_CONTRACT_SLA_BREACHED",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
                   "headers": []
                 },
                 {
-                  "id": "workOrdersNotIssued",
-                  "name": "DSS_SLA_BRREACHED_MUSTER",
+                  "id": "musterSlaBreached",
+                  "name": "DSS_MUKTA_MUSTER_SLA_BREACHED",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
                   "headers": []
                 },
                 {
-                  "id": "workOrdersNotIssued",
-                  "name": "DSS_SLA_BRREACHED_BILLS",
+                  "id": "billsSlaBreached",
+                  "name": "DSS_MUKTA_BILLS_SLA_BREACHED",
                   "code": "",
                   "chartType": "metric",
                   "filter": "",
