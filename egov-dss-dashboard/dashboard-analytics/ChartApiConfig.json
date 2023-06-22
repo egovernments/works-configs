@@ -532,10 +532,35 @@
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
-      "expense-bill-index"
+      "Bill SLA Breached"
     ],
     "insight": {
     },
-    "_comment": "expense-bill-index"
+    "_comment": "Bill SLA Breached"
+  },
+  "moneyTransferred": {
+    "chartName": "DSS_MUKTA_MONEY_TRANSFERRED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Approved bills\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Purchase Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Purchase paid amount\": {\n              \"filter\": {\n                \"bool\": {\n                  \"must\": [\n                    {\n                      \"term\": {\n                        \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n                      }\n                    }\n                  ]\n                }\n              },\n              \"aggs\": {\n                \"Paid Amount\": {\n                  \"sum\": {\n                    \"field\": \"Data.totalPaidAmount\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"Wages Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Wages paid amount\": {\n              \"filter\": {\n                \"bool\": {\n                  \"must\": [\n                    {\n                      \"term\": {\n                        \"Data.businessService.keyword\": \"EXPENSE.WAGES\"\n                      }\n                    }\n                  ]\n                }\n              },\n              \"aggs\": {\n                \"Paid Amount\": {\n                  \"sum\": {\n                    \"field\": \"Data.totalPaidAmount\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"Supervision Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Supervision paid amount\": {\n              \"filter\": {\n                \"bool\": {\n                  \"must\": [\n                    {\n                      \"term\": {\n                        \"Data.businessService.keyword\": \"EXPENSE.SUPERVISION\"\n                      }\n                    }\n                  ]\n                }\n              },\n              \"aggs\": {\n                \"Paid Amount\": {\n                  \"sum\": {\n                    \"field\": \"Data.totalPaidAmount\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "isCumulative": false,
+    "interval": "month",
+    "aggregationPaths": [
+      "Purchase Bills amount","Supervision Bills amount","Wages Bills amount"
+    ],
+    "insight": {
+    },
+    "_comment": "Money transferred"
   }
 }

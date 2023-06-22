@@ -243,8 +243,8 @@
               "label": "",
               "charts": [
                 {
-                  "id": "cumulativeMoneyTransfered",
-                  "name": "Monthly",
+                  "id": "moneyTransferred",
+                  "name": "DSS_MUKTA_MONEY_TRANSFERRED",
                   "code": "",
                   "chartType": "line",
                   "filter": "",
