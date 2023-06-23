@@ -395,6 +395,12 @@ serviceMaps:
    name: Payment create
    description: create payment in eg_expense_payment
    fromTopic: expense-payment-create
+   isAuditEnabled: true
+   module: expense
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.netPayableAmount
+   auditAttributeBasePath: $.payment
    queryMaps: 
     - query: INSERT INTO eg_expense_payment(id, tenantid, netpayableamount, netpaidamount, paymentnumber, status, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
       basePath: $.payment
@@ -508,6 +514,12 @@ serviceMaps:
    name: Payment update
    description: update payment status in eg_expense_payment
    fromTopic: expense-payment-update
+   isAuditEnabled: true
+   module: expense
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.netPayableAmount
+   auditAttributeBasePath: $.payment
    queryMaps: 
     - query: UPDATE eg_expense_payment SET status=?, lastmodifiedby=?, lastmodifiedtime=?, additionaldetails=? WHERE id=? AND tenantid=?;
       basePath: $.payment
