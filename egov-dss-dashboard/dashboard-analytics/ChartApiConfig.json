@@ -334,16 +334,17 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.status.keyword\":[\"INACTIVE\"]}},{\"terms\":{\"Data.paymentStatus.keyword\":[\"APPROVED\",\"REJECTED\"]}}]}},\"aggs\":{\"PendingBillsAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}},\"count\":{\"value_count\":{\"field\":\"Data.paymentStatus.keyword\"}}}}}}"
+        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.status.keyword\":[\"INACTIVE\"]}},{\"terms\":{\"Data.paymentStatus.keyword\":[\"APPROVED\",\"REJECTED\"]}}]}},\"aggs\":{\"PendingBillsAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}},\"Count\":{\"value_count\":{\"field\":\"Data.paymentStatus.keyword\"}}}}}}"
       }
     ],
     "chartType": "metric",
+    "metricCount" : true,
     "valueType": "amount",
     "drillChart": "none",
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
-      "PendingBillsAmount"
+      "PendingBillsAmount","Count"
     ],
     "insight": {
     },
