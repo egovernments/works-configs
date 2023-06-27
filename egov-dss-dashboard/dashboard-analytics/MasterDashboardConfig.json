@@ -5,43 +5,45 @@
       "name": "DSS_MUKTA_DASHBOARD_HEADING",
       "id": "mukta",
       "filter": "FilterComponent",
-  "filterConfig": [
-    {
-      "id": "DATE_RANGE",
-      "name": "ES_DSS_DATE_RANGE",
-      "type": "DateRange"
-    },
-    {
-      "id": "DISTRICT",
-      "name": "ES_DSS_LOCALITY",
-      "type": "MultiSelectDropdown",
-      "source": {
-        "type": "request",
-        "hostUrl": "https://works-dev.digit.org",
-        "requestMethod": "POST",
-        "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
-        "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
-        "keyPath": "$.MdmsRes.tenant.tenants.*.city.*.ddrName",
-        "valuesPath": "$.MdmsRes.tenant.tenants.*.city.*.districtTenantCode"
-      },
-      "appliedFilterPath": "filters.tenantId",
-      "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
-    },{
-      "id": "ULB",
-      "name": "ES_DSS_LOCALITY",
-      "type": "MultiSelectDropdown",
-      "source": {
-        "type": "request",
-        "hostUrl": "https://works-dev.digit.org",
-        "requestMethod": "POST",
-        "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
-        "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
-        "keyPath": "$.MdmsRes.tenant.tenants.*.city.*.ddrName",
-        "valuesPath": "$.MdmsRes.tenant.tenants.*.city.*.districtTenantCode"
-      },
-      "appliedFilterPath": "filters.tenantId",
-      "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
-    }],
+      "filterConfig": [
+        {
+          "id": "DATE_RANGE",
+          "name": "ES_DSS_DATE_RANGE",
+          "type": "DateRange"
+        },
+        {
+          "id": "DISTRICT",
+          "name": "ES_DSS_DDR",
+          "type": "MultiSelectDropdown",
+          "source": {
+            "type": "request",
+            "hostUrl": "https://works-dev.digit.org",
+            "requestMethod": "POST",
+            "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
+            "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
+            "keyPath": "$.MdmsRes.tenant.tenants.*.city.ddrName",
+            "valuesPath": "$.MdmsRes.tenant.tenants.*.city.*.districtTenantCode"
+          },
+          "appliedFilterPath": "filters.tenantId",
+          "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
+        },
+        {
+          "id": "ULB",
+          "name": "ES_DSS_ULB",
+          "type": "MultiSelectDropdown",
+          "source": {
+            "type": "request",
+            "hostUrl": "https://works-dev.digit.org",
+            "requestMethod": "POST",
+            "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
+            "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
+            "keyPath": "$.MdmsRes.tenant.tenants.*.name",
+            "valuesPath": "$.MdmsRes.tenant.tenants.*.code"
+          },
+          "appliedFilterPath": "filters.tenantId",
+          "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
+        }
+      ],
       "isActive": "",
       "style": "linear",
       "visualizations": [
