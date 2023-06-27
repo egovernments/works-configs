@@ -9,40 +9,37 @@
     {
       "id": "DATE_RANGE",
       "name": "ES_DSS_DATE_RANGE",
-      "type": "DateRange",
-      "props": {
-        "maxNumberOfDays": 90
-      }
+      "type": "DateRange"
     },
     {
-      "id": "LOCALITY",
+      "id": "DISTRICT",
       "name": "ES_DSS_LOCALITY",
-      "type": "Dropdown",
+      "type": "MultiSelectDropdown",
       "source": {
         "type": "request",
         "hostUrl": "https://works-dev.digit.org",
         "requestMethod": "POST",
-        "requestUrl": "/egov-location/location/v11/boundarys/_search?hierarchyTypeCode=ADMIN&boundaryType=Locality&tenantId={$.tenantId}",
-        "requestBody": "{\"criteria\":{\"tenantId\" : \"{$.tenantId}\" }}",
-        "keyPath": "$.TenantBoundary[0].boundary.*.name",
-        "valuesPath": "$.TenantBoundary[0].boundary.*.code"
+        "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
+        "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
+        "keyPath": "$.MdmsRes.tenant.tenants.*.city.*.ddrName",
+        "valuesPath": "$.MdmsRes.tenant.tenants.*.city.*.districtTenantCode"
       },
-      "appliedFilterPath": "filters.locality",
+      "appliedFilterPath": "filters.tenantId",
       "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
     },{
-      "id": "LOCALITY",
+      "id": "ULB",
       "name": "ES_DSS_LOCALITY",
-      "type": "Dropdown",
+      "type": "MultiSelectDropdown",
       "source": {
         "type": "request",
         "hostUrl": "https://works-dev.digit.org",
         "requestMethod": "POST",
-        "requestUrl": "/egov-location/location/v11/boundarys/_search?hierarchyTypeCode=ADMIN&boundaryType=Locality&tenantId={$.tenantId}",
-        "requestBody": "{\"criteria\":{\"tenantId\" : \"{$.tenantId}\" }}",
-        "keyPath": "$.TenantBoundary[0].boundary.*.name",
-        "valuesPath": "$.TenantBoundary[0].boundary.*.code"
+        "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
+        "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
+        "keyPath": "$.MdmsRes.tenant.tenants.*.city.*.ddrName",
+        "valuesPath": "$.MdmsRes.tenant.tenants.*.city.*.districtTenantCode"
       },
-      "appliedFilterPath": "filters.locality",
+      "appliedFilterPath": "filters.tenantId",
       "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
     }],
       "isActive": "",
