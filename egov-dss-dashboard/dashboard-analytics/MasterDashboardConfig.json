@@ -4,6 +4,47 @@
     {
       "name": "DSS_MUKTA_DASHBOARD_HEADING",
       "id": "mukta",
+      "filter": "FilterComponent",
+  "filterConfig": [
+    {
+      "id": "DATE_RANGE",
+      "name": "ES_DSS_DATE_RANGE",
+      "type": "DateRange",
+      "props": {
+        "maxNumberOfDays": 90
+      }
+    },
+    {
+      "id": "LOCALITY",
+      "name": "ES_DSS_LOCALITY",
+      "type": "Dropdown",
+      "source": {
+        "type": "request",
+        "hostUrl": "https://works-dev.digit.org",
+        "requestMethod": "POST",
+        "requestUrl": "/egov-location/location/v11/boundarys/_search?hierarchyTypeCode=ADMIN&boundaryType=Locality&tenantId={$.tenantId}",
+        "requestBody": "{\"criteria\":{\"tenantId\" : \"{$.tenantId}\" }}",
+        "keyPath": "$.TenantBoundary[0].boundary.*.name",
+        "valuesPath": "$.TenantBoundary[0].boundary.*.code"
+      },
+      "appliedFilterPath": "filters.locality",
+      "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
+    },{
+      "id": "LOCALITY",
+      "name": "ES_DSS_LOCALITY",
+      "type": "Dropdown",
+      "source": {
+        "type": "request",
+        "hostUrl": "https://works-dev.digit.org",
+        "requestMethod": "POST",
+        "requestUrl": "/egov-location/location/v11/boundarys/_search?hierarchyTypeCode=ADMIN&boundaryType=Locality&tenantId={$.tenantId}",
+        "requestBody": "{\"criteria\":{\"tenantId\" : \"{$.tenantId}\" }}",
+        "keyPath": "$.TenantBoundary[0].boundary.*.name",
+        "valuesPath": "$.TenantBoundary[0].boundary.*.code"
+      },
+      "appliedFilterPath": "filters.locality",
+      "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
+    }],
       "isActive": "",
       "style": "linear",
       "visualizations": [
