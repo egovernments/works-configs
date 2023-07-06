@@ -18,6 +18,10 @@ ServiceMaps:
              outJsonPath: $.Data.id
            - inJsonPath: $.tenantId
              outJsonPath: $.Data.tenantId
+           - inJsonPath: $.jitBillNo
+             outJsonPath: $.Data.jitBillNo
+           - inJsonPath: $.parentPiNumber
+             outJsonPath: $.Data.parentPiNumber
            - inJsonPath: $.muktaReferenceId
              outJsonPath: $.Data.muktaReferenceId
            - inJsonPath: $.numBeneficiaries
