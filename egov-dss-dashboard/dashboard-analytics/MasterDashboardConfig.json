@@ -410,7 +410,7 @@
               "isCollapsible": true,
               "charts": [
                 {
-                  "id": "payemntByGender",
+                  "id": "paymentsByGender",
                   "name": "DSS_PAYMENT_BY_GENDER",
                   "code": "",
                   "chartType": "table",

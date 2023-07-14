@@ -572,7 +572,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Approved wage bills\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\":[\n            {\n              \"term\": {\n                \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.WAGES\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Payments by Gender\": {\n          \"terms\": {\n            \"field\": \"Data.billDetails.payee.additionalDetails.gender.keyword\",\n            \"size\": 10\n          },\n          \"aggs\": {\n            \"payments\": {\n              \"avg\": {\n                \"field\": \"Data.billDetails.totalPaidAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Approved wage bills\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\":[\n            {\n              \"term\": {\n                \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.WAGES\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Payments by Gender\": {\n          \"terms\": {\n            \"field\": \"Data.billDetails.payee.additionalDetails.gender.keyword\",\n            \"size\": 10\n          },\n          \"aggs\": {\n            \"payments\": {\n              \"avg\": {\n                \"field\": \"Data.totalPaidAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "COMMON",
@@ -584,11 +584,11 @@
     ],
     "chartType": "xtable",
     "valueType": "number",
-
     "drillChart": "",
     "documentType": "_doc",
     "action": "",
     "plotLabel": "Gender",
+    "aggregationPaths": ["payments","Avg attendance"],
     "excludedColumns": [],
     "computedFields": [],
     "insight": {
