@@ -20,6 +20,8 @@ ServiceMaps:
              outJsonPath: $.Data.tenantId
            - inJsonPath: $.jitBillNo
              outJsonPath: $.Data.jitBillNo
+           - inJsonPath: $.piType
+             outJsonPath: $.Data.piType
            - inJsonPath: $.parentPiNumber
              outJsonPath: $.Data.parentPiNumber
            - inJsonPath: $.muktaReferenceId
@@ -40,3 +42,4 @@ ServiceMaps:
              outJsonPath: $.Data.auditDetails
            - inJsonPath: $.additionalDetails
              outJsonPath: $.Data.additionalDetails
+             
