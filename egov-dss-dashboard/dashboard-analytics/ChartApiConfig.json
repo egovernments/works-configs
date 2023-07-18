@@ -224,14 +224,14 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "contract-inbox",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"Distinct_Work_Orders\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Work_Order\": {\n          \"cardinality\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\"\n          }\n        },\n        \"Work_Order_Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Work_Order\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    },\n    \"Negative Work Order Count\": {\n      \"sum_bucket\": {\n        \"buckets_path\": \"Distinct_Work_Orders>Work_Order_Count\"\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Distinct Work Orders\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Work Order\": {\n          \"cardinality\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\"\n          }\n        },\n        \"Work Order Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Work Order\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    },\n    \"Negative Work Order Count\": {\n      \"sum_bucket\": {\n        \"buckets_path\": \"Distinct Work Orders>Work Order Count\"\n      }\n    }\n  }\n}"
       },
       {
         "module": "PROJECTS",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"cardinality\": {\n            \"field\": \"Data.projectNumber.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Projects count\": {\n              \"cardinality\": {\n                \"field\": \"Data.projectNumber.keyword\"\n              }\n            }\n          }\n        },\n        \"Distinct Projects count\": {\n          \"sum_bucket\": {\n            \"buckets_path\": \"Projects>Projects count\"\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -240,7 +240,7 @@
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
-      "Projects","Negative Work Order Count"
+      "Distinct Projects count","Negative Work Order Count"
     ],
     "insight": {
     },
@@ -334,7 +334,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.status.keyword\":[\"INACTIVE\"]}},{\"terms\":{\"Data.paymentStatus.keyword\":[\"APPROVED\",\"REJECTED\"]}}]}},\"aggs\":{\"PendingBillsAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}},\"Count\":{\"value_count\":{\"field\":\"Data.paymentStatus.keyword\"}}}}}}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"PendingBillsAmount\": {\n          \"sum\": {\n            \"field\": \"Data.totalAmount\"\n          }\n        },\n        \"Count\": {\n          \"value_count\": {\n            \"field\": \"Data.tenantId.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -372,7 +372,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\"\n          },\n          \"aggs\": {\n            \"Pending Bills Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\"\n          },\n          \"aggs\": {\n            \"Pending Bills Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "CONTRACT",
