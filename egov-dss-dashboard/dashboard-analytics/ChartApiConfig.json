@@ -258,7 +258,7 @@
       }
     ],
     "chartType": "line",
-    "valueType": "number",
+    "valueType": "amount",
     "action": "",
     "drillChart": "none",
     "documentType": "_doc",
@@ -551,7 +551,7 @@
       }
     ],
     "chartType": "line",
-    "valueType": "number",
+    "valueType": "amount",
     "drillChart": "none",
     "documentType": "_doc",
     "action": "",
