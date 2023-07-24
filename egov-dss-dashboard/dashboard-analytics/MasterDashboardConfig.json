@@ -17,10 +17,10 @@
           "type": "MultiSelectDropdown",
           "source": {
             "type": "request",
-            "hostUrl": "https://works-dev.digit.org",
+            "hostUrl": "https://mukta-uat.digit.org",
             "requestMethod": "POST",
             "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
-            "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"pg\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
+            "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"od\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
             "keyPath": "$.MdmsRes.tenant.tenants.*.name",
             "valuesPath": "$.MdmsRes.tenant.tenants.*.code"
           },
