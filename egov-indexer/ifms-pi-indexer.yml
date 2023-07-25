@@ -34,6 +34,8 @@ ServiceMaps:
              outJsonPath: $.Data.netAmount
            - inJsonPath: $.piStatus
              outJsonPath: $.Data.piStatus
+           - inJsonPath: $.isActive
+             outJsonPath: $.Data.isActive
            - inJsonPath: $.piErrorResp
              outJsonPath: $.Data.piErrorResp
            - inJsonPath: $.beneficiaryDetails
