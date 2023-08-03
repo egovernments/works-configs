@@ -160,6 +160,7 @@ ServiceMaps:
             uriResponseMapping:
             - inJsonPath: $.ProcessInstances
               outJsonPath: $.Data.history
+<<<<<<< HEAD
 
   - topic: migrate-estimate
     configKey: INDEX
@@ -214,3 +215,5 @@ ServiceMaps:
             uriResponseMapping:
             - inJsonPath: $.ProcessInstances
               outJsonPath: $.Data.history
+=======
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a

@@ -193,6 +193,7 @@ ServiceMaps:
                outJsonPath: $.Data.history
              - inJsonPath: $.ProcessInstances[0]
                outJsonPath: $.Data.currentProcessInstance
+<<<<<<< HEAD
 
    - topic: migrate-expense-bill
      configKey: INDEX
@@ -257,3 +258,5 @@ ServiceMaps:
                outJsonPath: $.Data.history
              - inJsonPath: $.ProcessInstances[0]
                outJsonPath: $.Data.currentProcessInstance
+=======
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a

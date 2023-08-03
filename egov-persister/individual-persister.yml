@@ -275,4 +275,8 @@ serviceMaps:
           jsonMaps:
             - jsonPath: $.*.userId
             - jsonPath: $.*.userUuid
+<<<<<<< HEAD
             - jsonPath: $.*.id
+=======
+            - jsonPath: $.*.id
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a

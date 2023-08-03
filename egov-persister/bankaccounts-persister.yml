@@ -149,7 +149,11 @@ serviceMaps:
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountHolderName
 
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountType
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountNumber
         
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.isPrimary

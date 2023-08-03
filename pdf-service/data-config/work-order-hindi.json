@@ -203,6 +203,7 @@
                 }
               },
               {
+<<<<<<< HEAD
                 "variable": "accepted_date",
                 "value": {
                   "path": "$.pdfAcceptedDate"
@@ -215,6 +216,22 @@
                   "path": "$.pdfSlaDate"
                 },
                 "type": "date"
+=======
+                "variable": "due_date",
+                "value": {
+                  "path": "$"
+                },
+                "type": "function",
+                "format": "var a=[]; start_date=arguments[0].startDate; completion_period=arguments[0].completionPeriod; function approveDate(date,period){var result = date.setDate(date.getDate() + period);return new Date(result).toLocaleDateString();}{if(start_date==null || start_date==0){a.push({'dueDate':approveDate(new Date(),completion_period)});} else{a.push({'dueDate':approveDate(new Date(parseInt(start_date)),completion_period)});}} return a;"
+              },
+              {
+                "variable": "today_date",
+                "value": {
+                  "path": "$"
+                },
+                "type": "function",
+                "format": "var a=[]; date=new Date().toLocaleDateString();{if(date){a.push({'todayDate':date});}} return a;"
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
               },
               {
                 "variable": "no_days_to_complete", 
@@ -294,12 +311,15 @@
                 }
               },
               {
+<<<<<<< HEAD
                 "variable": "cboAddress",
                 "value": {
                   "path": "$.pdfCboAddress"
                 }
               },
               {
+=======
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
                 "variable": "work_description", 
                 "value": {
                   "path": "$.additionalDetails.projectName"
@@ -438,7 +458,11 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
+<<<<<<< HEAD
                             "module": "rainmaker-pg"
+=======
+                            "module": "rainmaker-common"
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
                           }
                         }
                       ]
@@ -458,7 +482,11 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
+<<<<<<< HEAD
                             "module": "rainmaker-pg"
+=======
+                            "module": "rainmaker-common"
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
                           }
                         }
                       ]
@@ -478,7 +506,11 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
+<<<<<<< HEAD
                             "module": "rainmaker-pg"
+=======
+                            "module": "rainmaker-common"
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
                           }
                         }
                       ]
@@ -498,7 +530,11 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
+<<<<<<< HEAD
                             "module": "rainmaker-pg"
+=======
+                            "module": "rainmaker-common"
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
                           }
                         }
                       ]

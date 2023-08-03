@@ -396,7 +396,11 @@ serviceMaps:
    description: create payment in eg_expense_payment
    fromTopic: expense-payment-create
    queryMaps: 
+<<<<<<< HEAD
     - query: INSERT INTO eg_expense_payment(id, tenantid, netpayableamount, netpaidamount, paymentnumber, status, referencestatus, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+=======
+    - query: INSERT INTO eg_expense_payment(id, tenantid, netpayableamount, netpaidamount, paymentnumber, status, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
       basePath: $.payment
       jsonMaps:
        
@@ -412,8 +416,11 @@ serviceMaps:
        
        - jsonPath: $.payment.status
 
+<<<<<<< HEAD
        - jsonPath: $.payment.referenceStatus
 
+=======
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
        - jsonPath: $.payment.auditDetails.createdBy
 
        - jsonPath: $.payment.auditDetails.createdTime
@@ -511,14 +518,21 @@ serviceMaps:
    description: update payment status in eg_expense_payment
    fromTopic: expense-payment-update
    queryMaps: 
+<<<<<<< HEAD
     - query: UPDATE eg_expense_payment SET status=?, referencestatus=?, lastmodifiedby=?, lastmodifiedtime=?, additionaldetails=? WHERE id=? AND tenantid=?;
+=======
+    - query: UPDATE eg_expense_payment SET status=?, lastmodifiedby=?, lastmodifiedtime=?, additionaldetails=? WHERE id=? AND tenantid=?;
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
       basePath: $.payment
       jsonMaps:
        
        - jsonPath: $.payment.status
 
+<<<<<<< HEAD
        - jsonPath: $.payment.referenceStatus
 
+=======
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
        - jsonPath: $.payment.auditDetails.lastModifiedBy
 
        - jsonPath: $.payment.auditDetails.lastModifiedTime

@@ -44,4 +44,8 @@ ServiceMaps:
              outJsonPath: $.Data.auditDetails
            - inJsonPath: $.additionalDetails
              outJsonPath: $.Data.additionalDetails
+<<<<<<< HEAD
              
+=======
+             
+>>>>>>> 206474e89a73575aec9fe956bbb503552f85479a
