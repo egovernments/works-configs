@@ -22,6 +22,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "action": "",
+    "compareTwoIndices" :true,
     "aggregationPaths": [
       "Individuals Count","Unique Individuals"
     ],
@@ -239,6 +240,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "action": "",
+    "compareTwoIndices": true,
     "aggregationPaths": [
       "Projects","Work Order"
     ],
@@ -317,6 +319,7 @@
     "chartType": "metric",
     "valueType": "number",
     "drillChart": "none",
+    "compareTwoIndices": true,
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
