@@ -12,7 +12,7 @@ ServiceMaps:
          timeStampField: $.auditDetails.createdTime
          isBulk: false
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","contractStatus":"","contractNumber":"","executingAuthority":"","contractType":"","totalContractedAmount":"","securityDeposit":"","agreementDate":"","issueDate":"","defectLiabilityPeriod":"","orgId":"","startDate":"","endDate":"","completionPeriod":"","status":"","lineItems":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
+           indexMapping: { "Data":{"id":"","tenantId":"","contractStatus":"","contractNumber":"","supplementNumber":"","versionNumber":"","oldUuid":"","businessService":"","executingAuthority":"","contractType":"","totalContractedAmount":"","securityDeposit":"","agreementDate":"","issueDate":"","defectLiabilityPeriod":"","orgId":"","startDate":"","endDate":"","completionPeriod":"","status":"","lineItems":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -22,6 +22,14 @@ ServiceMaps:
              outJsonPath: $.Data.contractStatus
            - inJsonPath: $.contractNumber
              outJsonPath: $.Data.contractNumber
+           - inJsonPath: $.supplementNumber
+             outJsonPath: $.Data.supplementNumber
+           - inJsonPath: $.versionNumber
+             outJsonPath: $.Data.versionNumber
+           - inJsonPath: $.oldUuid
+             outJsonPath: $.Data.oldUuid
+           - inJsonPath: $.businessService
+             outJsonPath: $.Data.businessService
            - inJsonPath: $.executingAuthority
              outJsonPath: $.Data.executingAuthority
            - inJsonPath: $.contractType
@@ -71,7 +79,7 @@ ServiceMaps:
          jsonPath: $.contract
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data": { "id": "","tenantId": "","contractStatus":"","contractNumber": "","executingAuthority": "","contractType": "","totalContractedAmount": "","securityDeposit": "","agreementDate": "","issueDate": "","defectLiabilityPeriod": "","orgId": "","startDate": "","endDate": "","completionPeriod": "","status": "","lineItems": [],"@timestamp": "timestamp","auditDetails": {},"additionalDetails": {},"currentProcessInstance": {},"history": {}}}
+           indexMapping: { "Data": { "id": "","tenantId": "","contractStatus":"","contractNumber": "","supplementNumber":"","versionNumber":"","oldUuid":"","businessService":"","executingAuthority": "","contractType": "","totalContractedAmount": "","securityDeposit": "","agreementDate": "","issueDate": "","defectLiabilityPeriod": "","orgId": "","startDate": "","endDate": "","completionPeriod": "","status": "","lineItems": [],"@timestamp": "timestamp","auditDetails": {},"additionalDetails": {},"currentProcessInstance": {},"history": {}}}
            fieldMapping:
              - inJsonPath: $.id
                outJsonPath: $.Data.id
@@ -81,6 +89,14 @@ ServiceMaps:
                outJsonPath: $.Data.contractStatus
              - inJsonPath: $.contractNumber
                outJsonPath: $.Data.contractNumber
+             - inJsonPath: $.supplementNumber
+               outJsonPath: $.Data.supplementNumber
+             - inJsonPath: $.versionNumber
+               outJsonPath: $.Data.versionNumber
+             - inJsonPath: $.oldUuid
+               outJsonPath: $.Data.oldUuid
+             - inJsonPath: $.businessService
+               outJsonPath: $.Data.businessService
              - inJsonPath: $.executingAuthority
                outJsonPath: $.Data.executingAuthority
              - inJsonPath: $.contractType
@@ -132,7 +148,7 @@ ServiceMaps:
          jsonPath: $.contract.*
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data": { "id": "","tenantId": "","contractStatus":"","contractNumber": "","executingAuthority": "","contractType": "","totalContractedAmount": "","securityDeposit": "","agreementDate": "","issueDate": "","defectLiabilityPeriod": "","orgId": "","startDate": "","endDate": "","completionPeriod": "","status": "","lineItems": [ ],"@timestamp": "timestamp","auditDetails": { },"additionalDetails": { },"currentProcessInstance": { },"history": { } } }
+           indexMapping: { "Data": { "id": "","tenantId": "","contractStatus":"","contractNumber": "","supplementNumber":"","versionNumber":"","oldUuid":"","businessService":"","executingAuthority": "","contractType": "","totalContractedAmount": "","securityDeposit": "","agreementDate": "","issueDate": "","defectLiabilityPeriod": "","orgId": "","startDate": "","endDate": "","completionPeriod": "","status": "","lineItems": [ ],"@timestamp": "timestamp","auditDetails": { },"additionalDetails": { },"currentProcessInstance": { },"history": { } } }
            fieldMapping:
              - inJsonPath: $.id
                outJsonPath: $.Data.id
@@ -142,6 +158,14 @@ ServiceMaps:
                outJsonPath: $.Data.contractStatus
              - inJsonPath: $.contractNumber
                outJsonPath: $.Data.contractNumber
+             - inJsonPath: $.supplementNumber
+               outJsonPath: $.Data.supplementNumber
+             - inJsonPath: $.versionNumber
+               outJsonPath: $.Data.versionNumber
+             - inJsonPath: $.oldUuid
+               outJsonPath: $.Data.oldUuid
+             - inJsonPath: $.businessService
+               outJsonPath: $.Data.businessService
              - inJsonPath: $.executingAuthority
                outJsonPath: $.Data.executingAuthority
              - inJsonPath: $.contractType
