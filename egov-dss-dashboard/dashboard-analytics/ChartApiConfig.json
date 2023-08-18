@@ -53,8 +53,8 @@
     },
     "_comment": "Muster Rolls by status"
   },
-  "pendingBillsByBillNumberType": {
-    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_NUMBER_TYPE",
+  "billsCountByType": {
+    "chartName": "DSS_MUKTA_BILLS_COUNT_BY_TYPE",
     "queries": [
       {
         "module": "EXPENSE",
@@ -76,8 +76,8 @@
     },
     "_comment": "Bills By Their Number"
   },
-  "pendingBillsByBillAmountType": {
-    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+  "billsByBillAmountType": {
+    "chartName": "DSS_MUKTA_BILLS_BY_BILL_AMOUNT_TYPE",
     "queries": [
       {
         "module": "EXPENSE",
@@ -153,7 +153,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery":"{\"size\":10000,\"aggs\":{\"DSS_TOTALPROJECT\":{\"cardinality\":{\"field\":\"Data.projectNumber.keyword\"}}}}"
+        "aggrQuery":"{\n  \"size\": 10000,\n  \"aggs\": {\n    \"DSS_TOTALPROJECT\": {\n      \"cardinality\": {\n        \"field\": \"Data.projectNumber.keyword\"\n      }\n    },\n    \"DSS_APPROVED_PROJECT\": {\n      \"cardinality\": {\n        \"field\": \"Data.projectNumber.keyword\"\n      }\n    }\n  }\n}\n"
       }
     ],
     "chartType": "pie",
@@ -162,7 +162,7 @@
     "documentType": "_doc",
     "drillChart": "none",
     "aggregationPaths": [
-      "DSS_TOTALPROJECT"
+      "DSS_TOTALPROJECT","DSS_APPROVED_PROJECT"
     ],
     "insight": {
     },
