@@ -148,7 +148,8 @@
                   "chartType": "table",
                   "filter": "",
                   "headers": [],
-                  "tabName": "Boundary"
+                  "tabName": "Boundary",
+                  "disableInsights":true
                 }
               ]
             }
@@ -400,7 +401,8 @@
                   "chartType": "table",
                   "filter": "",
                   "headers": [],
-                  "tabName": "Boundary"
+                  "tabName": "Boundary",
+                  "disableInsights":true
                 }
               ]
             }
