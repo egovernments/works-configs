@@ -60,6 +60,13 @@
               "roles": [
                 "MB_CREATOR"
               ]
+            },
+            {
+              "action": "SAVE_AS_DRAFT",
+              "nextState": "DRAFTED",
+              "roles": [
+               "MB_CREATOR"
+              ]
             }
           ]
         },
