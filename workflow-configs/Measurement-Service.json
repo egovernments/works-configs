@@ -35,6 +35,13 @@
               "roles": [
                "MB_CREATOR"
               ]
+            },
+            {
+              "action": "SUBMIT",
+              "nextState": "PENDING_FOR_VERIFICATION",
+              "roles": [
+                "MB_CREATOR"
+              ]
             }
           ]
         },
