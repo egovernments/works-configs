@@ -1,5 +1,5 @@
 {
-  "key": "work-order",
+  "key": "work-order-hindi",
   "config": {
     "defaultStyle": {
       "font": "Cambay"
@@ -212,13 +212,13 @@
               },
               {
                 "fontSize": 11,
-                "text": "        This work order is issued in the favor of {{name_of_issued_to}} and to execute the work the organization {{cbo}} has been selected as {{implementation_agency}}. Therefore the organization is informed to submit the acceptance of the work order within {{work_order_acceptance_days}} days from the date of issue of this work order i.e. by "
+                "text": "        यह कार्य आदेश {{name_of_issued_to}} के पक्ष में जारी किया जाता है और काम को निष्पादित करने के लिए संगठन {{cbo}} को {{implementation_agency}} के रूप में चुना गया है। इसलिए संगठन को सबमिट करने के लिए सूचित किया जाता है। कार्य आदेश की स्वीकृति इस कार्य आदेश की तारीख से {{work_order_acceptance_days}} दिन के भीतर अधिकतम है यानी "
               },
               {
                 "text": "{{sla_date}}"
               },
               {
-                "text": " ."
+                "text": " द्वारा."
               }
             ]
           },
@@ -235,10 +235,10 @@
                 "text": " "
               },
               {
-                "text": "As such, The organization is requested to execute the above work as per the direction of the officer in-charge of the project and complete it in all aspects within a period of {{no_days_to_complete}} days from the date of acceptance of the work order as the date of acceptance of work order will be taken as the date of start of the work."
-              }
-            ]
-          },
+            "text": "इस प्रकार, संगठन से अनुरोध किया जाता है कि वह परियोजना के अधिकारी प्रभारी अधिकारी की दिशा के अनुसार उपरोक्त काम को निष्पादित करें और इसे कार्य आदेश की स्वीकृति की तारीख से {{no_days_to_complete}} दिनों की अवधि के भीतर सभी पहलुओं में पूरा करें कार्य आदेश की स्वीकृति की तारीख के रूप में काम शुरू होने की तारीख के रूप में लिया जाएगा."
+          }
+        ]
+      },
           {
             "margin": [
               0,
@@ -252,7 +252,7 @@
                 "text": " "
               },
               {
-                "text": "        Along with the acceptance of the work order, you also submit the list of the workers name with their AADHAAR Number and Bank Account Number with IFSC code for the payment of the wages to the workers through Direct Benefit Transfer mode."
+                "text": "        कार्य आदेश की स्वीकृति के साथ, आप प्रत्यक्ष लाभ हस्तांतरण मोड के माध्यम से श्रमिकों को मजदूरी के भुगतान के लिए IFSC कोड के साथ अपने आधार संख्या और बैंक खाता संख्या के साथ श्रमिकों के नाम की सूची भी जमा करते हैं."
               }
             ]
           }
@@ -442,7 +442,7 @@
           0,
           0
         ],
-        "text": "This is a computer-generated document. No signature is required.",
+        "text": "यह एक कंप्यूटर-जनित दस्तावेज़ है। किसी हस्ताक्षर की आवश्यकता नहीं है।",
         "alignment": "center"
       }
     ],

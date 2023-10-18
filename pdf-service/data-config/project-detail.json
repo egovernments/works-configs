@@ -16,13 +16,24 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-pg"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-pg"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -88,7 +99,7 @@
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-estimate"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -251,45 +262,33 @@
                 "variable": "estimatedCostInRs",
                 "value": {
                   "path": "$.additionalDetails.estimatedCostInRs"
-                }
+                },
+                "type":"function",
+                "format":"var y=[];var flag=0;var count=0;var amount=arguments[0]; var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
+
               },
               {
-                "variable": "addressLine1",
+                "variable": "latlong",
                 "value": {
-                  "path": "$.address.addressLine1"
+                  "path": "$.address.pdfLatlong"
                 }
               },
               {
                 "variable": "city",
                 "value": {
                   "path": "$.address.city"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-pg"
                 }
               },
               {
                 "variable": "ward",
                 "value": {
                   "path": "$.address.boundary"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "PG_CITYA_ADMIN",
-                  "module": "rainmaker-pg.citya"
                 }
               },
               {
                 "variable": "boundary",
                 "value": {
                   "path": "$.additionalDetails.locality"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "PG_CITYA_ADMIN",
-                  "module": "rainmaker-pg.citya"
                 }
               }
             ]
@@ -342,6 +341,15 @@
                       "required": true,
                       "prefix": "TENANT_TENANTS",
                       "module": "rainmaker-pg"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
                     }
                   }
                 ]

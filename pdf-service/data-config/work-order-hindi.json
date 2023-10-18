@@ -1,5 +1,5 @@
 {
-  "key": "work-order",
+  "key": "work-order-hindi",
   "documentType":"WORK-ORDER",
   "DataConfigs": {
     "moduleName": "rainmaker-common",
@@ -217,12 +217,6 @@
                 "type": "date"
               },
               {
-                "variable": "completion_period",
-                "value": {
-                  "path": "$.completionPeriod"
-                }
-              },
-              {
                 "variable": "no_days_to_complete", 
                 "value": {
                   "path": "$.completionPeriod"
@@ -308,7 +302,7 @@
               {
                 "variable": "work_description", 
                 "value": {
-                  "path": "$.additionalDetails.projectDesc"
+                  "path": "$.additionalDetails.projectName"
                 }
               },
               

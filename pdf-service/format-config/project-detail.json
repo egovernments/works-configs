@@ -8,48 +8,51 @@
 			{
 				"style": "noc-head",
 				"table": {
-					"widths": [
-						60,
-						"*",
-						140
+				"widths": [
+					60,
+					"*",
+					130
+				],
+				"body": [
+					[
+						{
+							"image": "{{logoImage}}",
+							"width": 50,
+						"height": 61.25,
+						"margin": [
+							10,
+							10,
+							0,
+							0
+						]
+					},
+					{
+						"stack": [
+							{
+							"text": "{{pdf_header}} {{subdivision}}",
+							"fontSize": 18,
+							"color": "#000000",
+							"bold": true
+						},
+						{
+							"text": "{{address}}",
+							"fontSize": 10,
+							"color": "#000000"
+						},
+						{
+							"text": "{{phoneNumber}} | {{email}}",
+							"fontSize": 10,
+							"color": "#000000"
+						}
 					],
-					"body": [
-						[
-							{
-								"image": "{{logoImage}}",
-								"width": 50,
-								"height": 61.25
-							},
-							{
-								"stack": [
-									{
-										"text": "{{pdf_header}}",
-										"style": {
-											"bold": true,
-											"fontSize": 18
-										}
-									},
-									{
-										"text": "{{logo_header}}",
-										"fontSize": 10
-									},
-									{
-										"text": "{{address}},{{phoneNumber}}",
-										"fontSize": 10
-									},
-									{
-										"text": "{{website}},{{email}}",
-										"fontSize": 10
-									}
-								],
-								"alignment": "left",
-								"margin": [
-									0,
-									-5,
-									0,
-									0
-								]
-							},
+					"alignment": "left",
+					"margin": [
+						10,
+						10,
+						0,
+						0
+					]
+				},
 							{
 								"stack": [
 									{
@@ -57,7 +60,7 @@
 										"style": {
 											"bold": true,
 											"fontSize": 16,
-											"color":"#5f5f5f"
+											"color": "#5f5f5f"
 										}
 									},
 									{
@@ -65,15 +68,21 @@
 										"style": {
 											"bold": true,
 											"fontSize": 12,
-											"color":"#5f5f5f"
-										}
+											"color": "#5f5f5f"
+										},
+										"margin": [
+											0,
+											-3,
+											0,
+											0
+										]
 									}
 								],
 								"alignment": "right",
 								"margin": [
-									-100,
 									0,
-									-10,
+									10,
+									10,
 									0
 								]
 							}
@@ -81,86 +90,94 @@
 					]
 				},
 				"layout": "noBorders",
-				"color": "#000000"
+				"fillColor": "#f4f4f4"
 			},
 			{
 				"table": {
 					"widths": [
-						"50%",
-						"10%",
-						"150%"
+						"30%",
+						"2%",
+						"68%"
 					],
 					"body": [
 						[
-							{
-								"stack": [
 									{
 										"text": "",
 										"margin": [
 											0,
-											40,
+											25,
 											0,
 											0
 										]
 									},
 									{
+										"text": ""
+									},
+									{
+										"text": "",
+										"margin": [
+											0,
+											25,
+											0,
+											0
+										]
+									}
+								],
+								[
+									{
 										"text": "{{date_of_proposal}}",
-										"fontSyze":11,
+										"fontSyze": 10,
 										"style": {
 											"bold": true
 										}
 									},
 									{
+										"text": ""
+									},
+									{
+										"text": "{{dateOfProposal}}",
+										"fontSyze": 10
+									}
+								],
+								[
+									{
 										"text": "{{project_name}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{name}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{project_description}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 
-									}
-								]
-							},
-							{
-								"stack": [
-									{
-										"text": "",
-										"margin": [
-											0,
-											40,
-											0,
-											0
-										]
 									},
 									{
-										"text": "{{dateOfProposal}}",
-										"fontSyze":11
+										"text": ""
 									},
-									{
-										"text": "{{name}}",
-										"fontSyze":11
-									},
+								
 									{
 										"text": "{{description}}",
-										"fontSyze":11
+										"fontSyze": 10
 									}
-								],
-								"margin": [
-									0,
-									0,
-									-100,
-									0
 								]
-							}
-						]
-					]
+							]
+							
+
 				},
+					
 				"layout": "noBorders",
 				"fontSize": 15
 			},
@@ -177,7 +194,7 @@
 										"text": "",
 										"margin": [
 											0,
-											20,
+											25,
 											0,
 											0
 										]
@@ -188,11 +205,13 @@
 									false,
 									false,
 									true
-								],
-								"borderColor": "#CCCCC"
+								]
 							}
 						]
 					]
+				},
+				"layout": {
+					"hLineColor": "#D6D5D4"
 				}
 				
 			},
@@ -212,13 +231,13 @@
 											"text": "{{work_details}}",
 											"style": {
 												"bold": true,
-												"fontSize": 18
+												"fontSize": 17
 											},
 											"margin": [
 												0,
-												20,
+												25,
 												0,
-												20
+												4
 											]
 										}
 									]
@@ -231,72 +250,80 @@
 			{
 				"table": {
 					"widths": [
-						"50%",
-						"10%",
-						"150%"
+						"30%",
+						"2%",
+						"68%"
 					],
 					"body": [
 						[
-							{
-								"stack": [
+							
 									{
 										"text": "{{letter_reference_or_requirement_number}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{referenceID}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{project_type}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{projectType}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{target_demography}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{targetDemography}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{estimated_cost}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
+									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{#estimatedCostInRs}}[{\"text\":\"₹ {{amount}}\",\"fontSyze\":11}]{{/estimatedCostInRs}}",
+										"fontSyze": 10
 									}
 								]
-							},
-							{
-								"stack": [
-									{
-										"text": "{{referenceID}}",
-										"fontSyze":11
-									},
-									{
-										"text": "{{projectType}}",
-										"fontSyze":11
-									},
-									{
-										"text": "{{targetDemography}}",
-										"fontSyze":11
-									},
-									{
-										"text": "{{estimatedCostInRs}}.00",
-										"fontSyze":11
-									}
-								],
-								"margin": [
-									0,
-									0,
-									-100,
-									0
-								]
-							}
+							
+							
 						]
-					]
+				
 				},
 				"layout": "noBorders",
 				"fontSize": 15
@@ -314,7 +341,7 @@
 										"text": "",
 										"margin": [
 											0,
-											20,
+											25,
 											0,
 											0
 										]
@@ -329,6 +356,9 @@
 							}
 						]
 					]
+				},
+				"layout": {
+					"hLineColor": "#D6D5D4"
 				}
 			},
 			{
@@ -347,13 +377,13 @@
 										"text": "{{location_details}}",
 										"style": {
 											"bold": true,
-											"fontSize": 18
+											"fontSize": 17
 										},
 										"margin": [
 											0,
-											20,
+											25,
 											0,
-											20
+											4
 										]
 									}
 								]
@@ -366,74 +396,80 @@
 			{
 				"table": {
 					"widths": [
-						"50%",
-						"10%",
-						"150%"
+						"30%",
+						"2%",
+						"68%"
 					],
 					"body": [
 						[
-							{
-								"stack": [
+							
 									
 									{
 										"text": "{{geo_location}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{latlong}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{_city}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{city}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{_ward}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
+										"fontSyze": 10
 									},
+									{
+										"text": ""
+									},
+									{
+										"text": "{{ward}}",
+										"fontSyze": 10
+									}
+								],
+								[
 									{
 										"text": "{{_locality}}",
 										"style": {
 											"bold": true
 										},
-										"fontSyze":11
-									}
-								]
-							},
-							{
-								"stack": [
-									
-									{
-										"text": "{{addressLine1}}",
-										"fontSyze":11
+										"fontSyze": 10
 									},
 									{
-										"text": "{{city}}",
-										"fontSyze":11
-									},
-									{
-										"text": "{{ward}}",
-										"fontSyze":11
+										"text": ""
 									},
 									{
 										"text": "{{boundary}}",
-										"fontSyze":11
+										"fontSyze": 10
 									}
-								],
-								"margin": [
-									0,
-									0,
-									-200,
-									0
 								]
-							}
+							
 						]
-					]
+					
 				},
 				"layout": "noBorders",
 				"fontSize": 15
@@ -451,7 +487,7 @@
 										"text": "",
 										"margin": [
 											0,
-											20,
+											25,
 											0,
 											0
 										]
@@ -466,15 +502,18 @@
 							}
 						]
 					]
+				},
+				"layout": {
+					"hLineColor": "#D6D5D4"
 				}
 			}
 		],
 		"styles": {
 			"noc-head": {
 				"margin": [
-					-30,
-					-30,
-					0,
+					-40,
+					-40,
+					-40,
 					1
 				]
 			}
