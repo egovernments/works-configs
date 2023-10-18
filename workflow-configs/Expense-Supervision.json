@@ -1,3 +1,18 @@
+{
+  "RequestInfo": {
+      "apiId": "expense-service",
+      "action": "",
+      "did": 1,
+      "key": "",
+      "msgId": "20170310130900|en_IN",
+      "requesterId": "",
+      "ts": 1513579888683,
+      "ver": "1.0.0",
+      "authToken": "{{token}}",
+      "userInfo": {
+          "uuid": "{{userId}}"
+      }
+  },
 "BusinessServices": [
     {
       "tenantId": "pg",
@@ -18,7 +33,7 @@
               "action": "SUBMIT",
               "nextState": "APPROVED",
               "roles": [
-                "BILL_CREATOR"
+                "SYSTEM"
               ]
             }
           ]
@@ -32,9 +47,9 @@
           "isTerminateState": true,
           "isStateUpdatable": false,
           "actions": [
-
           ]
         }
       ]
     }
   ]
+}

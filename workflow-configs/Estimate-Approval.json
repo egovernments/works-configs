@@ -1,7 +1,21 @@
 {
+  "RequestInfo": {
+      "apiId": "estimate-service-mukta",
+      "action": "",
+      "did": 1,
+      "key": "",
+      "msgId": "20170310130900|en_IN",
+      "requesterId": "",
+      "ts": 1513579888683,
+      "ver": "1.0.0",
+      "authToken": "{{token}}",
+      "userInfo": {
+          "uuid": "{{userId}}"
+      }
+  },
     "BusinessServices": [
     {
-      "tenantId": "pg.citya",
+      "tenantId": "pg",
       "businessService": "ESTIMATE",
       "business": "estimate-service",
       "businessServiceSla": 432000000,
@@ -15,6 +29,38 @@
           "isTerminateState": false,
           "isStateUpdatable": true,
           "actions": [
+            {
+              "action": "SUBMIT",
+              "nextState": "PENDINGFORVERIFICATION",
+              "roles": [
+                "ESTIMATE_CREATOR"
+              ]
+            },
+            {
+              "action": "DRAFT",
+              "nextState": "DRAFTED",
+              "roles": [
+                "ESTIMATE_CREATOR"
+              ]
+            }
+          ]
+        },
+        {
+          "sla": 86400000,
+          "state": "DRAFTED",
+          "applicationStatus": "INWORKFLOW",
+          "docUploadRequired": false,
+          "isStartState": false,
+          "isTerminateState": false,
+          "isStateUpdatable": true,
+          "actions": [
+            {
+              "action": "DRAFT",
+              "nextState": "DRAFTED",
+              "roles": [
+                "ESTIMATE_CREATOR"
+              ]
+            },
             {
               "action": "SUBMIT",
               "nextState": "PENDINGFORVERIFICATION",
@@ -45,13 +91,6 @@
               "nextState": "PENDINGFORCORRECTION",
               "roles": [
                 "ESTIMATE_VERIFIER"
-              ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
-              "roles": [
-				"ESTIMATE_VERIFIER"
               ]
             }
           ]
@@ -146,13 +185,6 @@
             {
               "action": "RE-SUBMIT",
               "nextState": "PENDINGFORVERIFICATION",
-              "roles": [
-                "ESTIMATE_CREATOR"
-              ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
               "roles": [
                 "ESTIMATE_CREATOR"
               ]

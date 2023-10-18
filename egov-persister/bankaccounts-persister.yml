@@ -10,7 +10,7 @@ serviceMaps:
    module: BAS
    objecIdJsonPath: $.id
    tenantIdJsonPath: $.tenantId
-   transactionCodeJsonPath: $.accountNumber
+   transactionCodeJsonPath: $.referenceId
    auditAttributeBasePath: $.bankAccounts.*
    queryMaps:
     - query: INSERT INTO eg_bank_account(id,tenant_id,service_code,reference_id,additional_details,created_by,last_modified_by,created_time,last_modified_time) VALUES (?,?,?,?,?,?,?,?,?);
@@ -119,7 +119,7 @@ serviceMaps:
    module: BAS
    objecIdJsonPath: $.id
    tenantIdJsonPath: $.tenantId
-   transactionCodeJsonPath: $.accountNumber
+   transactionCodeJsonPath: $.referenceId
    auditAttributeBasePath: $.bankAccounts.*
    queryMaps:
       - query: UPDATE eg_bank_account set service_code=?, reference_id=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
@@ -141,7 +141,7 @@ serviceMaps:
           - jsonPath: $.bankAccounts.*.id
           
           
-      - query: UPDATE eg_bank_account_detail set account_holder_name=?, account_type=?, is_primary=?,is_active=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
+      - query: UPDATE eg_bank_account_detail set account_holder_name=?, account_type=?, account_number=?, is_primary=?,is_active=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
 
         basePath: $.bankAccounts.*.bankAccountDetails.*
         jsonMaps:
@@ -149,6 +149,8 @@ serviceMaps:
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountHolderName
 
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountType
+
+        - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountNumber
         
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.isPrimary
 

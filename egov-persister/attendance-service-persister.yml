@@ -391,4 +391,3 @@ serviceMaps:
          - jsonPath: $.staff.*.auditDetails.lastModifiedTime
 
          - jsonPath: $.staff.*.id
-         

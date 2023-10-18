@@ -1,8 +1,23 @@
+{
+  "RequestInfo": {
+      "apiId": "expense-service",
+      "action": "",
+      "did": 1,
+      "key": "",
+      "msgId": "20170310130900|en_IN",
+      "requesterId": "",
+      "ts": 1513579888683,
+      "ver": "1.0.0",
+      "authToken": "{{token}}",
+      "userInfo": {
+          "uuid": "{{userId}}"
+      }
+  },
 "BusinessServices": [
     {
       "tenantId": "pg",
-      "businessService": "works.wages",
-      "business": "expense-service",
+      "businessService": "EXPENSE.WAGES",
+      "business": "expense",
       "businessServiceSla": 604800000,
       "states": [
         {
@@ -18,7 +33,7 @@
               "action": "SUBMIT",
               "nextState": "APPROVED",
               "roles": [
-                "BILL_CREATOR"
+                "MUSTER_ROLL_APPROVER"
               ]
             }
           ]
@@ -26,15 +41,15 @@
         {
           "sla": 604800000,
           "state": "APPROVED",
-          "applicationStatus": "APPROVED",
+          "applicationStatus": "ACTIVE",
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": true,
           "isStateUpdatable": false,
           "actions": [
-
           ]
         }
       ]
     }
   ]
+}
