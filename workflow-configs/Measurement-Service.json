@@ -52,7 +52,7 @@
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": false,
-          "isStateUpdatable": false,
+          "isStateUpdatable": true,
           "actions": [
             {
               "action": "SUBMIT",
@@ -84,7 +84,7 @@
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": false,
-          "isStateUpdatable": false,
+          "isStateUpdatable": true,
           "actions": [
             {
               "action": "VERIFY_AND_FORWARD",
@@ -116,7 +116,7 @@
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": false,
-          "isStateUpdatable": false,
+          "isStateUpdatable": true,
           "actions": [
             {
               "action": "SENT_BACK",
@@ -141,7 +141,7 @@
             },
             {
               "action": "SEND_BACK_TO_ORIGINATOR",
-              "nextState": "PENDING_FOR_VERIFICATION",
+              "nextState": "PENDING_FOR_CORRECTION",
               "roles": [
                 "MB_APPROVER"
               ]
@@ -155,7 +155,7 @@
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": false,
-          "isStateUpdatable": false,
+          "isStateUpdatable": true,
           "actions": [
             {
               "action": "EDIT/RE-SUBMIT",
@@ -167,13 +167,6 @@
             {
               "action": "REJECT",
               "nextState": "REJECTED",
-              "roles": [
-                "MB_CREATOR"
-              ]
-            },
-            {
-              "action": "SEND_BACK_TO_ORIGINATOR",
-              "nextState": "PENDING_FOR_VERIFICATION",
               "roles": [
                 "MB_CREATOR"
               ]
