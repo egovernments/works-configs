@@ -62,13 +62,6 @@
               ]
             },
             {
-              "action": "REJECT",
-              "nextState": "REJECTED",
-              "roles": [
-                "MB_CREATOR"
-              ]
-            },
-            {
               "action": "SAVE_AS_DRAFT",
               "nextState": "DRAFTED",
               "roles": [
@@ -96,13 +89,6 @@
             {
               "action": "SENT_BACK",
               "nextState": "PENDING_FOR_CORRECTION",
-              "roles": [
-                "MB_VERIFIER"
-              ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
               "roles": [
                 "MB_VERIFIER"
               ]
@@ -160,13 +146,6 @@
             {
               "action": "EDIT/RE-SUBMIT",
               "nextState": "PENDING_FOR_VERIFICATION",
-              "roles": [
-                "MB_CREATOR"
-              ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
               "roles": [
                 "MB_CREATOR"
               ]
